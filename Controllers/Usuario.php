@@ -1,6 +1,21 @@
 <?php
-class Usuario extends Controllers{
+class Vista extends Controllers{
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
+    public function vista()
+    {
+        $data['page_id'] = 1;
+        $data['page_tag'] = "Usuarios";
+        $data['page_title'] = "Página principal";
+        $data['page_name'] = "Usuarios";
+        $this->views->getView($this,"vista",$data);
+    }
+}
+
+class Usuario extends Controllers{
     private $idUser;
     private $rol;
     public function __construct()
@@ -18,11 +33,11 @@ class Usuario extends Controllers{
 
     public function getUsuarios()
     {
-    $data['page_functions_js'] = "functions_usuario.js";
-    $this -> views -> getView ($this, "Usuarios", $data);
+    /*$data['page_functions_js'] = "functions_usuario.js";
+     $this -> views -> getView ($this, "Usuarios", $data); */
 
     $arrUsuarios = $this -> model -> selectUsuarios();
-     var_dump ($arrUsuarios); 
+    // var_dump ($arrUsuarios); 
      echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
     }
 
@@ -106,4 +121,3 @@ public function setEditUsuario()
     }
 
 ?>
-}

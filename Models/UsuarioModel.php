@@ -1,6 +1,6 @@
 <?php
 
-	class GeneracionJesusKModel extends Mysql
+	class UsuarioModel extends Mysql
 	{
 
 		public function __construct()
@@ -8,7 +8,7 @@
             parent::__construct();
         }
         
-        public function selectUsuario()
+        public function selectUsuarios()
         {
             $sql = "select *from t_usuarios WHERE estatus = 1";
             $request = $this -> select_all ($sql);
@@ -28,7 +28,7 @@
             $request = $this -> update($sql, array(2));
             return $request;
         }
-        public function selectUsuarios(int $id){
+        public function selectUsuario(int $id){
             $sql = "SELECT *from t_usuarios WHERE id = $id";
            $request = $this -> select ($sql);
            return $request;
