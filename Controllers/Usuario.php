@@ -1,9 +1,24 @@
 <?php
-class ControladorJesusK extends Controllers{
+class Usuario extends Controllers{
+
+    private $idUser;
+    private $rol;
+    public function __construct()
+    {
+        parent::__construct();
+        session_start();
+        if(empty($_SESSION['login']))
+        {
+            header('Location: '.base_url().'/login');
+            die();
+        }
+        $this->idUser = $_SESSION['idUser'];
+        $this->rol = $_SESSION['claveRol'];
+    }
 
     public function getUsuarios()
     {
-    $data['page_functions_js'] = "functions_usuarios.js";
+    $data['page_functions_js'] = "functions_usuario.js";
     $this -> views -> getView ($this, "Usuarios", $data);
 
     $arrUsuarios = $this -> model -> selectUsuarios();
@@ -38,7 +53,7 @@ $persona = $arrDatos ['txtPersona'];
 $estatus = 1;
 $idUser = 5;
 
-$response = $this -> model -> insertNuevoUsuario ($nickname, $password $fechadeconexion, $imagen, $rol, $persona);
+$response = $this -> model -> insertNuevoUsuario ($nickname, $password, $fechadeconexion, $imagen, $rol, $persona);
 if ($response){
     $arrResponse = array('estatus' => true, 'msg' => 'SE INSERTO CORRECTAMENTE EL NUEVO USUARIO'); 
 
@@ -77,7 +92,7 @@ public function setEditUsuario()
     $rol = $arrDatos ['txtRol'];
     $persona = $arrDatos ['txtPersona'];
     $idUser = 10;
-    $arrResponse = $this -> model -> updateUsuario($nickname, $password $fechadeconexion, $imagen, $rol, $persona);
+    $arrResponse = $this -> model -> updateUsuario($nickname, $password, $fechadeconexion, $imagen, $rol, $persona);
     if ($arrResponse){
         $response = array('estatus' => true, 'msg' => 'SE ACTUALIZO CORRECTAMENTE :) '); 
     
