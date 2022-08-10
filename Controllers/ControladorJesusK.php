@@ -1,5 +1,5 @@
 <?php
-class ControladorJesusK extendes Controllers{
+class ControladorJesusK extends Controllers{
 
     public function getUsuarios()
     {
