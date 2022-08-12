@@ -22,13 +22,13 @@ class Usuario extends Controllers{
     {
         parent::__construct();
         session_start();
-        if(empty($_SESSION['login']))
+       /* if(empty($_SESSION['login']))
         {
             header('Location: '.base_url().'/login');
             die();
         }
         $this->idUser = $_SESSION['idUser'];
-        $this->rol = $_SESSION['claveRol'];
+        $this->rol = $_SESSION['claveRol'];*/
     }
 
     public function getUsuarios()
