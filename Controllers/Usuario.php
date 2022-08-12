@@ -15,6 +15,16 @@ class Usuario extends Controllers{
         $this->rol = $_SESSION['claveRol'];*/
     }
 
+    public function Usuario(){
+        $data['page_id'] = 2;
+        $data['page_tag'] = "Usuario";
+        $data['page_title'] = "Página Usuarios";
+        $data['page_name'] = "Usuario";
+        $data['page_functions_js'] = "functions_usuario.js";
+        $data['planteles'] = $this->model->selectUsuarios();
+        $this->views->getView($this,"usuarios",$data);
+    }
+
     public function getUsuarios()
     {
     /*$data['page_functions_js'] = "functions_usuario.js";
