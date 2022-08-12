@@ -1,7 +1,6 @@
 <?php
 headerAdmin($data);
-getModal("ControladorJesusK/modalNuevoUsuario,",$data);
-getModal("ControladorJesusK/modalEditUsuario,",$data);
+getModal("UsuarioModel/modalNuevoUsuario,",$data);
 ?>
 <div id="contentAjax"></div>
 <div class="wrapper">

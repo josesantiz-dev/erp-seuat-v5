@@ -205,7 +205,7 @@
                             <h6>Administración</h6>
                         </li>
                         <li class="nav-item">
-                            <a href="<?php echo BASE_URL ?>/Usuarios" class="nav-link">
+                            <a href="<?php echo BASE_URL ?>/Usuario" class="nav-link">
                                 <i class="ml-3 mr-2" data-feather="users"></i>
                                 <p>
                                     Usuarios

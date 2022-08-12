@@ -1,20 +1,4 @@
 <?php
-class Vista extends Controllers{
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    public function vista()
-    {
-        $data['page_id'] = 1;
-        $data['page_tag'] = "Usuarios";
-        $data['page_title'] = "Página principal";
-        $data['page_name'] = "Usuarios";
-        $this->views->getView($this,"vista",$data);
-    }
-}
-
 class Usuario extends Controllers{
     private $idUser;
     private $rol;
