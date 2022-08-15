@@ -22,17 +22,17 @@ class Usuario extends Controllers{
         $data['page_name'] = "Usuario";
         $data['page_functions_js'] = "functions_usuario.js";
         $data['planteles'] = $this->model->selectUsuarios();
-        $this->views->getView($this,"usuarios",$data);
+        $this->views->getView($this,"Usuario",$data);
     }
 
     public function getUsuarios()
     {
-    /*$data['page_functions_js'] = "functions_usuario.js";
-     $this -> views -> getView ($this, "Usuarios", $data); */
+    $data['page_functions_js'] = "functions_usuario.js";
+     $this -> views -> getView ($this, "Usuarios", $data); 
 
-    $arrUsuarios = $this -> model -> selectUsuarios();
+    //$arrUsuarios = $this -> model -> selectUsuarios();
     // var_dump ($arrUsuarios); 
-     echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
+     //echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
     }
 
     public function getListaUsuarios()

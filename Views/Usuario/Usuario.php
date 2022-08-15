@@ -1,6 +1,7 @@
 <?php
 headerAdmin($data);
-getModal("Usuario/modalNuevoUsuario,",$data);
+getModal("Usuario/modalNuevoUsuario",$data);
+getModal("Usuario/modalEditUsuario",$data);
 ?>
 <div id="contentAjax"></div>
 <div class="wrapper">
@@ -9,8 +10,9 @@ getModal("Usuario/modalNuevoUsuario,",$data);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-7">
-          <h1 class="m-0"><?php echo $data['page_tag']?></h1>
-          
+          <h1 class="m-0"> <?= $data['page_tag']?>
+
+          </h1>
           </div>
           <div class="col-sm-5">
             <ol class="breadcrumb float-sm-right btn-block">
@@ -41,7 +43,7 @@ getModal("Usuario/modalNuevoUsuario,",$data);
       <tr>
         <th width="7%">#</th>
         <th>Usuario</th>
-        <th width="10%">status</th>
+        <th width="10%">estatus</th>
         <th width="10%">Sesion</th>
         <th width="15%">Fecha de conexion</th>
         <th width="10%">Navegador</th>
@@ -66,7 +68,6 @@ getModal("Usuario/modalNuevoUsuario,",$data);
 </div>
 </div>
 </div>
-
 <?php footerAdmin($data); ?>
 
 

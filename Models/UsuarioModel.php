@@ -28,7 +28,8 @@
             $request = $this -> update($sql, array(2));
             return $request;
         }
-        public function selectUsuario(int $id){
+        public function selectUsuario(int $id)
+        {
             $sql = "SELECT *from t_usuarios WHERE id = $id";
            $request = $this -> select ($sql);
            return $request;
