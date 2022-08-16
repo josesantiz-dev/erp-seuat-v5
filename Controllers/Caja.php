@@ -1,58 +1,20 @@
 <?php
-	/*class Caja extends Controllers{
-        private $idCaja;
-        public function __construct()
-        {
-            parent::__construct();
-			session_start();
-		    if(empty($_SESSION['login']))
-		    {
-			    header('Location: '.base_url().'/login');
-			    die();
-		    }
-			$this->idCaja = $_SESSION['idCaja'];
-			$this->nombre = $_SESSION['nombre'];
-        }
-        public function Caja(){
-			$data['page_id'] = 2;
-			$data['page_tag'] = "Dashboard DIRC";
-			$data['page_title'] = "Página Dashboard";
-			$data['page_name'] = "Página Dashboard";
-			$data['page_functions_js'] = "functions_dashboard_dirc.js";
-			$data['planteles'] = $this->model->selectPlanteles();
-			$this->views->getView($this,"dashboarddirc",$data);
-    }
-}*/
-
-<?php
-    class Caja extends Controllers{
-
-        private $idCaja;
-        public function __construct()
-        {
-            parent::__construct();
-            /*session_start();
-            if(empty($_SESSION['login']))
-            {
-                header('Location: '.base_url().'/login');
-                die();
-            }
-            $this->idUser = $_SESSION['idUser'];*/
-        }
+    class Caja extends Controllers{}
 
         public function getCaja()
     {
         //$data = "";
-        $data['page_functions_js'] = "functions_Caja.js";
+        $data['page_functions_js'] = "functions_caja.js";
 
         $this->views->getView($this,"caja",$data);
-       // $arrGeneraciones = $this->model->selectGeneraciones();
-        //var_dump($arrGeneraciones);
-        //echo(json_encode($arrGeneraciones,JSON_UNESCAPED_UNICODE));
-        //echo dep($data);
+        
+        $arrCaja = $this->model->selectCaja();
+        var_dump($arrCaja);
+        echo(json_encode($arrCaja,JSON_UNESCAPED_UNICODE));
+        echo dep($data);
     } 
     //echo dep($data)
-    public function getCaja()
+    public function getListaCaja()
     {
         $arrCaja = $this->model->selectCaja();
         for($i = 0; $i < count($arrCaja); $i++){
@@ -68,20 +30,18 @@
         echo(json_encode($arrCaja,JSON_UNESCAPED_UNICODE));
     }
 
-    public function setNuevoRegistro() 
+    public function setNuevaCaja() 
     {
         $arrDatos = $_POST;
 
-        $nombre = $arrDatos['txtNombre'];
-        $estatus = $arrDatos['txtEstatus'];
+        $nombreCaja = $arrDatos['txtNombreCaja'];
         $fechaCreacion = $arrDatos['dateFechaCreacion'];
-        $fechaActualizacion = $arrDatos['dateFechaActuaizacion'];
+        $fechaActualizacion = $arrDatos['dateFechaActualizacion'];
         $estatus = 1;
         $idCaja =5;
 
 
-        $response = $this->model->insertCaja(int $id,string $nombre,int $id_usuario_atiende,int $estatus,int $id_usuario_creacion,int $id_usuario_actualizacion,string $fecha_creacion,string $fecha_actualizacion,
-        int $id_planteles, int $id_sistemas_educativos);
+        $response = $this->model->insertNuevaCaja($nombreCaja,$fechaCreacion,$fechaActualizacion,$estatus,$idCaja);
         if($response){
             $arrResponse = array ('estatus' => true, 'msg' => 'Se inserto correctamente el registro');
        
@@ -106,5 +66,5 @@
         }
         echo(json_encode($response,JSON_UNESCAPED_UNICODE));
     }
-    }
+    
 ?>

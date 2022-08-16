@@ -1,6 +1,6 @@
 <?php
 
-	class CajaMiguelModel extends Mysql
+	class CajaModel extends Mysql
 	{
 
 		public function __construct()
@@ -15,11 +15,10 @@
             return $request;
         }
 
-        public function insertCaja(int $id,string $nombre,int $id_usuario_atiende,int $estatus,int $id_usuario_creacion,int $id_usuario_actualizacion,string $fecha_creacion,string $fecha_actualizacion,
-        int $id_planteles, int $id_sistemas_educativos)
+        public function insertCaja(string $nombre,string $fecha_creacion,string $fecha_actualizacion,int $estatus,$idCaja)
 		{
 			$sql = "insert into t_cajas(
-				nombre,id_usuario_atiende, estatus, id_usuario_creacion, id_usuario_actualizacion, fecha_creacion, fecha_actualizacion, id_planteles, id_sistemas_educativos) 
+				nombre, fecha_creacion, fecha_actualizacion, estatus) 
 				values(?, ?, ?,?, NOW(), ?)";
 
 				$request = $this->insert($sql,array($id, $nombre,$id_usuario_atiende, $estatus, $id_usuario_creacion, $id_usuario_actualizacion, $fecha_creacion, $fecha_actualizacion,
