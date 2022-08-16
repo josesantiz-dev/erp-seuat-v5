@@ -17,9 +17,9 @@ class Usuario extends Controllers{
 
     public function Usuario(){
         $data['page_id'] = 2;
-        $data['page_tag'] = "Usuario";
+        $data['page_tag'] = "Usuarios";
         $data['page_title'] = "Página Usuarios";
-        $data['page_name'] = "Usuario";
+        $data['page_name'] = "Usuarios";
         $data['page_functions_js'] = "functions_usuario.js";
         $data['planteles'] = $this->model->selectUsuarios();
         $this->views->getView($this,"Usuario",$data);

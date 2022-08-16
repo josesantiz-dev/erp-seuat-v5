@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
         "columns":[
             {"data":"numeracion"},
             {"data":"nickname"},
+            {"data":"estatus"},
             {"data":"sesion"},
             {"data":"fecha_conexion"},
             {"data":"navegador_so"},
@@ -50,7 +51,6 @@ let nombreFechaRegistro = document.getElementById("dateFechaRegistro").value;
 let nombreImgen = document.getElementById("txtImgen").value;
 let nombreRol = document.getElementById("txtRol").value;
 let nombrePersona = document.getElementById("txtNombrePersona").value;
-
 console.log(nombreUsuario, nombrePassword, nombreFechaRegistro, nombreImgen, nombreRol, nombrePersona);
 if(nombreUsuario ==""|| nombrePassword == "" || nombreFechaRegistro == "" || nombreImgen == "" || nombreRol == "" || nombrePersona == "" ) {
     Swal.fire({

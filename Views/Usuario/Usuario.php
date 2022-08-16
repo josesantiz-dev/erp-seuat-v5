@@ -68,6 +68,7 @@ getModal("Usuario/modalEditUsuario",$data);
 </div>
 </div>
 </div>
+
 <?php footerAdmin($data); ?>
 
 
