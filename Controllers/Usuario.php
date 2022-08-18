@@ -41,8 +41,11 @@ class Usuario extends Controllers{
     for($i = 0; $i < count($arrUsuarios); $i++)
     {
       $arrUsuarios[$i]["numeracion"] = $i +1; 
-      $arrUsuarios[$i]["status"] = ($arrUsuarios[$i]["estatus"] == 1)?
+      $arrUsuarios[$i]["estatus"] = ($arrUsuarios[$i]["estatus"] == 1)?
       '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>
+      ';
+      $arrUsuarios[$i]["sesion"] = ($arrUsuarios[$i]["sesion"] == 1)?
+      '<span class="badge badge-success">Conectado</span>': '<span class="badge badge-danger">Desconectado</span>
       ';
       $arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrUsuarios[$i]['id'].')"data-toggle="modal" data-target="#modalEditUsuarios">Actualizar</button> 
       <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrUsuarios[$i]['id'].')">Eliminar</button>';

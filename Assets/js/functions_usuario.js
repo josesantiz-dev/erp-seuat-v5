@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data":"estatus"},
             {"data":"sesion"},
             {"data":"fecha_conexion"},
-            {"data":"navegador_so"},
-            {"data":"ip"},
             {"data":"acciones"},
             
         ],
@@ -45,7 +43,7 @@ console.log(btnNuevoUsuario)
 let formNuevoUsuario = document.querySelector('#formNuevoUsuario');
 formNuevoUsuario.onsubmit = function(e){
     e.preventDefault();
-let nombreUsuario = document.getElementById("txtNombreUsuario").value;
+let nombreUsuario = document.getElementById("txtNickname").value;
 let nombrePassword = document.getElementById("txtPassword").value;
 let nombreFechaRegistro = document.getElementById("dateFechaRegistro").value;
 let nombreImgen = document.getElementById("txtImgen").value;

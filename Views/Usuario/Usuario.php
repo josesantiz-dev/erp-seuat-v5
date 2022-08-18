@@ -46,8 +46,6 @@ getModal("Usuario/modalEditUsuario",$data);
         <th width="10%">estatus</th>
         <th width="10%">Sesion</th>
         <th width="15%">Fecha de conexion</th>
-        <th width="10%">Navegador</th>
-        <th width="10%">Ip</th>
         <th width="17%">Acciones</th>
       </tr>
       </thead>
