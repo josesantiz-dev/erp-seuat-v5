@@ -1,7 +1,10 @@
 <?php
-    class Caja extends Controllers{}
+    class Caja extends Controllers{
 
+        private $idUser;
+        private $rol;  
        public function __construct()
+       
        {
         parent::__construct();
         /*session_start();
@@ -12,9 +15,18 @@
         }
         $this->idUser = $_SESSION['idUser'];*/
        }
+
+       public function Caja(){
+        $data['page_id'] = 2;
+        $data['page_tag'] = "Caja";
+        $data['page_title'] = "Página Caja";
+        $data['page_name'] = "Página Caja";
+        $data['page_functions_js'] = "functions_Caja.js";
+        $data['planteles'] = $this->model->selectCaja();
+        $this->views->getView($this,"Caja",$data);
     
     
-    public function getCaja()
+       public function getCaja()
     {
         //$data = "";
         $data['page_functions_js'] = "functions_caja.js";
@@ -79,5 +91,6 @@
         }
         echo(json_encode($response,JSON_UNESCAPED_UNICODE));
     }
+}
     
 ?>

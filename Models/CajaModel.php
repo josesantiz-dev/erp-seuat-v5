@@ -21,7 +21,7 @@
 				nombre, fecha_creacion, fecha_actualizacion, estatus) 
 				values(?, ?, ?,?, NOW(), ?)";
 
-				$request = $this->insert($sql,array(string $nombre,string $fecha_creacion,string $fecha_actualizacion,int $estatus,int $idCaja));
+				$request = $this->insert($sql,array($nombre,$fecha_creacion, $fecha_actualizacion, $estatus, $idCaja));
 				return $request;
             }
 
