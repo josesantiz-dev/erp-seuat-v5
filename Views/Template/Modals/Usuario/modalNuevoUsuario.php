@@ -26,9 +26,23 @@
 </div>
 
     <label for="exampleInputEmail1" class="label">Rol</label>
-    <input type="text" class="form-control" id="txtRol" name = "txtRol" required>
+    <div class="input-group mb-3">
+  <select class="custom-select" id="inputGroupSelect02">
+    <option selected>Choose...</option>
+    <option value="1">Administrativo</option>
+    <option value="2">Caja</option>
+    <option value="3">Maestro</option>
+  </select>
+</div>
     <label for="exampleInputEmail1" class="label">Persona</label>
-    <input type="text" class="form-control" id="txtPersona" name = "txtPersona" required>
+    <div class="input-group mb-3">
+  <select class="custom-select" id="inputGroupSelect02">
+    <option selected>Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
     <label for="text">Fecha de conexion</label>
 </div>
     <input type="date" id="dateFechaConexion" name="dateFechaConexion"

@@ -28,7 +28,7 @@ class Usuario extends Controllers{
     public function getUsuarios()
     {
     $data['page_functions_js'] = "functions_usuario.js";
-     $this -> views -> getView ($this, "Usuarios", $data); 
+     $this -> views -> getView ($this, "Usuario", $data); 
 
     //$arrUsuarios = $this -> model -> selectUsuarios();
     // var_dump ($arrUsuarios); 

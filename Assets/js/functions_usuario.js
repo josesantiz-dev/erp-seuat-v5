@@ -1,4 +1,4 @@
-let btnNuevoUsuario = document.getElementById("btnNuevoUsuario")
+let btnNuevoUsuario = document.getElementById("btnNuevoUsuario");
 let formEditUsuario = document.getElementById("formNuevoUsuarioEdit");
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -45,7 +45,7 @@ formNuevoUsuario.onsubmit = function(e){
     e.preventDefault();
 let nombreUsuario = document.getElementById("txtNickname").value;
 let nombrePassword = document.getElementById("txtPassword").value;
-let nombreFechaRegistro = document.getElementById("dateFechaRegistro").value;
+let nombreFechaRegistro = document.getElementById("dateFechaConexion").value;
 let nombreImgen = document.getElementById("txtImgen").value;
 let nombreRol = document.getElementById("txtRol").value;
 let nombrePersona = document.getElementById("txtNombrePersona").value;
@@ -137,8 +137,8 @@ if(nombreUsuario ==""|| nombrePassword == "" || nombreFechaRegistro == "" || nom
 
             fetch(url).then (res => res.json()).then(response => {
                 document.getElementById("txtNombreUsuarioEdit").value = response.nickname;
-                document.getElementById("txtPasswordEdit").value = response.password;
-                document.getElementById("dateFechaRegistroEdit").value = response.fecha_conexion;
+                document.getElementById("txtEstatusEdit").value = response.estatus;
+                document.getElementById("dateFechaConexionEdit").value = response.fecha_conexion;
                 document.getElementById("txtImgenEdit").value = response.imagen;
                 document.getElementById("txtRolEdit").value = response.id_roles;
                 document.getElementById("txtNombrePersonaEdit").value = response.id_personas;
@@ -150,12 +150,12 @@ if(nombreUsuario ==""|| nombrePassword == "" || nombreFechaRegistro == "" || nom
         formEditUsuario.onsubmit = function(e){
             e.preventDefault();
             let nombreUsuario = document.getElementById("txtNombreUsuario").value;
-let nombrePassword = document.getElementById("txtPassword").value;
-let nombreFechaRegistro = document.getElementById("dateFechaRegistro").value;
+let nombreEstatus = document.getElementById("txtEstatusEdit").value;
+let nombreFechaRegistro = document.getElementById("dateFechaConexion").value;
 let nombreImgen = document.getElementById("txtImgen").value;
 let nombreRol = document.getElementById("txtRol").value;
 let nombrePersona = document.getElementById("txtNombrePersona").value;
-if(nombreUsuario ==""|| nombrePassword == "" || nombreFechaRegistro == "" || nombreImgen == "" || nombreRol == "" || nombrePersona == "") {
+if(nombreUsuario ==""|| nombreEstatus == "" || nombreFechaRegistro == "" || nombreImgen == "" || nombreRol == "" || nombrePersona == "") {
     Swal.fire({
         icon: 'error',
         title: 'Campo vacio',
