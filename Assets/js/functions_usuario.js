@@ -45,12 +45,11 @@ formNuevoUsuario.onsubmit = function(e){
     e.preventDefault();
 let nombreUsuario = document.getElementById("txtNickname").value;
 let nombrePassword = document.getElementById("txtPassword").value;
-let nombreFechaRegistro = document.getElementById("dateFechaConexion").value;
 let nombreImgen = document.getElementById("txtImgen").value;
 let nombreRol = document.getElementById("txtRol").value;
 let nombrePersona = document.getElementById("txtNombrePersona").value;
-console.log(nombreUsuario, nombrePassword, nombreFechaRegistro, nombreImgen, nombreRol, nombrePersona);
-if(nombreUsuario ==""|| nombrePassword == "" || nombreFechaRegistro == "" || nombreImgen == "" || nombreRol == "" || nombrePersona == "" ) {
+console.log(nombreUsuario, nombrePassword, nombreImgen, nombreRol, nombrePersona);
+if(nombreUsuario ==""|| nombrePassword == "" || nombreImgen == "" || nombreRol == "" || nombrePersona == "" ) {
     Swal.fire({
         icon: 'error',
         title: 'Campo vacio',

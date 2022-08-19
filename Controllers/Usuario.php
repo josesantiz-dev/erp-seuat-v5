@@ -22,6 +22,8 @@ class Usuario extends Controllers{
         $data['page_name'] = "Usuarios";
         $data['page_functions_js'] = "functions_usuario.js";
         $data['planteles'] = $this->model->selectUsuarios();
+        $data['roles'] = $this->model->selectRoles();
+        $this->views->getView($this,"Roles",$data);
         $this->views->getView($this,"Usuario",$data);
     }
 
@@ -58,14 +60,13 @@ class Usuario extends Controllers{
 $arrDatos = $_POST;
 $nickname = $arrDatos ['txtNickname'];
 $password = $arrDatos ['txtPassword'];
-$fechadeconexion = $arrDatos ['dateFechaConexion'];
 $imagen = $arrDatos ['Imagen'];
 $rol = $arrDatos ['txtRol'];
 $persona = $arrDatos ['txtPersona'];
 $estatus = 1;
 $idUser = 5;
 
-$response = $this -> model -> insertNuevoUsuario ($nickname, $password, $fechadeconexion, $imagen, $rol, $persona);
+$response = $this -> model -> insertNuevoUsuario ($nickname, $password, $imagen, $rol, $persona);
 if ($response){
     $arrResponse = array('estatus' => true, 'msg' => 'SE INSERTO CORRECTAMENTE EL NUEVO USUARIO'); 
 
@@ -98,13 +99,12 @@ public function setEditUsuario()
 {
     $arrDatos = $_POST; 
     $nickname = $arrDatos ['txtNickname'];
-    $password = $arrDatos ['txtPassword'];
-    $fechadeconexion = $arrDatos ['dateFechaConexion'];
+    $estatus = $arrDatos ['txtEstatus'];
     $imagen = $arrDatos ['Imagen'];
     $rol = $arrDatos ['txtRol'];
     $persona = $arrDatos ['txtPersona'];
     $idUser = 10;
-    $arrResponse = $this -> model -> updateUsuario($nickname, $password, $fechadeconexion, $imagen, $rol, $persona);
+    $arrResponse = $this -> model -> updateUsuario($nickname, $estatus, $imagen, $rol, $persona);
     if ($arrResponse){
         $response = array('estatus' => true, 'msg' => 'SE ACTUALIZO CORRECTAMENTE :) '); 
     

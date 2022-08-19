@@ -12,9 +12,9 @@
       <div class="modal-body">
       <div class="mb-3">
     <label for="exampleInputEmail1" class="label">Nombre de usuario:</label>
-    <input type="text" class="form-control" id="txtNickname" name = "txtNickname" required>
+    <input type="text" class="form-control" id="txtNickname" name = "txtNickname" maxlength="20" required>
     <label for="exampleInputEmail1" class="label">Contraseña:</label>
-    <input type="text" class="form-control" id="txtPassword" name = "txtPassword" required>
+    <input type="text" class="form-control" id="txtPassword" name = "txtPassword" maxlength="20" required>
     <label for="exampleInputEmail1" class="label">Imagen</label>
     <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -28,7 +28,7 @@
     <label for="exampleInputEmail1" class="label">Rol</label>
     <div class="input-group mb-3">
   <select class="custom-select" id="inputGroupSelect02">
-    <option selected>Choose...</option>
+    <option selected>Seleccionar...</option>
     <option value="1">Administrativo</option>
     <option value="2">Caja</option>
     <option value="3">Maestro</option>
@@ -37,20 +37,18 @@
     <label for="exampleInputEmail1" class="label">Persona</label>
     <div class="input-group mb-3">
   <select class="custom-select" id="inputGroupSelect02">
-    <option selected>Choose...</option>
+    <option selected>Seleccionar...</option>
     <option value="1">One</option>
     <option value="2">Two</option>
     <option value="3">Three</option>
   </select>
 </div>
-    <label for="text">Fecha de conexion</label>
+  
 </div>
-    <input type="date" id="dateFechaConexion" name="dateFechaConexion"
-       value="2018-07-22"
-       min="2018-01-01" max="2018-12-31" required>
+    
 
       </div>
-
+ 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" icon="Sucess" data-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-primary">Guardar cambios</button>

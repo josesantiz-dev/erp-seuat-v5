@@ -37,9 +37,15 @@
         public function updateUsuario(string $nickname, string $sesion, int $idUsuario, string $fecha_conexion, string $rol, int $idUser)
         {
             $sql = "UPDATE t_usuarios SET nickname = ?, sesion = ?, rol = ?, fecha_conexion = NOW(), id_personas = ? WHERE id =  $idUsuario";
-            $request = $this -> update ($sql, array($nombreGeneracion,$fechaInicio,$fechaFin,$idUser));
+            $request = $this -> update ($sql, array($nickname, $sesion, $rol, $fecha_conexion, $idUsuario,  $idUser));
             return $request;
   
+        }
+        public function getRoles(int $id)
+        {
+            $sql = "SELECT *from t_roles WHERE estatus = 1";
+           $request = $this -> select ($sql);
+           return $request;
         }
 	}
 ?>
