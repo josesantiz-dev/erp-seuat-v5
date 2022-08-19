@@ -1,17 +1,30 @@
 <?php
     class Caja extends Controllers{}
 
-        public function getCaja()
+       public function __construct()
+       {
+        parent::__construct();
+        /*session_start();
+        if(empty($_SESSION['login']))
+        {
+            header('Location: '.base_url().'/login');
+            die();
+        }
+        $this->idUser = $_SESSION['idUser'];*/
+       }
+    
+    
+    public function getCaja()
     {
         //$data = "";
         $data['page_functions_js'] = "functions_caja.js";
 
         $this->views->getView($this,"caja",$data);
         
-        $arrCaja = $this->model->selectCaja();
+        /*$arrCaja = $this->model->selectCaja();
         var_dump($arrCaja);
         echo(json_encode($arrCaja,JSON_UNESCAPED_UNICODE));
-        echo dep($data);
+        echo dep($data);*/
     } 
     //echo dep($data)
     public function getListaCaja()
