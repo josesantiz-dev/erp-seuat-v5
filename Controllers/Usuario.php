@@ -23,8 +23,14 @@ class Usuario extends Controllers{
         $data['page_functions_js'] = "functions_usuario.js";
         $data['planteles'] = $this->model->selectUsuarios();
         $data['roles'] = $this->model->selectRoles();
-        $this->views->getView($this,"Roles",$data);
+        $data['personas'] = $this->model->selectPersonas();
         $this->views->getView($this,"Usuario",$data);
+    }
+
+    public function getRoles()
+    {
+        $data['roles'] = $this->model->getRoles();
+        $this->views->getView($this,"roles",$data);
     }
 
     public function getUsuarios()
@@ -49,7 +55,7 @@ class Usuario extends Controllers{
       $arrUsuarios[$i]["sesion"] = ($arrUsuarios[$i]["sesion"] == 1)?
       '<span class="badge badge-success">Conectado</span>': '<span class="badge badge-danger">Desconectado</span>
       ';
-      $arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrUsuarios[$i]['id'].')"data-toggle="modal" data-target="#modalEditUsuarios">Actualizar</button> 
+      $arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrUsuarios[$i]['id'].')"data-toggle="modal" data-target="#modalEditUsuario">Actualizar</button> 
       <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrUsuarios[$i]['id'].')">Eliminar</button>';
     }
     echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
@@ -60,13 +66,13 @@ class Usuario extends Controllers{
 $arrDatos = $_POST;
 $nickname = $arrDatos ['txtNickname'];
 $password = $arrDatos ['txtPassword'];
-$imagen = $arrDatos ['Imagen'];
+//$imagen = $arrDatos ['txtImgen'];
 $rol = $arrDatos ['txtRol'];
-$persona = $arrDatos ['txtPersona'];
+//$persona = $arrDatos ['txtNombrePersona'];
 $estatus = 1;
 $idUser = 5;
 
-$response = $this -> model -> insertNuevoUsuario ($nickname, $password, $imagen, $rol, $persona);
+        $response = $this -> model -> insertNuevoUsuario ($nickname, $password, /*$imagen,*/ $rol, /*$persona*/);
 if ($response){
     $arrResponse = array('estatus' => true, 'msg' => 'SE INSERTO CORRECTAMENTE EL NUEVO USUARIO'); 
 

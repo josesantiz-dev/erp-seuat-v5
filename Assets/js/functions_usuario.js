@@ -45,11 +45,11 @@ formNuevoUsuario.onsubmit = function(e){
     e.preventDefault();
 let nombreUsuario = document.getElementById("txtNickname").value;
 let nombrePassword = document.getElementById("txtPassword").value;
-let nombreImgen = document.getElementById("txtImgen").value;
+//let nombreImgen = document.getElementById("txtImgen").value;
 let nombreRol = document.getElementById("txtRol").value;
-let nombrePersona = document.getElementById("txtNombrePersona").value;
-console.log(nombreUsuario, nombrePassword, nombreImgen, nombreRol, nombrePersona);
-if(nombreUsuario ==""|| nombrePassword == "" || nombreImgen == "" || nombreRol == "" || nombrePersona == "" ) {
+//let nombrePersona = document.getElementById("txtNombrePersona").value;
+console.log(nombreUsuario, nombrePassword, /*nombreImgen,*/ nombreRol, /*nombrePersona*/);
+if(nombreUsuario ==""|| nombrePassword == "" /*|| nombreImgen == ""*/ || nombreRol == "" /*|| nombrePersona == ""*/ ) {
     Swal.fire({
         icon: 'error',
         title: 'Campo vacio',
@@ -132,12 +132,11 @@ if(nombreUsuario ==""|| nombrePassword == "" || nombreImgen == "" || nombreRol =
               })
         }
         function fnActualizar(id){
-            let url = base_url + "/Usuario/getUsuarios/" +id;
+            let url = base_url + "/Usuario/getUsuario/" +id;
 
             fetch(url).then (res => res.json()).then(response => {
                 document.getElementById("txtNombreUsuarioEdit").value = response.nickname;
                 document.getElementById("txtEstatusEdit").value = response.estatus;
-                document.getElementById("dateFechaConexionEdit").value = response.fecha_conexion;
                 document.getElementById("txtImgenEdit").value = response.imagen;
                 document.getElementById("txtRolEdit").value = response.id_roles;
                 document.getElementById("txtNombrePersonaEdit").value = response.id_personas;
@@ -148,13 +147,12 @@ if(nombreUsuario ==""|| nombrePassword == "" || nombreImgen == "" || nombreRol =
 
         formEditUsuario.onsubmit = function(e){
             e.preventDefault();
-            let nombreUsuario = document.getElementById("txtNombreUsuario").value;
-let nombreEstatus = document.getElementById("txtEstatusEdit").value;
-let nombreFechaRegistro = document.getElementById("dateFechaConexion").value;
-let nombreImgen = document.getElementById("txtImgen").value;
-let nombreRol = document.getElementById("txtRol").value;
-let nombrePersona = document.getElementById("txtNombrePersona").value;
-if(nombreUsuario ==""|| nombreEstatus == "" || nombreFechaRegistro == "" || nombreImgen == "" || nombreRol == "" || nombrePersona == "") {
+            let NombreUsuarioEdit = document.getElementById("txtNombreUsuarioEdit").value;
+let nombreEstatusEdit = document.getElementById("txtEstatusEdit").value;
+let nombreImgenEdit = document.getElementById("txtImgenEdit").value;
+let nombreRolEdit = document.getElementById("txtRolEdit").value;
+let nombrePersonaEdit = document.getElementById("txtNombrePersonaEdit").value;
+if(NombreUsuarioEdit ==""|| nombreEstatusEdit == "" || nombreFechaRegistroEdit  == "" || nombreImgenEdit == "" || nombreRolEdit == "" || nombrePersonaEdit == "") {
     Swal.fire({
         icon: 'error',
         title: 'Campo vacio',

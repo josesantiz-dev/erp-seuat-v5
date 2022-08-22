@@ -19,21 +19,39 @@
     <input type="text" class="form-control" id="txtEstatusEdit" name = "txtEstatusEdit" required>
 
     <label for="exampleInputEmail1" class="label">Imagen</label>
-    <input type="text" class="form-control" id="txtImgenEdit" name = "txtImgenEdit" required>
+    <div class="input-group mb-3">
+  <div class="input-group-prepend">
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="Imagen" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="Imagen"></label>
+  </div>
+</div>
 
     <label for="exampleInputEmail1" class="label">Rol</label>
-    <input type="text" class="form-control" id="txtRolEdit" name = "txtRolEdit" required>
+    <div class="input-group mb-3">
+  <select class="custom-select" id="txtRol">
+    <option selected>Seleccionar...</option>
+    <option value="1">Administrativo</option>
+    <option value="2">Caja</option>
+    <option value="3">Maestro</option>
+  </select>
+</div>
 
     <label for="exampleInputEmail1" class="label">Persona</label>
-    <input type="text" class="form-control" id="txtNombrePersonaEdit" name = "txtNombrePersonaEdit" required>
-  </div>
-      </div>
-      <label for="start">Fecha de conexion</label>
-      
-<input type="date" id="dateFechaConexionEdit" name="dateFechaConexionEdit"
-       value=""
-         required>
+    <div class="input-group mb-3">
+  <select class="custom-select" id="txtPersona">
+    <option selected>Seleccionar...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+  
+</div>
+    
 
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
         <button type="submit" class="btn btn-primary">ACTUALIZAR</button>

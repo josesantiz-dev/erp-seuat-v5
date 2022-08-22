@@ -41,10 +41,16 @@
             return $request;
   
         }
-        public function getRoles(int $id)
+        public function selectRoles()
         {
             $sql = "SELECT *from t_roles WHERE estatus = 1";
-           $request = $this -> select ($sql);
+           $request = $this -> select_all ($sql);
+           return $request;
+        }
+        public function selectPersonas()
+        {
+            $sql = "SELECT *from t_personas WHERE estatus = 1";
+           $request = $this -> select_all ($sql);
            return $request;
         }
 	}
