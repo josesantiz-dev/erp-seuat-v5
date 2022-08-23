@@ -16,15 +16,24 @@
     <label for="exampleInputEmail1" class="label">Contraseña:</label>
     <input type="text" class="form-control" id="txtPassword" name = "txtPassword" maxlength="20" required>
     <label for="exampleInputEmail1" class="label">Imagen</label>
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="Imagen" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="Imagen"></label>
-  </div>
-</div>
-
+    <div class="form-group col-md-20">
+    <div class="card">
+    <div class="card-header row">
+    <div class="col-md-1">                                                       
+    </div>
+    <div class="col-md-7">
+    <a href="#" class="btn btn-primary  float-right" onclick="buscarImagenUsuario()" id="btnBuscarImagenUsuario">Buscar Imagen</a>
+    </div>
+    </div>
+    <div class="form-group card-body text-center" id="huhshu" style="position:static;" >
+    <span class="img-div">
+    <img src="<?php echo media();?>/images/img/logo-empty.png" id="ImagenUsuario" style="max-width:250px;">
+    </span>
+    <input type="file" name="fileUsuario" onChange="ImagenUsuario(this)" id="fileUsuario" class="form-control" style="display: none;"
+    accept=".png,.jpg,.jpeg,.svg,.PNG,.JPG,.JPEG">
+    </div>
+    </div>
+    </div>
     <label for="exampleInputEmail1" class="label">Rol</label>
     <div class="input-group mb-3">
   <select class="custom-select" id="txtRol">
@@ -46,7 +55,7 @@
 </div>
     <label for="exampleInputEmail1" class="label">Persona</label>
     <div class="input-group mb-3">
-  <select class="custom-select" id="txtPersona">
+  <select class="custom-select" id="txtNombrePersona">
   <?php
     for ($i=0;$i<count($data['personas']);$i++)
     { ?>

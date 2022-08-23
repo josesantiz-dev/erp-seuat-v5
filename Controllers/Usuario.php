@@ -64,15 +64,15 @@ class Usuario extends Controllers{
     public function setNuevoUsuario() 
         {
 $arrDatos = $_POST;
+$arrDatos = $_FILES;
 $nickname = $arrDatos ['txtNickname'];
 $password = $arrDatos ['txtPassword'];
-//$imagen = $arrDatos ['txtImgen'];
 $rol = $arrDatos ['txtRol'];
-//$persona = $arrDatos ['txtNombrePersona'];
+$persona = $arrDatos ['txtNombrePersona'];
 $estatus = 1;
 $idUser = 5;
 
-        $response = $this -> model -> insertNuevoUsuario ($nickname, $password, /*$imagen,*/ $rol, /*$persona*/);
+        $response = $this -> model -> insertNuevoUsuario ($nickname, $password, $rol, $persona);
 if ($response){
     $arrResponse = array('estatus' => true, 'msg' => 'SE INSERTO CORRECTAMENTE EL NUEVO USUARIO'); 
 
@@ -120,7 +120,5 @@ public function setEditUsuario()
     }
     echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 }
-
     }
-
 ?>

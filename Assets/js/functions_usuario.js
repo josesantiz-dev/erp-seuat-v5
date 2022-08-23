@@ -47,9 +47,9 @@ let nombreUsuario = document.getElementById("txtNickname").value;
 let nombrePassword = document.getElementById("txtPassword").value;
 //let nombreImgen = document.getElementById("txtImgen").value;
 let nombreRol = document.getElementById("txtRol").value;
-//let nombrePersona = document.getElementById("txtNombrePersona").value;
-console.log(nombreUsuario, nombrePassword, /*nombreImgen,*/ nombreRol, /*nombrePersona*/);
-if(nombreUsuario ==""|| nombrePassword == "" /*|| nombreImgen == ""*/ || nombreRol == "" /*|| nombrePersona == ""*/ ) {
+let nombrePersona = document.getElementById("txtNombrePersona").value;
+console.log(nombreUsuario, nombrePassword, /*nombreImgen,*/ nombreRol, nombrePersona);
+if(nombreUsuario ==""|| nombrePassword == "" /*|| nombreImgen == ""*/ || nombreRol == "" || nombrePersona == "" ) {
     Swal.fire({
         icon: 'error',
         title: 'Campo vacio',
@@ -192,5 +192,19 @@ if(NombreUsuarioEdit ==""|| nombreEstatusEdit == "" || nombreFechaRegistroEdit  
                   
                 }
                 return false;
+        }
+        function buscarImagenUsuario(e){
+            document.querySelector('#fileUsuario').click();
+        }
+        function ImagenUsuario(e) {
+            if (e.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    document.querySelector('#fileUsuario').setAttribute('src', e.target.result);
+                    document.getElementById('btnBuscarImagenUsuario').textContent = "Cambiar";
+                    document.querySelector('#btnBuscarImagenUsuario').classList.replace("btn-primary", "btn-warning");
+                }
+                reader.readAsDataURL(e.files[0]);
+            }
         }
         }

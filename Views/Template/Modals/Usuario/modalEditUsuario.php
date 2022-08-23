@@ -31,20 +31,40 @@
     <label for="exampleInputEmail1" class="label">Rol</label>
     <div class="input-group mb-3">
   <select class="custom-select" id="txtRol">
-    <option selected>Seleccionar...</option>
+  <?php
+    for ($i=0;$i<count($data['roles']);$i++)
+    { ?>
+      <option value="<?php echo($data['roles'][$i]['id'])?>"><?php 
+     echo($data['roles'][$i]['nombre_rol']);
+      ?></option> 
+
+    <?php
+    } 
+    ?>
+  <!--  <option selected>Seleccionar...</option>
     <option value="1">Administrativo</option>
     <option value="2">Caja</option>
-    <option value="3">Maestro</option>
+    <option value="3">Maestro</option> -->
   </select>
 </div>
 
     <label for="exampleInputEmail1" class="label">Persona</label>
     <div class="input-group mb-3">
   <select class="custom-select" id="txtPersona">
-    <option selected>Seleccionar...</option>
+  <?php
+    for ($i=0;$i<count($data['personas']);$i++)
+    { ?>
+      <option value="<?php echo($data['personas'][$i]['id'])?>"><?php 
+     echo($data['personas'][$i]['nombre_persona']);
+      ?></option> 
+
+    <?php
+    } 
+    ?>
+   <!-- <option selected>Seleccionar...</option>
     <option value="1">One</option>
     <option value="2">Two</option>
-    <option value="3">Three</option>
+    <option value="3">Three</option> -->
   </select>
 </div>
   
