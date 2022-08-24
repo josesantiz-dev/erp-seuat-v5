@@ -14,12 +14,12 @@
             $request = $this -> select_all ($sql);
             return $request; 
         }
-        public function insertNuevoUsuario(string $nickname, string $password, string $rol, string $persona, int $idUsuario)
+        public function insertNuevoUsuario(string $nickname, string $password, string $rol, string $persona /*string $imagen*/)
         {
             $sql = "insert into erpseuat.t_usuarios 
-            (nickname, password, id_roles, id_personas, id)
-            Values (?, ?, ?, ?, ?)";
-            $request = $this ->  insert ($sql,array($nickname, $password, $persona, $rol, $idUsuario));
+            (nickname, password, id_roles, id_personas)
+            Values (?, ?, ?, ?)";
+        $request = $this ->  insert ($sql,array($nickname, $password, $rol, $persona /*$imagen*/));
             return $request;
         }
         public function updateEstatusUsuario(int $id)
