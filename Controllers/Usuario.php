@@ -62,6 +62,7 @@ class Usuario extends Controllers
 		echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
 	}
 
+	//Funcion nuevo Usuario
 	public function setNuevoUsuario()
 	{
 		$arrDatos = $_POST;
@@ -70,18 +71,24 @@ class Usuario extends Controllers
 		$password = $arrDatos['txtPassword'];
 		$rol = $arrDatos['txtRol'];
 		$persona = $arrDatos['txtNombrePersona'];
-		$imagen = $arrDatos['profileImageUsuario'];
+		$imagen = $arrFiles['profileImageUsuario']['name'];
 		$estatus = 1;
 		//$idUser = 5;
 
-		$response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $imagen);
+		 $response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagen);
 		if ($response) {
 			$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
 		} else {
 			$arrResponse = array('estatus' => false, 'msg' => 'No se puedo ingresar el nuevo usuario');
 		}
-		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
+		echo (json_encode($arrResponse, JSON_UNESCAPED_UNICODE));
+		die();
 	}
+
+
+
+
+//Funcion para chexcar Estatus Ususario
 	public function setEstatusUsuario($valor)
 	{
 		$arrResponse = $this->model->updateEstatusUsuario($valor);

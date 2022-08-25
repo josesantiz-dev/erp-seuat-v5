@@ -1,22 +1,23 @@
 let btnNuevoUsuario = document.getElementById("btnNuevoUsuario");
 let formEditUsuario = document.getElementById("formNuevoUsuarioEdit");
+let formNuevoUsuario = document.querySelector("#formNuevoUsuario");
 
 document.addEventListener("DOMContentLoaded", function () {
-  tableUsuarios = $("#tableusuarios").dataTable({
+	tableUsuarios = $("#tableusuarios").dataTable({
     aProcessing: true,
     aServerSide: true,
     language: {
-      url: " " + base_url + "/Assets/plugins/Spanish.json",
+		url: " " + base_url + "/Assets/plugins/Spanish.json",
     },
     ajax: {
       url: " " + base_url + "/Usuario/getListaUsuarios",
       dataSrc: "",
     },
     columns: [
-      { data: "numeracion" },
-      { data: "nickname" },
-      { data: "estatus" },
-      { data: "sesion" },
+		{ data: "numeracion" },
+		{ data: "nickname" },
+		{ data: "estatus" },
+		{ data: "sesion" },
       { data: "fecha_conexion" },
       { data: "acciones" },
     ],
@@ -37,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
   $("#tableusuarios").DataTable();
 });
 
-let formNuevoUsuario = document.querySelector("#formNuevoUsuario");
+
+
 formNuevoUsuario.onsubmit = function (e) {
   e.preventDefault();
   let nombreUsuario = document.getElementById("txtNickname").value;
@@ -45,18 +47,11 @@ formNuevoUsuario.onsubmit = function (e) {
   let nombreImgen = document.getElementById("profileImageUsuario").src;
   let nombreRol = document.getElementById("txtRol").value;
   let nombrePersona = document.getElementById("txtNombrePersona").value;
-  console.log(
-    nombreUsuario,
-    nombrePassword,
-    nombreImgen, 
-    nombreRol,
-    nombrePersona
-  );
   if (nombreUsuario == "" || nombrePassword == "") {
     Swal.fire({
       icon: "error",
       title: "Campo vacio",
-      text: "FAVOR DE REVISAR!",
+      text: "Favor de revisar!",
     });
     return false;
   }
@@ -65,11 +60,12 @@ formNuevoUsuario.onsubmit = function (e) {
     : new ActiveXObject("Microsoft.XMLHTTP");
   let ajaxUrl = base_url + "/Usuario/setNuevoUsuario";
   let formData = new FormData(formNuevoUsuario);
-  request.open("POST", "FILES", ajaxUrl, true);
+  request.open("POST", ajaxUrl, true);
   request.send(formData);
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       let objData = JSON.parse(request.responseText);
+	  
        if (objData.estatus == true) {
         Swal.fire({
           icon: "success",
@@ -82,14 +78,16 @@ formNuevoUsuario.onsubmit = function (e) {
           title: "Error...!",
           text: objData.msg,
         });
-      }
+      } 
       formNuevoUsuario.reset();
       tableUsuarios.api().ajax.reload();
-      $(".close").click();
+      $(".close").click(); 
     }
     return false;
   };
 };
+
+
 
 //FUNCION ELIMINAR REGISTRO
 function fnEliminar(value) {

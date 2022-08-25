@@ -14,7 +14,8 @@
                         <label for="exampleInputEmail1" class="label">Nombre de usuario:</label>
                         <input type="text" class="form-control" id="txtNickname" name="txtNickname" maxlength="20" required>
                         <label for="exampleInputEmail1" class="label">Contraseña:</label>
-                        <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="20" required>
+                        <input type="text" class="form-control" id="txtPassword" name="txtPassword" type="password" maxlength="20" required>
+                        <input type="checkbox" onclick="vistaPss()">  Ver contraseña <br>                 
                         <label for="exampleInputEmail1" class="label">Imagen</label>
                         <div class="form-group col-md-20">
                             <div class="card">
@@ -79,6 +80,17 @@
                     <button type="button" class="btn btn-secondary" icon="Sucess" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
+
+                <script type="text/javascript">
+	function vistaPass(){
+		var x = document.getElementById("txtPassword");
+		if (x.type==="password"){
+			x.type="text";
+		}else{
+			x.type="password";
+		}
+	}
+</script>
             </form>
         </div>
     </div>
