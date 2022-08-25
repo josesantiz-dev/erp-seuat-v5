@@ -1,21 +1,5 @@
 <?php
-    class Vista extends Controllers{
-        public function __construct()
-        {
-            parent::__construct();
-        }
-
-        public function vista();
-        {
-            $data['page_id'] = 2;
-            $data['page_tag'] = "Caja";
-            $data['page_title'] = "Página Caja";
-            $data['page_name'] = "Caja";
-            $this->views->getView($this,"Caja",$data);
-        }
-    }
-     
-    
+   
     class Caja extends Controllers{
 
         private $idUser;
@@ -30,26 +14,26 @@
 			    header('Location: '.base_url().'/login');
 			    die();
 		    }
-			$this->idCaja = $_SESSION['idCaja'];
+			//$this->idCaja = $_SESSION['idCaja'];
 			$this->rol = $_SESSION['claveRol'];
        }
 
-       public function Caja(){
+        public function caja(){
         $data['page_id'] = 2;
         $data['page_tag'] = "Caja";
         $data['page_title'] = "Página Caja";
         $data['page_name'] = "Página Caja";
         $data['page_functions_js'] = "functions_Caja.js";
-        $data['planteles'] = $this->model->selectCaja();
+       // $data['planteles'] = $this->model->selectCaja();
         $this->views->getView($this,"Caja",$data);
-    
+        }
     
        public function getCaja()
     {
         $data = "";
-        //$data['page_functions_js'] = "functions_caja.js";
+        $data['page_functions_js'] = "functions_caja.js";
 
-        //$this->views->getView($this,"caja",$data);
+        $this->views->getView($this,"caja",$data);
         
         $arrCaja = $this->model->selectCaja();
         //var_dump($arrCaja);
@@ -110,6 +94,7 @@
         echo(json_encode($response,JSON_UNESCAPED_UNICODE));
     }
 }
-    }
+
+    
     
 ?>
