@@ -58,7 +58,7 @@
     {
         $arrDatos = $_POST;
 
-        $idCaja =5;
+        
         $nombre = $arrDatos['txtNombre'];
         //$NombreAtiende = $arrDatos['NombreAtiende'];
         $fechaCreacion = $arrDatos['dateFechaCreacion'];
@@ -69,7 +69,7 @@
         
 
 
-        $response = $this->model->insertNuevaCaja($idCaja,$nombre,$fechaCreacion,$fechaActualizacion,$estatus,);
+        $response = $this->model->insertNuevaCaja($nombre,$fechaCreacion,$fechaActualizacion,$estatus,);
         if($response){
             $arrResponse = array ('estatus' => true, 'msg' => 'Se inserto correctamente el registro');
        

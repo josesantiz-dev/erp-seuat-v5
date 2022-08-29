@@ -127,12 +127,15 @@ function fnEliminar(value)
                     'Eliminado!',
                     response.msg,
                     'success'
+                    
                 )
                 }else{
                     Swal.fire(
                         'Error!',
                         response.msg,
-                        'Error'
+                        'Error',
+                        icon: warning
+                        
                     )
                }
 
