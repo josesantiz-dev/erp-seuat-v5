@@ -12,12 +12,15 @@ document.addEventListener('DOMContentLoaded', function(){
             "dataSrc":""
         },
         "columns":[
-            {"data":"numeracion"},
+            {"data":"id"},
+            {"data":"id_usuario_atiende"},
             {"data":"nombre"},
             {"data":"fecha_creacion"},
             {"data":"fecha_actualizacion"},
-            {"data":"status"},
-            {"data":"idCaja"},
+            {"data":"id_planteles"},
+            {"data":"id_sistemas_educativos"},
+            {"data":"estatus"},
+            {"data":"id"},
           
         ],
         "responsive": true,
@@ -40,18 +43,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
 console.log(btnNuevaCaja);
 
-let formNuevaCaja = document.querySelector('#formNuevaCaja');
+let formNuevaCaja = document.querySelector('#formCaja');
 formNuevaCaja.onsubmit = function(e){
     e.preventDefault();
     
     let nombre = document.getElementById('txtNombre').value;
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
-    let FechaActualizacion = document.getElementById('dateFechaActualizacion').value;
-    console.log(nombre)
-    console.log(FechaCreacion)
-    console.log(FechaActualizacion)
+    let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
+  
 
-    if(nombre == '' || FechaCreacion == '' || FechaActualizacion == '' ) {
+    if(nombre == '' || fecha_creacion == '' || fechaActualizacion == '' ) {
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
@@ -68,9 +69,10 @@ formNuevaCaja.onsubmit = function(e){
     request.send(formData);
     request.onreadystatechange = function() {
 
-        if ( request.readyState == 4 && request.status == 200) 
+       if ( request.readyState == 4 && request.status == 200) 
         {
             let objData = JSON.parse(request.responseText);
+          
             if(objData.estatus == true){
                 Swal.fire({
                     icon: 'succes',
@@ -100,7 +102,7 @@ formNuevaCaja.onsubmit = function(e){
         return false;
     }
     }
-}
+
 
 //Funcion eliminar Registro
 
@@ -144,4 +146,5 @@ function fnEliminar(value)
           )*/
         }
       })
+    }
 }

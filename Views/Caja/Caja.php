@@ -15,7 +15,7 @@
           </div>
           <div class="col-sm-5">
             <ol class="breadcrumb float-sm-right btn-block">
-            <button type="button" id= "btn-caja" onclick="openModal();" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#modalCaja"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>
+            <button type="button" id= "btn-caja" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#modalCaja"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>
             <!--<button type="button" onclick="openModal();" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#ModalFormRol"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>-->
               <!--<li class="breadcrumb-item"><i class="fa fa-home fa-md"></i><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="<?= base_url(); ?>/roles"><?= $data['page_title'] ?></a></li>-->
@@ -40,11 +40,13 @@
       <thead>
       <tr>
         <th width="7%">#</th>
-        <th>Nombre caja</th>
-        <th width="10%">fecha creacion</th>
-        <th width="10%">fecha actualizacion</th>
+        <th>id</th>
+        
+        <th width="10%">Nombre</th>
+        <th width="15%">FechaCreacion</th>
+        <th width="15%">FechaActualizacion</th>
         <th width="15%">Estatus</th>
-        <th width="15%">idCaja</th>
+       
     
 
       </tr>

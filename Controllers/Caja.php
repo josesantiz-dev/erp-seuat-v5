@@ -30,12 +30,9 @@
     
        public function getCaja()
     {
-        $data = "";
-        $data['page_functions_js'] = "functions_caja.js";
 
-        $this->views->getView($this,"caja",$data);
         
-        $arrCaja = $this->model->selectCaja();
+        $arrCaja = $this->model->selectCajas();
         //var_dump($arrCaja);
         echo(json_encode($arrCaja,JSON_UNESCAPED_UNICODE));
         //echo dep($data);
@@ -61,14 +58,18 @@
     {
         $arrDatos = $_POST;
 
-        $nombreCaja = $arrDatos['txtNombreCaja'];
-        $fechaCreacion = $arrDatos['dateFechaCreacion'];
-        $fechaActualizacion = $arrDatos['dateFechaActualizacion'];
-        $estatus = 1;
         $idCaja =5;
+        $nombre = $arrDatos['txtNombre'];
+        //$NombreAtiende = $arrDatos['NombreAtiende'];
+        $fechaCreacion = $arrDatos['dateFechaCreacion'];
+        $fechaActualizacion = $arrDatos['datefechaActualizacion'];
+        //$NombrePlantel = $arrDatos['NombrePlantel'];
+        //$NombreSistemaEducativo = $arrDatos['NombreSistemaEducativo'];
+        $estatus = 1;
+        
 
 
-        $response = $this->model->insertNuevaCaja($nombreCaja,$fechaCreacion,$fechaActualizacion,$estatus,$idCaja);
+        $response = $this->model->insertNuevaCaja($idCaja,$nombre,$fechaCreacion,$fechaActualizacion,$estatus,);
         if($response){
             $arrResponse = array ('estatus' => true, 'msg' => 'Se inserto correctamente el registro');
        
