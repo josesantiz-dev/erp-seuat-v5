@@ -68,7 +68,7 @@ class Usuario extends Controllers
 		$arrDatos = $_POST;
 		$arrFiles = $_FILES;
 		$nickname = $arrDatos['txtNickname'];
-		$password = $arrDatos['txtPassword'];
+		$password = hash("SHA256" ,$arrDatos['txtPassword']);
 		$rol = $arrDatos['txtRol'];
 		$persona = $arrDatos['txtNombrePersona'];
 		$imagen = $arrFiles['profileImageUsuario']['name'];

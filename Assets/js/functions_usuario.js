@@ -208,3 +208,9 @@ function displayImageUsuario(e) {
     reader.readAsDataURL(e.files[0]);
   }
 }
+
+document.getElementById("togglePass").addEventListener('click',function (e) {
+  const type = document.querySelector('#txtPassword').getAttribute('type') === 'password' ? 'text' : 'password';
+  document.querySelector('#txtPassword').setAttribute('type',type);
+  this.classList.toggle('fa-eye-slash');
+});

@@ -13,9 +13,16 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="label">Nombre de usuario:</label>
                         <input type="text" class="form-control" id="txtNickname" name="txtNickname" maxlength="20" required>
+
                         <label for="exampleInputEmail1" class="label">Contraseña:</label>
-                        <input type="text" class="form-control" id="txtPassword" name="txtPassword" type="password" maxlength="20" required>
-                        <input type="checkbox" onclick="vistaPss()">  Ver contraseña <br>                 
+                        <div class="input-group mb-3">
+          <input type="password" id="txtPassword" name="txtPassword" class="form-control" maxlength="20" require>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <i class="far fa-eye mr-2" id="togglePass" style="color:#045FB4"></i>
+            </div>
+          </div>
+        </div>     
                         <label for="exampleInputEmail1" class="label">Imagen</label>
                         <div class="form-group col-md-20">
                             <div class="card">
