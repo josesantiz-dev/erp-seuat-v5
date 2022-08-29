@@ -10,6 +10,21 @@
             </div>
             <form id="formNuevoUsuario">
                 <div class="modal-body">
+
+                <label for="exampleInputEmail1" class="label">Persona</label>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="txtNombrePersona" name="txtNombrePersona">
+                                <?php
+                                for ($i = 0; $i < count($data['personas']); $i++) { ?>
+                                    <option value="<?php echo ($data['personas'][$i]['id']) ?>"><?php
+                                                                                                echo ($data['personas'][$i]['nombre_persona']." ".$data['personas'][$i]['ap_paterno']." ".$data['personas'][$i]['ap_materno']);                                                                                           
+                                                                                                ?></option>
+
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="label">Nombre de usuario:</label>
                         <input type="text" class="form-control" id="txtNickname" name="txtNickname" maxlength="20" required>
@@ -59,45 +74,12 @@
     <option value="3">Maestro</option> -->
                             </select>
                         </div>
-                        <label for="exampleInputEmail1" class="label">Persona</label>
-                        <div class="input-group mb-3">
-                            <select class="custom-select" id="txtNombrePersona" name="txtNombrePersona">
-                                <?php
-                                for ($i = 0; $i < count($data['personas']); $i++) { ?>
-                                    <option value="<?php echo ($data['personas'][$i]['id']) ?>"><?php
-                                                                                                echo ($data['personas'][$i]['nombre_persona']);
-                                                                                                ?></option>
-
-                                <?php
-                                }
-                                ?>
-                                <!--<option selected>Seleccionar...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option> -->
-                            </select>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
+                            </div>
+                            </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" icon="Sucess" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
-
-                <script type="text/javascript">
-	function vistaPass(){
-		var x = document.getElementById("txtPassword");
-		if (x.type==="password"){
-			x.type="text";
-		}else{
-			x.type="password";
-		}
-	}
-</script>
             </form>
         </div>
     </div>

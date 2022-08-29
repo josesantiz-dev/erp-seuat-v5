@@ -42,7 +42,8 @@ getModal("Usuario/modalEditUsuario", $data);
                                     <thead>
                                         <tr>
                                             <th width="7%">#</th>
-                                            <th>Usuario</th>
+                                            <th width="15%">Usuario</th>
+                                            <th width="15%">Persona</th>
                                             <th width="10%">estatus</th>
                                             <th width="10%">Sesion</th>
                                             <th width="15%">Fecha de conexion</th>
@@ -60,7 +61,7 @@ getModal("Usuario/modalEditUsuario", $data);
 
 
                     </div>
-
+</div>
                 </div>
             </div>
         </div>
@@ -73,7 +74,7 @@ getModal("Usuario/modalEditUsuario", $data);
 
 
 
-
+</div>
 </div>
 </div>
 </div>

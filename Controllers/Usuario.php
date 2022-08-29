@@ -47,6 +47,7 @@ class Usuario extends Controllers
 
 	public function getListaUsuarios()
 	{
+		$arrPersonas = $this -> model -> selectPersonas();
 		$arrUsuarios = $this->model->selectUsuarios();
 		for ($i = 0; $i < count($arrUsuarios); $i++) {
 			$arrUsuarios[$i]["numeracion"] = $i + 1;

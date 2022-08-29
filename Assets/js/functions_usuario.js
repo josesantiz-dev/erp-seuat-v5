@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     columns: [
 		{ data: "numeracion" },
 		{ data: "nickname" },
+    { data: "nombre_persona" },
 		{ data: "estatus" },
 		{ data: "sesion" },
       { data: "fecha_conexion" },
