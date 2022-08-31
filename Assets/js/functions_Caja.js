@@ -41,18 +41,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-console.log(btnNuevaCaja);
+//console.log(btnNuevaCaja);
 
 let formNuevaCaja = document.querySelector('#formCaja');
 formNuevaCaja.onsubmit = function(e){
     e.preventDefault();
     
     let nombre = document.getElementById('txtNombre').value;
+    let id_usuario_atiende = document.getElementById('txtid_usuario_atiende').value;
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
     let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
+    let id_planteles = document.getElementById('stringid_planteles').value;
+    console.log(nombre)
+    console.log(id_usuario_atiende)
+    console.log(fecha_creacion)
+    console.log(fechaActualizacion)
+    console.log(id_planteles)
+    console.log(id_sistemas_educativos)
+  
   
 
-    if(nombre == '' || fecha_creacion == '' || fechaActualizacion == '' ) {
+    if(nombre == '' || id_usuario_atiende == '' || fecha_creacion == '' || fechaActualizacion == '' || id_planteles == '' || id_sistemas_educativos == '') {
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
@@ -75,10 +84,11 @@ formNuevaCaja.onsubmit = function(e){
           
             if(objData.estatus == true){
                 Swal.fire({
-                    icon: 'succes',
-                    title: 'Exito!',
-                    text: objData.msg,
-                    
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Se guardo correctamente',
+                    showConfirmButton: false,
+                    timer: 1500
                   })
 
             }else{
@@ -134,7 +144,8 @@ function fnEliminar(value)
                         'Error!',
                         response.msg,
                         'Error',
-                        icon: warning
+                       
+                
                         
                     )
                }
@@ -142,11 +153,11 @@ function fnEliminar(value)
                tableCajas.api().ajax.reload();
             
             }).catch(err => {throw err});
-            /*Swal.fire(
+        /*Swal.fire(
             'Eliminado!',
             'El registro actual se ha eliminado.',
             'success'
-          )*/
+          )¨*/
         }
       })
     }

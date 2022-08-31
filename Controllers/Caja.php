@@ -60,16 +60,16 @@
 
         
         $nombre = $arrDatos['txtNombre'];
-        //$NombreAtiende = $arrDatos['NombreAtiende'];
+        $id_usuario_atiende = $arrDatos['txtid_usuario_atiende'];
         $fechaCreacion = $arrDatos['dateFechaCreacion'];
         $fechaActualizacion = $arrDatos['datefechaActualizacion'];
-        //$NombrePlantel = $arrDatos['NombrePlantel'];
-        //$NombreSistemaEducativo = $arrDatos['NombreSistemaEducativo'];
+        $id_planteles = $arrDatos['id_planteles'];
+        $id_sistemas_educativos = $arrDatos['id_sistemas_educativos'];
         $estatus = 1;
         
 
 
-        $response = $this->model->insertNuevaCaja($nombre,$fechaCreacion,$fechaActualizacion,$estatus,);
+        $response = $this->model->insertNuevaCaja($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$id_planteles,$id_sistemas_educativos,$estatus,);
         if($response){
             $arrResponse = array ('estatus' => true, 'msg' => 'Se inserto correctamente el registro');
        

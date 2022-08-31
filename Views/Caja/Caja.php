@@ -43,8 +43,11 @@
         <th>id</th>
         
         <th width="10%">Nombre</th>
+        <th width="15%">Atiende</th>
         <th width="15%">FechaCreacion</th>
         <th width="15%">FechaActualizacion</th>
+        <th width="15%">Plantel</th>
+        <th width="15%">Sistema Educativo</th>
         <th width="15%">Estatus</th>
        
     
