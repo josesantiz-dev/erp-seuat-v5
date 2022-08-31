@@ -10,7 +10,16 @@
         
         public function selectUsuarios()
         {
-            $sql = "select *from t_usuarios WHERE estatus = 1";
+            $sql = "SELECT CONCAT(per.nombre_persona,' ',per.ap_paterno,' ',per.ap_materno) as nombre_completo, usu.*
+            from t_personas as per
+            inner join t_usuarios as usu
+            on per.id = usu.id_personas  
+            where per.id";
+         /*    $sql = "SELECT * 
+            from t_personas  as per
+            inner join t_usuarios as usu
+            on per.id = usu.id_personas  
+            where per.id"; */
             $request = $this -> select_all ($sql);
             return $request; 
         }

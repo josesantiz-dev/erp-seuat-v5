@@ -46,7 +46,9 @@ class Usuario extends Controllers
 		$arrUsuarios = $this->model->selectUsuarios();
 		for ($i = 0; $i < count($arrUsuarios); $i++) {
 			$arrUsuarios[$i]["numeracion"] = $i + 1;
-			$arrUsuarios[$i]["estatus"] = ($arrUsuarios[$i]["estatus"] == 1) ?
+			$arrUsuarios[$i]["nombre_completo"] = ($arrUsuarios[$i]["nombre_completo"]);
+			//$arrUsuarios[$i]["nombre_persona"] = ($arrUsuarios[$i]["nombre_persona"])." ".($arrUsuarios[$i]["ap_paterno"]);
+ 			$arrUsuarios[$i]["estatus"] = ($arrUsuarios[$i]["estatus"] == 1) ?
 				'<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>
       ';
 			$arrUsuarios[$i]["sesion"] = ($arrUsuarios[$i]["sesion"] == 1) ?

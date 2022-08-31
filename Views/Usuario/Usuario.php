@@ -43,6 +43,7 @@ getModal("Usuario/modalEditUsuario", $data);
                                         <tr>
                                             <th width="7%">#</th>
                                             <th>Usuario</th>
+                                            <th>Persona</th>
                                             <th width="10%">estatus</th>
                                             <th width="10%">Sesion</th>
                                             <th width="15%">Fecha de conexion</th>
