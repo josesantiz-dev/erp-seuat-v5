@@ -29,12 +29,6 @@ class Usuario extends Controllers
 		$this->views->getView($this, "Usuario", $data);
 	}
 
-	public function getRoles()
-	{
-		$data['roles'] = $this->model->getRoles();
-		$this->views->getView($this, "roles", $data);
-	}
-
 	public function getUsuarios()
 	{
 		$data['page_functions_js'] = "functions_usuario.js";
@@ -44,10 +38,11 @@ class Usuario extends Controllers
 		// var_dump ($arrUsuarios); 
 		//echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
 	}
-
+     
+	// Funcion para visualizar usuarios en la tabla 
 	public function getListaUsuarios()
 	{
-		$arrPersonas = $this -> model -> selectPersonas();
+        
 		$arrUsuarios = $this->model->selectUsuarios();
 		for ($i = 0; $i < count($arrUsuarios); $i++) {
 			$arrUsuarios[$i]["numeracion"] = $i + 1;
@@ -63,11 +58,11 @@ class Usuario extends Controllers
 		echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
 	}
 
-	//Funcion nuevo Usuario
+	// Funcion nuevo Usuario
 	public function setNuevoUsuario()
 	{
 		$arrDatos = $_POST;
-		$arrFiles = $_FILES;
+		$arrFiles = $_FILES; 
 		$nickname = $arrDatos['txtNickname'];
 		$password = hash("SHA256" ,$arrDatos['txtPassword']);
 		$rol = $arrDatos['txtRol'];
@@ -89,8 +84,8 @@ class Usuario extends Controllers
 
 
 
-//Funcion para chexcar Estatus Ususario
-	public function setEstatusUsuario($valor)
+// Funcion para checar Estatus Ususario
+ 	public function setEstatusUsuario($valor)
 	{
 		$arrResponse = $this->model->updateEstatusUsuario($valor);
 		if ($arrResponse) {
@@ -104,23 +99,27 @@ class Usuario extends Controllers
 	public function getUsuario(int $id)
 	{
 		$arrDatos = $this->model->selectUsuario($id);
-		echo (json_encode($arrDatos, JSON_UNESCAPED_UNICODE));
+		echo (json_encode($arrDatos, JSON_UNESCAPED_UNICODE)); 
 	}
+
+	// Funcion para editar usuario
 	public function setEditUsuario()
 	{
 		$arrDatos = $_POST;
-		$nickname = $arrDatos['txtNickname'];
-		$estatus = $arrDatos['txtEstatus'];
-		$imagen = $arrDatos['Imagen'];
-		$rol = $arrDatos['txtRol'];
-		$persona = $arrDatos['txtPersona'];
-		$idUser = 10;
-		$arrResponse = $this->model->updateUsuario($nickname, $estatus, $imagen, $rol, $persona);
+		$arrFiles = $_FILES;
+		$nickname = $arrDatos['txtNicknameEdit'];
+		$password = hash("SHA256" ,$arrDatos['txtPasswordEdit']);
+		$rol = $arrDatos['txtRolEdit'];
+		$persona = $arrDatos['txtNombrePersonaEdit'];
+		$imagen = $arrFiles['profileImageUsuarioEdit']['name'];
+		$idusuario = $arrDatos['txtIdUsuario'];
+		//$idUser = 10;
+		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagen, $idusuario);
 		if ($arrResponse) {
-			$response = array('estatus' => true, 'msg' => 'SE ACTUALIZO CORRECTAMENTE :) ');
+			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
 		} else {
-			$response = array('estatus' => false, 'msg' => 'NO SE PUDO ACTUALIZAR :( ');
+			$response = array('estatus' => false, 'msg' => 'No se pudo actualizar');
 		}
 		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
-	}
+	} 
 }

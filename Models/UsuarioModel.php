@@ -16,17 +16,17 @@
         }
 
         //Insertar un nuevo usuario
-        public function insertNuevoUsuario(string $nickname, string $password, int $rol, int $persona, int $estatus, string $imagen )
+        public function insertNuevoUsuario(string $nickname, string $password, int $rol, int $persona, int $estatus, string $imagen)
         {
             $sql = "insert into t_usuarios 
             (nickname, password, id_roles, id_personas, estatus, imagen)
             Values (?, ?, ?, ?, ?, ?)";
-            $request = $this ->  insert ($sql,array($nickname, $password, $rol, $persona, $estatus , $imagen));
+            $request = $this ->  insert ($sql,array($nickname, $password, $rol, $persona, $estatus, $imagen));
             return $request;
         }
 
-        
-        public function updateEstatusUsuario(int $id)
+         
+         public function updateEstatusUsuario(int $id)
         {
             $sql = "UPDATE t_usuarios SET estatus = ? WHERE id = $id";
             $request = $this -> update($sql, array(2));
@@ -40,13 +40,13 @@
            return $request;
         }
 
-        public function updateUsuario(string $nickname, string $sesion, int $idUsuario, string $fecha_conexion, string $rol, int $idUser)
+         public function updateUsuario(string $nickname, string $password, int $rol, int $persona, string $imagen, int $idusuario)
         {
-            $sql = "UPDATE t_usuarios SET nickname = ?, sesion = ?, rol = ?, fecha_conexion = NOW(), id_personas = ? WHERE id =  $idUsuario";
-            $request = $this -> update ($sql, array($nickname, $sesion, $rol, $fecha_conexion, $idUsuario,  $idUser));
+            $sql = "UPDATE t_usuarios SET nickname = ?, password = ?, id_roles = ?, id_personas = ?, imagen = ?  WHERE id =  $idusuario";
+            $request = $this -> update ($sql, array($nickname, $password, $rol, $persona, $imagen));
             return $request;
   
-        }
+        } 
         public function selectRoles()
         {
             $sql = "SELECT *from t_roles WHERE estatus = 1";

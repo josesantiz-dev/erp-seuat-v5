@@ -16,11 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
     columns: [
 		{ data: "numeracion" },
 		{ data: "nickname" },
-    { data: "nombre_persona" },
 		{ data: "estatus" },
 		{ data: "sesion" },
-      { data: "fecha_conexion" },
-      { data: "acciones" },
+    { data: "fecha_conexion" },
+    { data: "acciones" },
     ],
     responsive: true,
     paging: true,
@@ -125,30 +124,25 @@ function fnActualizar(id) {
   fetch(url)
     .then((res) => res.json())
     .then((response) => {
-      document.getElementById("txtNombreUsuarioEdit").value = response.nickname;
-      document.getElementById("txtEstatusEdit").value = response.estatus;
-      document.getElementById("txtImgenEdit").value = response.imagen;
+      document.getElementById("txtNicknameEdit").value = response.nickname;
+      document.getElementById("txtPasswordEdit").value = response.estatus;
+      document.getElementById("profileImageUsuarioEdit").src = response.imagen;
       document.getElementById("txtRolEdit").value = response.id_roles;
-      document.getElementById("txtNombrePersonaEdit").value =
-        response.id_personas;
+      document.getElementById("txtNombrePersonaEdit").value = response.id_personas;
       document.getElementById("txtIdUsuario").value = response.id;
     });
-}
+} 
 
 formEditUsuario.onsubmit = function (e) {
   e.preventDefault();
-  let NombreUsuarioEdit = document.getElementById("txtNombreUsuarioEdit").value;
-  let nombreEstatusEdit = document.getElementById("txtEstatusEdit").value;
-  let nombreImgenEdit = document.getElementById("txtImgenEdit").value;
+  let NombreUsuarioEdit = document.getElementById("txtNicknameEdit").value;
+  let nombrePasswordEdit = document.getElementById("txtPasswordEdit").value;
+  let nombreImagenEdit = document.getElementById("profileImageUsuarioEdit").src; 
   let nombreRolEdit = document.getElementById("txtRolEdit").value;
   let nombrePersonaEdit = document.getElementById("txtNombrePersonaEdit").value;
   if (
     NombreUsuarioEdit == "" ||
-    nombreEstatusEdit == "" ||
-    nombreFechaRegistroEdit == "" ||
-    nombreImgenEdit == "" ||
-    nombreRolEdit == "" ||
-    nombrePersonaEdit == ""
+    nombrePasswordEdit == "" 
   ) {
     Swal.fire({
       icon: "error",
@@ -186,14 +180,14 @@ formEditUsuario.onsubmit = function (e) {
     }
     return false;
   };
-};
+}; 
 
 function openModal() {}
 
+// Funcion para agregar imagen al usuario
 function buscarImagenUsuario(e) {
   document.querySelector("#profileImageUsuario").click();
 }
-
 function displayImageUsuario(e) {
   if (e.files[0]) {
     var reader = new FileReader();
@@ -210,8 +204,36 @@ function displayImageUsuario(e) {
   }
 }
 
+// Funcion para visualizar pass
 document.getElementById("togglePass").addEventListener('click',function (e) {
   const type = document.querySelector('#txtPassword').getAttribute('type') === 'password' ? 'text' : 'password';
   document.querySelector('#txtPassword').setAttribute('type',type);
+  this.classList.toggle('fa-eye-slash');
+});
+
+// Funcion de actualizar imagen de usuario
+function buscarImagenUsuarioEdit(e) {
+  document.querySelector("#profileImageUsuarioEdit").click();
+}
+function displayImageUsuarioEdit(e) {
+  if (e.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document
+        .querySelector("#profileDisplayUsuarioEdit")
+        .setAttribute("src", e.target.result);
+      document.getElementById("btnBuscarImagenUsuarioEdit").textContent = "Cambiar";
+      document
+        .querySelector("#btnBuscarImagenUsuarioEdit")
+        .classList.replace("btn-primary", "btn-warning");
+    };
+    reader.readAsDataURL(e.files[0]);
+  }
+}
+
+// Funcion para ver pass en editar usuario
+document.getElementById("togglePassEdit").addEventListener('click',function (e) {
+  const type = document.querySelector('#txtPasswordEdit').getAttribute('type') === 'password' ? 'text' : 'password';
+  document.querySelector('#txtPasswordEdit').setAttribute('type',type);
   this.classList.toggle('fa-eye-slash');
 });
