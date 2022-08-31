@@ -24,14 +24,13 @@
     <label for="exampleInputEmail1" class="label">Usuario Actualizacion</label>
     <input type="text" class="form-control" id="txtUsuario Actualizacion" name="txtUsuario Actualizacion" required>
 
-    <label for="start">fecha Creacion:</label>
-
-<input type="date" id="dateFechaCreacion" name="dateFechaCreacion"
+    <label for="exampleInputEmail1" class="label">Fecha Creacion</label>
+    <input type="date" class="form-control" id="dateFechaCreacion" name="dateFechaCreacion"
        value="2018-07-22"
-       min="2018-01-01" max="2018-12-31" required>
+       min="2010-01-01" max="2022-12-31" required>
 
-       <label for="start">fecha Actualizacion:</label>
-
-<input type="date" id="datefechaActualizacion" name="datefechaActualizacion"
+       
+       <label for="exampleInputEmail1" class="label">Fecha Actualizacion</label>
+       <input type="date" class="form-control" id="datefechaActualizacion" name="datefechaActualizacion"
        value="2018-07-22"
-       min="2018-01-01" max="2018-12-31" required>
+       min="2010-01-01" max="2022-12-31" required>

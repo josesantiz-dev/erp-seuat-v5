@@ -29,6 +29,24 @@
 
     <label for="exampleInputEmail1" class="label">Sistema Educativo</label>
     <input type="text" class="form-control" id="Sistema Educativo" name="Sistema Educativo" required>
+
+    
+    <label for="exampleInputEmail1" class="label">Usuario Creacion</label>
+    <input type="text" class="form-control" id="txtUsuario Creacion" name="txtUsuario Creacion" required>
+    
+    <label for="exampleInputEmail1" class="label">Usuario Actualizacion</label>
+    <input type="text" class="form-control" id="txtUsuario Actualizacion" name="txtUsuario Actualizacion" required>
+
+    <label for="exampleInputEmail1" class="label">Fecha Creacion</label>
+    <input type="date" class="form-control" id="dateFechaCreacion" name="dateFechaCreacion"
+       value="2018-07-22"
+       min="2010-01-01" max="2022-12-31" required>
+
+       
+       <label for="exampleInputEmail1" class="label">Fecha Actualizacion</label>
+       <input type="date" class="form-control" id="datefechaActualizacion" name="datefechaActualizacion"
+       value="2018-07-22"
+       min="2010-01-01" max="2022-12-31" required>
  
  
     

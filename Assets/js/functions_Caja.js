@@ -51,7 +51,7 @@ formNuevaCaja.onsubmit = function(e){
     let id_usuario_atiende = document.getElementById('txtid_usuario_atiende').value;
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
     let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
-    let id_planteles = document.getElementById('stringid_planteles').value;
+    let id_planteles = document.getElementById('txtid_planteles').value;
     console.log(nombre)
     console.log(id_usuario_atiende)
     console.log(fecha_creacion)
