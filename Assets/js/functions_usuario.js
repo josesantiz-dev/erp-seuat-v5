@@ -126,7 +126,6 @@ function fnActualizar(id) {
     .then((res) => res.json())
     .then((response) => {
       document.getElementById("txtNicknameEdit").value = response.nickname;
-      document.getElementById("txtPasswordEdit").value = response.estatus;
       document.getElementById("profileImageUsuarioEdit").src = response.imagen;
       document.getElementById("txtRolEdit").value = response.id_roles;
       document.getElementById("txtNombrePersonaEdit").value = response.id_personas;

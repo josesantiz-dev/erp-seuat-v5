@@ -8,7 +8,7 @@
 	date_default_timezone_set('America/Mexico_City');
 	//const LIBS = "Libraries/";
 	//const VIEWS = "Views/";
-	const DB_HOST = "10.10.124.26";
+	const DB_HOST = "10.10.132.207";
 	const DB_NAME = "erpseuat";
 	const DB_USER = "usr_seuat_practicante";
 	const DB_PASSWORD = "seuat.2022";

@@ -71,7 +71,7 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersona'];
 		$imagen = $arrFiles['profileImageUsuario']['name'];
 		$estatus = 1;
-		//$idUser = 5;
+		$idUser = 10;
 
 		 $response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagen);
 		if ($response) {

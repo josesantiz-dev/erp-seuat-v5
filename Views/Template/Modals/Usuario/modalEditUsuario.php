@@ -33,6 +33,9 @@
                         <input type="text" class="form-control" id="txtNicknameEdit" name="txtNicknameEdit" maxlength="20" required>
 
                         <label for="exampleInputEmail1" class="label">Contraseña:</label>
+                        <input disabled="text" class="form-control" id="password" name="password" placeholder="********" required>
+
+                        <label for="exampleInputEmail1" class="label">Contraseña nueva:</label>
                         <div class="input-group mb-3">
           <input type="password" id="txtPasswordEdit" name="txtPasswordEdit" class="form-control" maxlength="20" require>
           <div class="input-group-append">

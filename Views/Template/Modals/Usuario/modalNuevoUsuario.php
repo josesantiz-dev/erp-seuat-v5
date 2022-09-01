@@ -13,7 +13,7 @@
 
                 <label for="exampleInputEmail1" class="label">Persona</label>
                         <div class="input-group mb-3">
-                            <select class="custom-select" id="txtNombrePersona" name="txtNombrePersona">
+                            <select class="custom-select" id="txtNombrePersona" name="txtNombrePersona"  >
                                 <?php
                                 for ($i = 0; $i < count($data['personas']); $i++) { ?>
                                     <option value="<?php echo ($data['personas'][$i]['id']) ?>"><?php
