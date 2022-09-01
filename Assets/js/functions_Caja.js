@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', function(){
         },
         "columns":[
             {"data":"id"},
-            {"data":"id_usuario_atiende"},
             {"data":"nombre"},
+            {"data":"id_usuario_atiende"},
+            
             {"data":"fecha_creacion"},
             {"data":"fecha_actualizacion"},
             {"data":"id_planteles"},
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 //console.log(btnNuevaCaja);
 
-let formNuevaCaja = document.querySelector('#formCaja');
+let formNuevaCaja = document.querySelector('#formNuevaCaja');
 formNuevaCaja.onsubmit = function(e){
     e.preventDefault();
     

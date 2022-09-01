@@ -15,13 +15,13 @@
             return $request;
         }
 
-        public function insertNuevaCaja($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$id_sistemas_educativos,$estatus)
+        public function insertNuevaCaja(string $nombre,string $id_usuario_atiende,string $fechaCreacion,string $fechaActualizacion,int $id_planteles,int $id_sistemas_educativos,int $estatus)
 		{
 			$sql = "insert into t_cajas(
-				nombre, fecha_creacion, fecha_actualizacion, estatus) 
+				nombre, id_usuario_atiende, fecha_creacion, fecha_actualizacion, id_sistemas_educativos, estatus) 
 				values(?,?,?,?,?)";
 
-				$request = $this->insert($sql,array( $nombre, $id_usuario_atiende, $fechaCreacion, $fechaActualizacion, $id_sistemas_educativos, $estatus));
+				$request = $this->insert($sql,array($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$id_planteles,$id_sistemas_educativos,$estatus));
 				return $request;
             }
 

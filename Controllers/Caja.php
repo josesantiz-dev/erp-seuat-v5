@@ -44,7 +44,7 @@
         for($i = 0; $i < count($arrCaja); $i++){
             $arrCaja[$i]["numeracion"] = $i +1;
 
-            $arrCaja[$i]["status"] = ($arrCaja[$i]['estatus'] == 1 )?
+            $arrCaja[$i]["estatus"] = ($arrCaja[$i]['estatus'] == 1 )?
             '<span class="badge badge-success">Activo</span>':'<span class="badge badge-warning">Inactivo</span>';
             
             $arrCaja[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm">Actualizar</button> <button type="button" class="btn btn-danger btn-sm" 
@@ -87,9 +87,11 @@
         $arrResponse = $this->model->updateEstatusCaja($valor); 
         if($arrResponse){
             $response = array ('estatus' => true, 'msg' => 'Se elimino correctamente');
+           
        
         }else{
             $response = array ('estatus' => false, 'msg' => 'No se pudo eliminar');
+            
 
         }
         echo(json_encode($response,JSON_UNESCAPED_UNICODE));
