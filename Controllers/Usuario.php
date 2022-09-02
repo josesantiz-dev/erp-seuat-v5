@@ -2,20 +2,21 @@
 class Usuario extends Controllers
 {
 	private $idUser;
-	private $rol;
+	//private $rol;
 	public function __construct()
 	{
 		parent::__construct();
 		session_start();
-		/* if(empty($_SESSION['login']))
+		if(empty($_SESSION['login']))
         {
             header('Location: '.base_url().'/login');
             die();
         }
         $this->idUser = $_SESSION['idUser'];
-        $this->rol = $_SESSION['claveRol'];*/
+       // $this->rol = $_SESSION['claveRol'];
 	}
-
+	
+    //Funcion para ver usuarios en la web 
 	public function Usuario()
 	{
 		$data['page_id'] = 2;
@@ -28,7 +29,7 @@ class Usuario extends Controllers
 		$data['personas'] = $this->model->selectPersonas();
 		$this->views->getView($this, "Usuario", $data);
 	}
-
+    //Funcion para traer usuarios 
 	public function getUsuarios()
 	{
 		$data['page_functions_js'] = "functions_usuario.js";
@@ -45,9 +46,12 @@ class Usuario extends Controllers
         
 		$arrUsuarios = $this->model->selectUsuarios();
 		for ($i = 0; $i < count($arrUsuarios); $i++) {
+
 			$arrUsuarios[$i]["numeracion"] = $i + 1;
+
 			$arrUsuarios[$i]["nombre_completo"] = ($arrUsuarios[$i]["nombre_completo"]);
 			//$arrUsuarios[$i]["nombre_persona"] = ($arrUsuarios[$i]["nombre_persona"])." ".($arrUsuarios[$i]["ap_paterno"]);
+
  			$arrUsuarios[$i]["estatus"] = ($arrUsuarios[$i]["estatus"] == 1) ?
 				'<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>
       ';
@@ -71,14 +75,13 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersona'];
 		$imagen = $arrFiles['profileImageUsuario']['name'];
 		$estatus = 1;
-		$idUser = 10;
 
-		 $response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagen);
+		$response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagen, $this->idUser);
 		if ($response) {
 			$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
 		} else {
 			$arrResponse = array('estatus' => false, 'msg' => 'No se puedo ingresar el nuevo usuario');
-		}
+		} 
 		echo (json_encode($arrResponse, JSON_UNESCAPED_UNICODE));
 		die();
 	}
@@ -86,7 +89,7 @@ class Usuario extends Controllers
 
 
 
-// Funcion para checar Estatus Ususario
+    // Funcion para checar Estatus Ususario
  	public function setEstatusUsuario($valor)
 	{
 		$arrResponse = $this->model->updateEstatusUsuario($valor);
@@ -98,6 +101,7 @@ class Usuario extends Controllers
 		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 	}
 
+    //Funcion para traer usuario	
 	public function getUsuario(int $id)
 	{
 		$arrDatos = $this->model->selectUsuario($id);
@@ -115,8 +119,8 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersonaEdit'];
 		$imagen = $arrFiles['profileImageUsuarioEdit']['name'];
 		$idusuario = $arrDatos['txtIdUsuario'];
-		//$idUser = 10;
-		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagen, $idusuario);
+		
+		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagen, $idusuario, $this->idUser);
 		if ($arrResponse) {
 			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
 		} else {

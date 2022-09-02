@@ -39,16 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
   $("#tableusuarios").DataTable();
 });
 
-
-
+//Formulario para nuevo usuario
 formNuevoUsuario.onsubmit = function (e) {
-  e.preventDefault();
+  e.preventDefault()
   let nombreUsuario = document.getElementById("txtNickname").value;
   let nombrePassword = document.getElementById("txtPassword").value;
   let nombreImgen = document.getElementById("profileImageUsuario").src;
   let nombreRol = document.getElementById("txtRol").value;
   let nombrePersona = document.getElementById("txtNombrePersona").value;
-  if (nombreUsuario == "" || nombrePassword == "") {
+  if (nombreUsuario == "" || nombrePassword == "" || nombreRol == "" || nombrePersona == "") {
     Swal.fire({
       icon: "error",
       title: "Campo vacio",
@@ -66,8 +65,8 @@ formNuevoUsuario.onsubmit = function (e) {
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       let objData = JSON.parse(request.responseText);
-	  
-       if (objData.estatus == true) {
+	  //console.log(objData)
+        if (objData.estatus == true) {
         Swal.fire({
           icon: "success",
           title: "Exito...!",
@@ -79,7 +78,7 @@ formNuevoUsuario.onsubmit = function (e) {
           title: "Error...!",
           text: objData.msg,
         });
-      } 
+      }  
       formNuevoUsuario.reset();
       tableUsuarios.api().ajax.reload();
       $(".close").click(); 
@@ -91,34 +90,45 @@ formNuevoUsuario.onsubmit = function (e) {
 
 
 //FUNCION ELIMINAR REGISTRO
-function fnEliminar(value) {
-  Swal.fire({
-    title: "¿Desea eliminar?",
-    text: "Esta accion no se podra desacer!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Si, estoy seguro!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      let url = base_url + " /Usuario/setEstatusUsuario/ " + value;
-      fetch(url)
-        .then((res) => res.json())
-        .then((response) => {
-          if (response.estatus) {
-            Swal.fire("Eliminado!", response.msg, "success");
-          } else {
-            Swal.fire("Error!", response.msg, "Error!");
-          }
-          tableUsuarios.api().ajax.reload();
-        })
-        .catch((err) => {
-          throw err;
-        });
-    }
-  });
-}
+function fnEliminar(value)
+        {
+            Swal.fire({
+                title: '¿Desea eliminar?',
+                text: "Esta accion no se podra desacer!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, estoy seguro!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    let url = base_url + " /Usuario/setEstatusUsuario/ " + value;
+                    fetch (url). then(res => res.json()).then (response => {
+                        if(response.estatus)
+                        {
+                            Swal.fire(
+                                'Eliminado!',
+                                response.msg,
+                                'success'
+                              )
+
+                        }else{
+                            Swal.fire(
+                                'Error!',
+                                response.msg,
+                                'Error!'
+                              )
+
+
+                        }
+                        tableGeneraciones.api().ajax.reload();
+
+                    }).catch (err => {throw err});
+                }
+              })
+        }
+
+        //Funcion para actualizar registros 
 function fnActualizar(id) {
   let url = base_url + "/Usuario/getUsuario/" + id;
 
@@ -133,6 +143,7 @@ function fnActualizar(id) {
     });
 } 
 
+ //Formulario para editar registros
 formEditUsuario.onsubmit = function (e) {
   e.preventDefault();
   let NombreUsuarioEdit = document.getElementById("txtNicknameEdit").value;
@@ -142,7 +153,9 @@ formEditUsuario.onsubmit = function (e) {
   let nombrePersonaEdit = document.getElementById("txtNombrePersonaEdit").value;
   if (
     NombreUsuarioEdit == "" ||
-    nombrePasswordEdit == "" 
+    nombreImagenEdit == "" ||
+    nombreRolEdit == "" ||
+    nombrePersonaEdit == "" 
   ) {
     Swal.fire({
       icon: "error",
@@ -182,6 +195,7 @@ formEditUsuario.onsubmit = function (e) {
   };
 }; 
 
+//Funcion para abrir modal
 function openModal() {}
 
 // Funcion para agregar imagen al usuario

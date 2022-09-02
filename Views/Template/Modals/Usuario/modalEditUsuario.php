@@ -1,4 +1,5 @@
-<!-- Modal -->
+<!-- Modal para editar registro de usuarios -->
+
 <div class="modal fade" id="modalEditUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -12,8 +13,8 @@
       <div class="modal-body">
       <label for="exampleInputEmail1" style="display: none;" class="label">id</label>
       <input type="text" class="form-control" id="txtIdUsuario" name="txtIdUsuario" style="display: none;">
-
-      <label for="exampleInputEmail1" class="label">Persona</label>
+    <!-- etiqueta personas -->
+      <label for="exampleInputEmail1" class="label">Persona:</label>
                         <div class="input-group mb-3">
                             <select class="custom-select" id="txtNombrePersonaEdit" name="txtNombrePersonaEdit">
                                 <?php
@@ -27,14 +28,14 @@
                                 ?>
                             </select>
                             </div>
-
+                    <!-- etiqueta Nombre de usuario -->
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="label">Nombre de usuario:</label>
                         <input type="text" class="form-control" id="txtNicknameEdit" name="txtNicknameEdit" maxlength="20" required>
-
+                    <!-- etiqueta Pass -->
                         <label for="exampleInputEmail1" class="label">Contraseña:</label>
                         <input disabled="text" class="form-control" id="password" name="password" placeholder="********" required>
-
+                    <!-- etiqueta pass actualizacion -->
                         <label for="exampleInputEmail1" class="label">Contraseña nueva:</label>
                         <div class="input-group mb-3">
           <input type="password" id="txtPasswordEdit" name="txtPasswordEdit" class="form-control" maxlength="20" require>
@@ -44,8 +45,8 @@
             </div>
           </div>
         </div>     
-
-                         <label for="exampleInputEmail1" class="label">Imagen</label>
+                    <!-- etiqueta Imagen -->
+                         <label for="exampleInputEmail1" class="label">Imagen:</label>
                         <div class="form-group col-md-20">
                             <div class="card">
                                 <div class="card-header row">
@@ -64,8 +65,8 @@
                             </div>
                         </div> 
 
-                        
-                        <label for="exampleInputEmail1" class="label">Rol</label>
+                        <!-- etiqueta Rol -->
+                        <label for="exampleInputEmail1" class="label">Rol:</label>
                         <div class="input-group mb-3">
                             <select class="custom-select" id="txtRolEdit" name="txtRolEdit">
                                 <?php
@@ -87,7 +88,7 @@
                     </div>
 
                 </div>
-
+                <!-- etiqueta Botones  -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" icon="Sucess" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
