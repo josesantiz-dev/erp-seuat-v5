@@ -8,10 +8,11 @@ document.addEventListener('DOMContentLoaded', function(){
         	"url": " "+base_url+"/Assets/plugins/Spanish.json"
         },
         "ajax":{
-            "url": " "+base_url+"/Caja/getCaja",
+            "url": " "+base_url+"/Caja/getListaCaja",
             "dataSrc":""
         },
         "columns":[
+            {"data":"#"},
             {"data":"id"},
             {"data":"nombre"},
             {"data":"id_usuario_atiende"},
