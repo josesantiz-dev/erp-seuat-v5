@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data":"id_planteles"},
             {"data":"id_sistemas_educativos"},
             {"data":"estatus"},
-            {"data":"id"},
-          
+            {"data":"acciones"},
+
+           
         ],
         "responsive": true,
 	    "paging": true,
@@ -53,16 +54,18 @@ formNuevaCaja.onsubmit = function(e){
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
     let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
     let id_planteles = document.getElementById('txtid_planteles').value;
+   
     console.log(nombre)
     console.log(id_usuario_atiende)
     console.log(fecha_creacion)
     console.log(fechaActualizacion)
     console.log(id_planteles)
     console.log(id_sistemas_educativos)
+    
   
   
 
-    if(nombre == '' || id_usuario_atiende == '' || fecha_creacion == '' || fechaActualizacion == '' || id_planteles == '' || id_sistemas_educativos == '') {
+    if(nombre == '' || id_usuario_atiende == '' || fecha_creacion == '' || fechaActualizacion == '' || id_planteles == '' || id_sistemas_educativos == '')
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
@@ -162,4 +165,4 @@ function fnEliminar(value)
         }
       })
     }
-}
+

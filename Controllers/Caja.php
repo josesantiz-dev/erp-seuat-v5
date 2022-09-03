@@ -46,9 +46,15 @@
 
             $arrCaja[$i]["estatus"] = ($arrCaja[$i]['estatus'] == 1 )?
             '<span class="badge badge-success">Activo</span>':'<span class="badge badge-warning">Inactivo</span>';
+
+            /*$arrCaja[$i]['estatus'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "Activo('.$arrCaja[$i]['id'].')"data-toggle="modal" data-target="#modalCaja">Inactivo</button> 
+            <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCaja[$i]['id'].')">Eliminar</button>';*/
             
             $arrCaja[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm">Actualizar</button> <button type="button" class="btn btn-danger btn-sm" 
             onclick="fnEliminar('.$arrCaja[$i]['id'].')" >Eliminar</button>';
+            
+            /*$arrCaja[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCaja[$i]['id'].')"data-toggle="modal" data-target="#modalCaja">Actualizar</button> 
+          <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCaja[$i]['id'].')">Eliminar</button>';*/
         }
         
         echo(json_encode($arrCaja,JSON_UNESCAPED_UNICODE));

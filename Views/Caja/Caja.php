@@ -48,7 +48,10 @@
         <th width="15%">Fecha Actualizacion</th>
         <th width="15%">Plantel</th>
         <th width="15%">Sistema Educativo</th>
+        <th width="15%">acciones</th>
         <th width="15%">Estatus</th>
+        
+       
        
     
 
