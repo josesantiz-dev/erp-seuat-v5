@@ -15,7 +15,7 @@
           </div>
           <div class="col-sm-5">
             <ol class="breadcrumb float-sm-right btn-block">
-            <button type="button" id= "btn-caja" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#modalCaja"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>
+            <button type="button" id= "btn-NuevaCaja" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#modalCaja"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>
             <!--<button type="button" onclick="openModal();" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#ModalFormRol"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>-->
               <!--<li class="breadcrumb-item"><i class="fa fa-home fa-md"></i><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="<?= base_url(); ?>/roles"><?= $data['page_title'] ?></a></li>-->
@@ -42,14 +42,14 @@
         <th width="7%">#</th>
         <th>id</th>
         
-        <th width="10%">Nombre</th>
+        <th width>Nombre</th>
         <th width="15%">Atiende</th>
-        <th width="15%">Fecha Creacion</th>
-        <th width="15%">Fecha Actualizacion</th>
+        <th width="10%">Fecha Creacion</th>
+        <th width="10%">Fecha Actualizacion</th>
         <th width="15%">Plantel</th>
         <th width="15%">Sistema Educativo</th>
-        <th width="15%">acciones</th>
         <th width="15%">Estatus</th>
+        <th width="15%">Acciones</th>
         
        
        

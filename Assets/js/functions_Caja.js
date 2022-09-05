@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
             "dataSrc":""
         },
         "columns":[
-            {"data":"#"},
+            {"data":"numeracion"},
             {"data":"id"},
             {"data":"nombre"},
             {"data":"id_usuario_atiende"},
@@ -44,17 +44,19 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-//console.log(btnNuevaCaja);
+ console.log(btnNuevaCaja);
 
 let formNuevaCaja = document.querySelector('#formNuevaCaja');
 formNuevaCaja.onsubmit = function(e){
     e.preventDefault();
     
     let nombre = document.getElementById('txtNombre').value;
-    let id_usuario_atiende = document.getElementById('txtid_usuario_atiende').value;
+    let id_usuario_atiende = document.getElementById('txtidUsuarioAtiende').value;
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
     let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
-    let id_planteles = document.getElementById('txtid_planteles').value;
+    let id_planteles = document.getElementById('txtidPlanteles').value;
+    let id_sistemas_educativos = document.getElementById('txtidSistemasEducativos').value;
+   
    
     console.log(nombre)
     console.log(id_usuario_atiende)
@@ -86,14 +88,15 @@ formNuevaCaja.onsubmit = function(e){
        if ( request.readyState == 4 && request.status == 200) 
         {
             let objData = JSON.parse(request.responseText);
-          
+            
             if(objData.estatus == true){
                 Swal.fire({
-                    position: 'top-end',
+                   // position: 'top-end',
                     icon: 'success',
                     title: 'Se guardo correctamente',
-                    showConfirmButton: false,
-                    timer: 1500
+                    text: objData.msg,
+                    //showConfirmButton: false,
+                    //timer: 1500
                   })
 
             }else{
@@ -117,6 +120,7 @@ formNuevaCaja.onsubmit = function(e){
         return false;
     }
     }
+
 
 
 //Funcion eliminar Registro

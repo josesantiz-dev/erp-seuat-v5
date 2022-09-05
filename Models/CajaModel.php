@@ -8,7 +8,7 @@
 			parent::__construct();
 		}
 
-        public function selectCajas()
+        public function selectCaja()
         {
             $sql = "select * from t_cajas WHERE estatus = 1";
             $request = $this->select_all($sql);
@@ -18,8 +18,8 @@
         public function insertNuevaCaja(string $nombre,string $id_usuario_atiende,string $fechaCreacion,string $fechaActualizacion,int $id_planteles,int $id_sistemas_educativos,int $estatus)
 		{
 			$sql = "insert into t_cajas(
-				nombre, id_usuario_atiende, fecha_creacion, fecha_actualizacion, id_sistemas_educativos, estatus) 
-				values(?,?,?,?,?)";
+				nombre, idUsuarioAtiende, Fecha_creacion, fecha_actualizacion, idPlanteles, idSistemasEducativos, estatus) 
+				values(?,?,?,?,?,?)";
 
 				$request = $this->insert($sql,array($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$id_planteles,$id_sistemas_educativos,$estatus));
 				return $request;

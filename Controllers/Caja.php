@@ -66,11 +66,11 @@
 
         
         $nombre = $arrDatos['txtNombre'];
-        $id_usuario_atiende = $arrDatos['txtid_usuario_atiende'];
+        $id_usuario_atiende = $arrDatos['txtidUsuarioAtiende'];
         $fechaCreacion = $arrDatos['dateFechaCreacion'];
         $fechaActualizacion = $arrDatos['datefechaActualizacion'];
-        $id_planteles = $arrDatos['id_planteles'];
-        $id_sistemas_educativos = $arrDatos['id_sistemas_educativos'];
+        $id_planteles = $arrDatos['idPlanteles'];
+        $id_sistemas_educativos = $arrDatos['idSistemasEducativos'];
         $estatus = 1;
         
 
