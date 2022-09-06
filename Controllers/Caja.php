@@ -1,7 +1,7 @@
 <?php
    
     class Caja extends Controllers{
-   
+
         private $idUser;
         private $rol;  
        public function __construct()
@@ -44,27 +44,20 @@
         for($i = 0; $i < count($arrCaja); $i++){
             $arrCaja[$i]["numeracion"] = $i +1;
 
-            $arrCaja[$i]["estatus"] = ($arrCaja[$i]['estatus'] == 1 )?
+            $arrCaja[$i]["status"] = ($arrCaja[$i]['estatus'] == 1 )?
             '<span class="badge badge-success">Activo</span>':'<span class="badge badge-warning">Inactivo</span>';
-
-            /*$arrCaja[$i]['estatus'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "Activo('.$arrCaja[$i]['id'].')"data-toggle="modal" data-target="#modalCaja">Inactivo</button> 
-            <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCaja[$i]['id'].')">Eliminar</button>';*/
             
             $arrCaja[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm">Actualizar</button> <button type="button" class="btn btn-danger btn-sm" 
             onclick="fnEliminar('.$arrCaja[$i]['id'].')" >Eliminar</button>';
-            
-            /*$arrCaja[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCaja[$i]['id'].')"data-toggle="modal" data-target="#modalCaja">Actualizar</button> 
-          <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCaja[$i]['id'].')">Eliminar</button>';*/
         }
         
         echo(json_encode($arrCaja,JSON_UNESCAPED_UNICODE));
     }
 
     public function setNuevaCaja() 
-    //error_reporting(0);
     {
         $arrDatos = $_POST;
-        
+
         
         $nombre = $arrDatos['txtNombre'];
         $id_usuario_atiende = $arrDatos['txtid_usuario_atiende'];
@@ -76,7 +69,7 @@
         
 
 
-        $response = $this->model->insertNuevaCaja($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$id_planteles,$id_sistemas_educativos,$estatus,);
+        $response = $this->model->insertNuevaCaja($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$id_planteles,$id_sistemas_educativos,$estatus);
         if($response){
             $arrResponse = array ('estatus' => true, 'msg' => 'Se inserto correctamente el registro');
        
@@ -94,11 +87,9 @@
         $arrResponse = $this->model->updateEstatusCaja($valor); 
         if($arrResponse){
             $response = array ('estatus' => true, 'msg' => 'Se elimino correctamente');
-           
        
         }else{
             $response = array ('estatus' => false, 'msg' => 'No se pudo eliminar');
-            
 
         }
         echo(json_encode($response,JSON_UNESCAPED_UNICODE));
