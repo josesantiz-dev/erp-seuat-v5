@@ -1,7 +1,7 @@
 <?php
    
     class Caja extends Controllers{
-
+   
         private $idUser;
         private $rol;  
        public function __construct()
@@ -61,16 +61,17 @@
     }
 
     public function setNuevaCaja() 
+    //error_reporting(0);
     {
         $arrDatos = $_POST;
-
+        
         
         $nombre = $arrDatos['txtNombre'];
-        $id_usuario_atiende = $arrDatos['txtidUsuarioAtiende'];
+        $id_usuario_atiende = $arrDatos['txtid_usuario_atiende'];
         $fechaCreacion = $arrDatos['dateFechaCreacion'];
         $fechaActualizacion = $arrDatos['datefechaActualizacion'];
-        $id_planteles = $arrDatos['idPlanteles'];
-        $id_sistemas_educativos = $arrDatos['idSistemasEducativos'];
+        $id_planteles = $arrDatos['txtid_planteles'];
+        $id_sistemas_educativos = $arrDatos['txtid_sistemas_educativos'];
         $estatus = 1;
         
 

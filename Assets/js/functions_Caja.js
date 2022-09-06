@@ -51,11 +51,11 @@ formNuevaCaja.onsubmit = function(e){
     e.preventDefault();
     
     let nombre = document.getElementById('txtNombre').value;
-    let id_usuario_atiende = document.getElementById('txtidUsuarioAtiende').value;
+    let id_usuario_atiende = document.getElementById('txtid_usuario_atiende').value;
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
     let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
-    let id_planteles = document.getElementById('txtidPlanteles').value;
-    let id_sistemas_educativos = document.getElementById('txtidSistemasEducativos').value;
+    let id_planteles = document.getElementById('txtid_planteles').value;
+    let id_sistemas_educativos = document.getElementById('txtid_sistemas_educativos').value;
    
    
     console.log(nombre)
