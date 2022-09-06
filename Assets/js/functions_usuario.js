@@ -121,14 +121,14 @@ function fnEliminar(value)
 
 
                         }
-                        tableGeneraciones.api().ajax.reload();
+                        tableUsuarios.api().ajax.reload();
 
                     }).catch (err => {throw err});
                 }
               })
         }
 
-        //Funcion para actualizar registros 
+        //Funcion para mostrar datos guardados 
 function fnActualizar(id) {
   let url = base_url + "/Usuario/getUsuario/" + id;
 
@@ -209,7 +209,7 @@ function displayImageUsuario(e) {
       document
         .querySelector("#profileDisplayUsuario")
         .setAttribute("src", e.target.result);
-      document.getElementById("btnBuscarImagenUsuario").textContent = "Cambiar";
+      document.getElementById("btnBuscarImagenUsuario").textContent = "Cambiar imagen";
       document
         .querySelector("#btnBuscarImagenUsuario")
         .classList.replace("btn-primary", "btn-warning");
@@ -236,7 +236,7 @@ function displayImageUsuarioEdit(e) {
       document
         .querySelector("#profileDisplayUsuarioEdit")
         .setAttribute("src", e.target.result);
-      document.getElementById("btnBuscarImagenUsuarioEdit").textContent = "Cambiar";
+      document.getElementById("btnBuscarImagenUsuarioEdit").textContent = "Cambiar imagen";
       document
         .querySelector("#btnBuscarImagenUsuarioEdit")
         .classList.replace("btn-primary", "btn-warning");

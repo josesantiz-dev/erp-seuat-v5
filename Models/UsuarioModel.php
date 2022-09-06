@@ -15,7 +15,7 @@
             from t_personas as per
             inner join t_usuarios as usu
             on per.id = usu.id_personas  
-            where per.id";
+            where per.id and usu.estatus = 1";
          /*    $sql = "SELECT * 
             from t_personas  as per
             inner join t_usuarios as usu

@@ -59,7 +59,7 @@ class Usuario extends Controllers
 				'<span class="badge badge-success">Conectado</span>' : '<span class="badge badge-danger">Desconectado</span>
       ';
 			$arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar(' . $arrUsuarios[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditUsuario">Actualizar</button> 
-      <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar(' . $arrUsuarios[$i]['id'] . ')">Eliminar</button>';
+      <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar(' . $arrUsuarios[$i]['id'] . ')">Emilinar</button>';
 		}
 		echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
 	}
@@ -75,13 +75,16 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersona'];
 		$imagen = $arrFiles['profileImageUsuario']['name'];
 		$estatus = 1;
-
+		//Funcion para mover imagenes
+		$rutatemporal = $arrFiles['profileImageUsuario']['tmp_name'];  
+		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagen");
+				
 		$response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagen, $this->idUser);
 		if ($response) {
 			$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
 		} else {
 			$arrResponse = array('estatus' => false, 'msg' => 'No se puedo ingresar el nuevo usuario');
-		} 
+		}  
 		echo (json_encode($arrResponse, JSON_UNESCAPED_UNICODE));
 		die();
 	}
@@ -119,6 +122,9 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersonaEdit'];
 		$imagen = $arrFiles['profileImageUsuarioEdit']['name'];
 		$idusuario = $arrDatos['txtIdUsuario'];
+		//Funcion para mover imagenes 
+		$rutatemporal = $arrFiles['profileImageUsuarioEdit']['tmp_name'];  
+		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagen");
 		
 		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagen, $idusuario, $this->idUser);
 		if ($arrResponse) {
@@ -129,3 +135,4 @@ class Usuario extends Controllers
 		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 	} 
 }
+

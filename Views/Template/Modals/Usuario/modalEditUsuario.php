@@ -50,15 +50,15 @@
                         <div class="form-group col-md-20">
                             <div class="card">
                                 <div class="card-header row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <a href="#" class="btn btn-primary  float-right" onclick="buscarImagenUsuarioEdit()" id="btnBuscarImagenUsuarioEdit">Buscar Imagen</a>
                                     </div>
                                 </div>
                                 <div class="form-group card-body text-center" id="huhshu" style="position:static;">
                                     <span class="img-div">
-                                        <img src="<?php echo media(); ?>/images/img/logo-empty.png" id="profileDisplayUsuarioEdit" style="max-width:250px;">
+                                        <img src="<?php echo media(); ?>/images/img/logo-empty.png" id="profileDisplayUsuarioEdit" style="max-width:300px;">
                                     </span>
                                     <input type="file" name="profileImageUsuarioEdit" onChange="displayImageUsuarioEdit(this)" id="profileImageUsuarioEdit" class="form-control" style="display: none;" accept=".png,.jpg,.jpeg,.svg,.PNG,.JPG,.JPEG">
                                 </div>
