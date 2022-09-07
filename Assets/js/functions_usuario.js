@@ -131,13 +131,13 @@ function fnEliminar(value)
                   //Funcion para mostrar datos guardados 
                   function fnActualizar(id) {
   let url = base_url + "/Usuario/getUsuario/" + id;
-  let urlimagen = "/Assets/images/" + response.imagen;
   
   fetch(url)
   .then((res) => res.json())
   .then((response) => {
-      document.getElementById("txtNicknameEdit").value = response.nickname;
-      document.getElementById("profileImageUsuarioEdit").src = response.urlimagen;
+    let urlimagen = "Assets/images/" + reponse.imagen;
+    document.getElementById("txtNicknameEdit").value = response.nickname;
+      document.getElementById("profileImageUsuarioEdit").src = urlimagen;
       document.getElementById("txtRolEdit").value = response.id_roles;
       document.getElementById("txtNombrePersonaEdit").value = response.id_personas;
       document.getElementById("txtIdUsuario").value = response.id; 
