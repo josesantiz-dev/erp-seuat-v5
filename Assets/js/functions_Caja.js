@@ -15,12 +15,11 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data":"numeracion"},
             {"data":"id"},
             {"data":"nombre"},
-            {"data":"id_usuario_atiende"},
-            
+            {"data":"id_usuario_atiende"},          
             {"data":"fecha_creacion"},
             {"data":"fecha_actualizacion"},
-            {"data":"id_planteles"},
-            {"data":"id_sistemas_educativos"},
+            {"data":"nombre_plantel_fisico"},
+            {"data":"nombre_sistema"},
             {"data":"estatus"},
             {"data":"acciones"},
 
@@ -54,21 +53,21 @@ formNuevaCaja.onsubmit = function(e){
     let id_usuario_atiende = document.getElementById('txtid_usuario_atiende').value;
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
     let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
-    let id_planteles = document.getElementById('txtid_planteles').value;
-    let id_sistemas_educativos = document.getElementById('txtid_sistemas_educativos').value;
+    let nombre_plantel_fisico = document.getElementById('txt"nombre_plantel_fisico').value;
+    let nombre_sistema = document.getElementById('txtnombre_sistema').value;
    
    
     console.log(nombre)
     console.log(id_usuario_atiende)
     console.log(fecha_creacion)
     console.log(fechaActualizacion)
-    console.log(id_planteles)
-    console.log(id_sistemas_educativos)
+    console.log(nombre_plantel_fisico)
+    console.log(nombre_sistema)
     
   
   
 
-    if(nombre == '' || id_usuario_atiende == '' || fecha_creacion == '' || fechaActualizacion == '' || id_planteles == '' || id_sistemas_educativos == '')
+    if(nombre == '' || id_usuario_atiende == '' || fecha_creacion == '' || fechaActualizacion == '' ||  nombre_plantel_fisico == '' || nombre_sistema  == '')
         Swal.fire({
             icon: 'error',
             title: 'ERROR',
