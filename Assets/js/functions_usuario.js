@@ -7,20 +7,20 @@ document.addEventListener("DOMContentLoaded", function () {
     aProcessing: true,
     aServerSide: true,
     language: {
-		url: " " + base_url + "/Assets/plugins/Spanish.json",
+      url: " " + base_url + "/Assets/plugins/Spanish.json",
     },
     ajax: {
       url: " " + base_url + "/Usuario/getListaUsuarios",
       dataSrc: "",
     },
     columns: [
-		{ data: "numeracion" },
-		{ data: "nickname" },
-    { data: "nombre_completo" },
-		{ data: "estatus" },
-		{ data: "sesion" },
-    { data: "fecha_conexion" },
-    { data: "acciones" },
+      { data: "numeracion" },
+      { data: "nickname" },
+      { data: "nombre_completo" },
+      { data: "estatus" },
+      { data: "sesion" },
+      { data: "fecha_conexion" },
+      { data: "acciones" },
     ],
     responsive: true,
     paging: true,
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     order: [[0, "asc"]],
     iDisplayLength: 25,
   });
-
+  
   $("#tableusuarios").DataTable();
 });
 
@@ -56,8 +56,8 @@ formNuevoUsuario.onsubmit = function (e) {
     return false;
   }
   let request = window.XMLHttpRequest
-    ? new XMLHttpRequest()
-    : new ActiveXObject("Microsoft.XMLHTTP");
+  ? new XMLHttpRequest()
+  : new ActiveXObject("Microsoft.XMLHTTP");
   let ajaxUrl = base_url + "/Usuario/setNuevoUsuario";
   let formData = new FormData(formNuevoUsuario);
   request.open("POST", ajaxUrl, true);
@@ -65,8 +65,8 @@ formNuevoUsuario.onsubmit = function (e) {
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       let objData = JSON.parse(request.responseText);
-	  //console.log(objData)
-        if (objData.estatus == true) {
+      //console.log(objData)
+      if (objData.estatus == true) {
         Swal.fire({
           icon: "success",
           title: "Exito...!",
@@ -91,64 +91,65 @@ formNuevoUsuario.onsubmit = function (e) {
 
 //FUNCION ELIMINAR REGISTRO
 function fnEliminar(value)
-        {
-            Swal.fire({
-                title: '¿Desea eliminar?',
-                text: "Esta accion no se podra desacer!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, estoy seguro!'
-              }).then((result) => {
-                if (result.isConfirmed) {
+{
+  Swal.fire({
+    title: '¿Desea eliminar?',
+    text: "Esta accion no se podra desacer!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, estoy seguro!'
+  }).then((result) => {
+    if (result.isConfirmed) {
                     let url = base_url + " /Usuario/setEstatusUsuario/ " + value;
                     fetch (url). then(res => res.json()).then (response => {
-                        if(response.estatus)
-                        {
-                            Swal.fire(
-                                'Eliminado!',
-                                response.msg,
-                                'success'
-                              )
-
+                      if(response.estatus)
+                      {
+                        Swal.fire(
+                          'Eliminado!',
+                          response.msg,
+                          'success'
+                          )
+                          
                         }else{
-                            Swal.fire(
-                                'Error!',
-                                response.msg,
-                                'Error!'
-                              )
-
-
-                        }
-                        tableUsuarios.api().ajax.reload();
-
-                    }).catch (err => {throw err});
-                }
-              })
-        }
-
-        //Funcion para mostrar datos guardados 
-function fnActualizar(id) {
+                          Swal.fire(
+                            'Error!',
+                            response.msg,
+                            'Error!'
+                            )
+                            
+                            
+                          }
+                          tableUsuarios.api().ajax.reload();
+                          
+                        }).catch (err => {throw err});
+                      }
+                    })
+                  }
+                  
+                  //Funcion para mostrar datos guardados 
+                  function fnActualizar(id) {
   let url = base_url + "/Usuario/getUsuario/" + id;
-
+  let urlimagen = "/Assets/images/" + response.imagen;
+  
   fetch(url)
-    .then((res) => res.json())
-    .then((response) => {
+  .then((res) => res.json())
+  .then((response) => {
       document.getElementById("txtNicknameEdit").value = response.nickname;
-      document.getElementById("profileImageUsuarioEdit").src = response.imagen;
+      document.getElementById("profileImageUsuarioEdit").src = response.urlimagen;
       document.getElementById("txtRolEdit").value = response.id_roles;
       document.getElementById("txtNombrePersonaEdit").value = response.id_personas;
-      document.getElementById("txtIdUsuario").value = response.id;
+      document.getElementById("txtIdUsuario").value = response.id; 
     });
-} 
-
- //Formulario para editar registros
-formEditUsuario.onsubmit = function (e) {
-  e.preventDefault();
-  let NombreUsuarioEdit = document.getElementById("txtNicknameEdit").value;
-  let nombrePasswordEdit = document.getElementById("txtPasswordEdit").value;
-  let nombreImagenEdit = document.getElementById("profileImageUsuarioEdit").src; 
+  } 
+  
+  //Formulario para editar registros
+  formEditUsuario.onsubmit = function (e) {
+    e.preventDefault();
+    let NombreUsuarioEdit = document.getElementById("txtNicknameEdit").value;
+    let nombrePasswordEdit = document.getElementById("txtPasswordEdit").value;
+    let nombreImagenEdit = document.getElementById("profileImageUsuarioEdit").src; 
   let nombreRolEdit = document.getElementById("txtRolEdit").value;
   let nombrePersonaEdit = document.getElementById("txtNombrePersonaEdit").value;
   if (

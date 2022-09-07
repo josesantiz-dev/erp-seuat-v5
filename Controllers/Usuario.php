@@ -126,6 +126,7 @@ class Usuario extends Controllers
 		$rutatemporal = $arrFiles['profileImageUsuarioEdit']['tmp_name'];  
 		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagen");
 		
+		
 		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagen, $idusuario, $this->idUser);
 		if ($arrResponse) {
 			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
