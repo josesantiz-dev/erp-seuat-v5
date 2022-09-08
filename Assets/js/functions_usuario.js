@@ -135,12 +135,13 @@ function fnEliminar(value)
   fetch(url)
   .then((res) => res.json())
   .then((response) => {
-    let urlimagen = "Assets/images/" + reponse.imagen;
-    document.getElementById("txtNicknameEdit").value = response.nickname;
+      var urlimagen = "/Assets/images/imagenUsuario/" + response.imagen;
+     /*  document.getElementById("txtNicknameEdit").value = response.nickname;
       document.getElementById("profileImageUsuarioEdit").src = urlimagen;
       document.getElementById("txtRolEdit").value = response.id_roles;
       document.getElementById("txtNombrePersonaEdit").value = response.id_personas;
-      document.getElementById("txtIdUsuario").value = response.id; 
+      document.getElementById("txtIdUsuario").value = response.id;  */
+      console.log(urlimagen)
     });
   } 
   
