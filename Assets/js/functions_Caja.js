@@ -53,7 +53,7 @@ formNuevaCaja.onsubmit = function(e){
     let id_usuario_atiende = document.getElementById('txtid_usuario_atiende').value;
     let fecha_creacion = document.getElementById('dateFechaCreacion').value;
     let fechaActualizacion = document.getElementById('datefechaActualizacion').value;
-    let nombre_plantel_fisico = document.getElementById('txt"nombre_plantel_fisico').value;
+    let nombre_plantel_fisico = document.getElementById('txtnombre_plantel_fisico').value;
     let nombre_sistema = document.getElementById('txtnombre_sistema').value;
    
    
@@ -87,15 +87,14 @@ formNuevaCaja.onsubmit = function(e){
        if ( request.readyState == 4 && request.status == 200) 
         {
             let objData = JSON.parse(request.responseText);
-            
             if(objData.estatus == true){
                 Swal.fire({
-                   // position: 'top-end',
+                    position: 'top-end',
                     icon: 'success',
                     title: 'Se guardo correctamente',
                     text: objData.msg,
-                    //showConfirmButton: false,
-                    //timer: 1500
+                    showConfirmButton: false,
+                    timer: 1500
                   })
 
             }else{

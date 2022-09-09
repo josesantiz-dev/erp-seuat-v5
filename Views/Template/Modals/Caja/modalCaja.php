@@ -22,13 +22,13 @@
     <input type="text" class="form-control" id="txtNombre" name="txtNombre" required>
     
     <label for="exampleInputEmail1" class="label">Atiende</label>
-    <input type="number" class="form-control" id="txtAtiende" name="txtid_usuario_atiende" required>
+    <input type="number" class="form-control" id="Atiende" name="txtid_usuario_atiende" required>
 
     <label for="exampleInputEmail1" class="label">Plantel</label>
     <input type="text" class="form-control" id="txtPlantel" name="txtnombre_plantel_fisico" required>
 
     <label for="exampleInputEmail1" class="label">Sistema Educativo</label>
-    <input type="text" class="form-control" id="Sistema Educativo" name="txtnombre_sistema" required>
+    <input type="text" class="form-control" id="txtSistema Educativo" name="txtnombre_sistema" required>
 
    
    <label for="exampleInputEmail1" class="label">Fecha Creacion</label>

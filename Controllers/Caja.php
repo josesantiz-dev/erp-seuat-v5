@@ -24,7 +24,7 @@
         $data['page_title'] = "Página Caja";
         $data['page_name'] = "Página Caja";
         $data['page_functions_js'] = "functions_Caja.js";
-       // $data['planteles'] = $this->model->selectCaja();
+        $data['planteles'] = $this->model->selectCaja();
         $this->views->getView($this,"Caja",$data);
         }
     
