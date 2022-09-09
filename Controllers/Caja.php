@@ -3,7 +3,7 @@
     class Caja extends Controllers{
 
         private $idUser;
-        private $rol;  
+        //private $rol;  
        public function __construct()
        
        {
@@ -14,8 +14,8 @@
 			    header('Location: '.base_url().'/login');
 			    die();
 		    }
-			//$this->idCaja = $_SESSION['idCaja'];
-			$this->rol = $_SESSION['claveRol'];
+            $this->idUser = $_SESSION['idUser'];
+			//$this->rol = $_SESSION['claveRol'];
        }
 
         public function caja(){
@@ -57,27 +57,21 @@
     public function setNuevaCaja() 
     {
         $arrDatos = $_POST;
-
-        
         $nombre = $arrDatos['txtNombre'];
-        $id_usuario_atiende = $arrDatos['txtid_usuario_atiende'];
+        $id_usuario_atiende = intval($arrDatos['txtid_usuario_atiende']);
         $fechaCreacion = $arrDatos['dateFechaCreacion'];
         $fechaActualizacion = $arrDatos['datefechaActualizacion'];
         $nombre_plantel_fisico = $arrDatos['txtnombre_plantel_fisico'];
         $nombre_sistema = $arrDatos['txtnombre_sistema'];
         $estatus = 1;
-        
-
-
-        $response = $this->model->insertNuevaCaja($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$nombre_plantel_fisico,$nombre_sistema,$estatus);
+        $response = $this->model->insertNuevaCaja($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$nombre_plantel_fisico,$nombre_sistema,$estatus,$this->idUser);
         if($response){
             $arrResponse = array ('estatus' => true, 'msg' => 'Se inserto correctamente el registro');
        
         }else{
             $arrResponse = array ('estatus' => false, 'msg' => 'No se inserto el resgistro');
 
-        }
-        
+        } 
         echo(json_encode($arrResponse,JSON_UNESCAPED_UNICODE));
 
     }
