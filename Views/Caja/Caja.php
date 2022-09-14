@@ -40,15 +40,11 @@
       <thead>
       <tr>
         <th width="7%">#</th>
-        <th>id</th>
-        
-        <th width>Nombre</th>
-        <th width="15%">Atiende</th>
-        <th width="10%">Fecha Creacion</th>
-        <th width="10%">Fecha Actualizacion</th>
+        <th width>Nombre caja</th>
         <th width="15%">Plantel</th>
-        <th width="15%">Sistema Educativo</th>
+        <th width="15%">Nombre usuario</th>
         <th width="15%">Estatus</th>
+        <th width="15%">Ultima fecha activo</th>
         <th width="15%">Acciones</th>
         
        

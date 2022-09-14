@@ -4,39 +4,36 @@ let formNuevaCaja = document.querySelector("#formNuevaCaja");
 
 document.addEventListener("DOMContentLoaded", function () {
 	tableCajas = $("#tableCajas").dataTable({
-		aProcessing: true,
-		aServerSide: true,
-		language: {
-			url: " " + base_url + "/Assets/plugins/Spanish.json",
+		"aProcessing": true,
+		"aServerSide": true,
+		"language": {
+			"url": " " + base_url + "/Assets/plugins/Spanish.json",
 		},
-		ajax: {
-			url: " " + base_url + "/Caja/getListaCaja",
-			dataSrc: "",
+		"ajax": {
+			"url": " " + base_url + "/cajaModel/getListaCaja",
+			"dataSrc": "",
 		},
-		columns: [
-			{ data: "numeracion" },
-			{ data: "id" },
-			{ data: "nombre" },
-			{ data: "id_usuario_atiende" },
-			{ data: "fecha_creacion" },
-			{ data: "fecha_actualizacion" },
-			{ data: "nombre_plantel_fisico" },
-			{ data: "nombre_sistema" },
-			{ data: "estatus" },
-			{ data: "acciones" },
+		"columns": [
+			{ "data": "numeracion" },
+			{ "data": "nombre" },
+			{ "data": "id_planteles" },
+			{ "data": "id_usuario_atiende" },
+			{ "data": "estatus" },
+			{ "data": "ultima_fecha_activo" },
+			{ "data": "acciones" },
 		],
-		responsive: true,
-		paging: true,
-		lengthChange: true,
-		searching: true,
-		ordering: true,
-		info: true,
-		autoWidth: false,
-		scrollY: "44vh",
-		scrollCollapse: true,
-		bDestroy: true,
-		order: [[0, "asc"]],
-		iDisplayLength: 25,
+		"responsive": true,
+	    "paging": true,
+	    "lengthChange": true,
+	    "searching": true,
+	    "ordering": true,
+	    "info": true,
+	    "autoWidth": false,
+	    "scrollY": '44vh',
+	    "scrollCollapse": true,
+	    "bDestroy": true,
+	    "order": [[ 0, "asc" ]],
+	    "iDisplayLength": 25
 	});
 	$("#tableCaja").DataTable();
 });
@@ -45,12 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
 formNuevaCaja.onsubmit = function (e) {
 	e.preventDefault();
 	let nombre = document.getElementById("txtNombre").value;
-	let id_usuario_atiende = document.getElementById("Atiende").value;
-	let fecha_creacion = document.getElementById("dateFechaCreacion").value;
-	let fechaActualizacion = document.getElementById("datefechaActualizacion").value;
-	let nombre_plantel_fisico = document.getElementById("txtPlantel").value;
-	let nombre_sistema = document.getElementById("txtSistema Educativo").value
-	if (nombre == "" || id_usuario_atiende == "" || fecha_creacion == "" || fechaActualizacion == "" || nombre_plantel_fisico == "" || nombre_sistema == ""){
+	let usuarioAtiende = document.getElementById("Atiende").value;
+	let plantel = document.getElementById("dateFechaCreacion").value;
+	if (nombre == "" || usuarioAtiende == "" ||  plantel == ""){
 		Swal.fire({ icon: "error", title: "Error", text: "Completa los campos obligatorios... !", });
 		return false; 
 	}
