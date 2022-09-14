@@ -75,11 +75,15 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersona'];
 		$imagen = $arrFiles['profileImageUsuario']['name'];
 		$estatus = 1;
+        //Funcion para renombrar imagenes 
+        $fecha = date("d-m-Y H:i:s");
+		$imagenBD = $fecha."-".$imagen;
+
 		//Funcion para mover imagenes
 		$rutatemporal = $arrFiles['profileImageUsuario']['tmp_name'];  
 		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagen");
 				
-		$response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagen, $this->idUser);
+		$response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagenBD, $this->idUser);
 		if ($response) {
 			$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
 		} else {
@@ -114,6 +118,7 @@ class Usuario extends Controllers
 	// Funcion para editar usuario
 	public function setEditUsuario()
 	{
+		$fecha = date();
 		$arrDatos = $_POST;
 		$arrFiles = $_FILES;
 		$nickname = $arrDatos['txtNicknameEdit'];
@@ -124,10 +129,14 @@ class Usuario extends Controllers
 		$idusuario = $arrDatos['txtIdUsuario'];
 		//Funcion para mover imagenes 
 		$rutatemporal = $arrFiles['profileImageUsuarioEdit']['tmp_name'];  
-		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagen");
+		$imagenBL = $fecha."-".$rutatemporal;
+		$imagenBD = $fecha."-".$imagen;
+		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagenBD");
+		//Funcion para renombrar imagenes 
 		
 		
-		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagen, $idusuario, $this->idUser);
+		
+		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagenBD, $idusuario, $this->idUser);
 		if ($arrResponse) {
 			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
 		} else {

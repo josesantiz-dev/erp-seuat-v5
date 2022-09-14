@@ -135,13 +135,12 @@ function fnEliminar(value)
   fetch(url)
   .then((res) => res.json())
   .then((response) => {
-      var urlimagen = "/Assets/images/imagenUsuario/" + response.imagen;
-     /*  document.getElementById("txtNicknameEdit").value = response.nickname;
-      document.getElementById("profileImageUsuarioEdit").src = urlimagen;
+      var urlimagen = base_url + "/Assets/images/imagenUsuario/" + response.imagen;
+       document.getElementById("txtNicknameEdit").value = response.nickname;
+      document.getElementById("profileDisplayUsuarioEdit").src = urlimagen;
       document.getElementById("txtRolEdit").value = response.id_roles;
       document.getElementById("txtNombrePersonaEdit").value = response.id_personas;
-      document.getElementById("txtIdUsuario").value = response.id;  */
-      console.log(urlimagen)
+      document.getElementById("txtIdUsuario").value = response.id;  
     });
   } 
   
@@ -151,11 +150,10 @@ function fnEliminar(value)
     let NombreUsuarioEdit = document.getElementById("txtNicknameEdit").value;
     let nombrePasswordEdit = document.getElementById("txtPasswordEdit").value;
     let nombreImagenEdit = document.getElementById("profileImageUsuarioEdit").src; 
-  let nombreRolEdit = document.getElementById("txtRolEdit").value;
-  let nombrePersonaEdit = document.getElementById("txtNombrePersonaEdit").value;
+    let nombreRolEdit = document.getElementById("txtRolEdit").value;
+    let nombrePersonaEdit = document.getElementById("txtNombrePersonaEdit").value;
   if (
     NombreUsuarioEdit == "" ||
-    nombreImagenEdit == "" ||
     nombreRolEdit == "" ||
     nombrePersonaEdit == "" 
   ) {
