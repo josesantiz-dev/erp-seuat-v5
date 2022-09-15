@@ -25,6 +25,9 @@
         $data['page_name'] = "Caja";
         $data['page_functions_js'] = "functions_Caja.js";
         $data['Cajas'] = $this->model->selectCajas();
+        $data['Planteles'] = $this->model->selectPlanteles();
+        $data['SistemasEdu'] = $this->model->selectSistemasEdu();
+        $data['Usuarios'] = $this->model->selectUsuarios();
         $this->views->getView($this, "Caja", $data);
         } 
      
@@ -48,17 +51,15 @@
     echo (json_encode($arrCajas, JSON_UNESCAPED_UNICODE));
     }
 
-   /*  public function setNuevaCaja() 
+     public function setNuevaCaja() 
     {
         $arrDatos = $_POST;
-        $nombre = $arrDatos['txtNombre'];
-        $id_usuario_atiende = intval($arrDatos['txtid_usuario_atiende']);
-        $fechaCreacion = $arrDatos['dateFechaCreacion'];
-        $fechaActualizacion = $arrDatos['datefechaActualizacion'];
-        $nombre_plantel_fisico = $arrDatos['txtnombre_plantel_fisico'];
-        $nombre_sistema = $arrDatos['txtnombre_sistema'];
+        $nombreCaja = $arrDatos['txtNombre'];
+        $nombrePlantel = $arrDatos['txtPlantel'];
+        $nombreSistemaEdu = $arrDatos['txtSistemaEdu'];
+        $nombreUsuario = $arrDatos['txtUsuarios'];
         $estatus = 1;
-        $response = $this->model->insertNuevaCaja($nombre,$id_usuario_atiende,$fechaCreacion,$fechaActualizacion,$nombre_plantel_fisico,$nombre_sistema,$estatus,$this->idUser);
+        $response = $this->model->insertNuevaCaja($nombreCaja, $nombrePlantel, $nombreSistemaEdu, $nombreUsuario, $estatus, $this->idUser);
         if($response){
             $arrResponse = array ('estatus' => true, 'msg' => 'Se inserto correctamente el registro');
        
@@ -81,7 +82,33 @@
 
         }
         echo(json_encode($response,JSON_UNESCAPED_UNICODE));
-    }*/
+    }
+
+    public function getCaja(int $id)
+    {
+        $arrDatos = $this->model->selectCaja($id);
+        echo (json_encode($arrDatos, JSON_UNESCAPED_UNICODE)); 
+    }
+
+    public function setEditCaja()
+    {
+        $arrDatos = $_POST;
+        $nombreCaja = $arrDatos['txtNombreEdit'];
+        $nombrePlantel = $arrDatos['txtPlantelEdit'];
+        $nombreSistemaEdu = $arrDatos['txtSistemaEduEdit'];
+        $nombreUsuario = $arrDatos['txtUsuariosEdit'];
+        $idusuario = $arrDatos['txtIdUsuario'];
+
+        $arrResponse = $this->model->updateCaja($nombreCaja, $nombrePlantel, $nombreSistemaEdu, $nombreUsuario, $idusuario, $this->idUser);
+        if ($arrResponse) {
+            $response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
+        } else {
+            $response = array('estatus' => false, 'msg' => 'No se pudo actualizar');
+        }
+        echo (json_encode($response, JSON_UNESCAPED_UNICODE));
+    }
+
+        
 }
 
      

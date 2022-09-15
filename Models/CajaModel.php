@@ -14,31 +14,56 @@
             $request = $this -> select_all ($sql);
             return $request; 
         }
-       /*  public function insertNuevaGeneracion(string $nombreGeneracion, string $fechaInicio, string $fechaFin, int $estatus, int $idUsuario)
+        
+        public function selectPlanteles()
         {
-            $sql = "insert into practica.t_generaciones 
-            (nombre_generacion, fecha_inicio_gen, fecha_fin_gen, estatus, id_usuario_creacion, fecha_creacion)
-            Values (?, ?, ?, ?, ?, NOW())";
-            $request = $this ->  insert ($sql,array($nombreGeneracion, $fechaInicio, $fechaFin, $estatus, $idUsuario));
+            $sql = "select *from t_planteles WHERE estatus = 1";
+            $request = $this -> select_all ($sql);
             return $request;
         }
-        public function updateEstatusGeneracion(int $id)
+
+        public function selectSistemasEdu()
         {
-            $sql = "UPDATE t_generaciones SET estatus = ? WHERE id = $id";
+            $sql = "select *from t_sistemas_educativos WHERE estatus = 1";
+            $request = $this -> select_all ($sql);
+            return $request;
+        }
+
+        public function selectUsuarios()
+        {
+            $sql = "select *from t_usuarios WHERE estatus = 1";
+            $request = $this -> select_all ($sql);
+            return $request;
+        }
+
+         public function insertNuevaCaja(string $nombreCaja, int $nombrePlantel, int $nombreSistemaEdu, int $nombreUsuario, int $estatus, int $idUser)
+        {
+            $sql = "insert into t_cajas
+            (nombre, id_planteles, id_sistemas_educativos, id_usuario_atiende, estatus, id_usuario_creacion, fecha_creacion)
+            Values (?, ?, ?, ?, ?, ?, NOW())";
+            $request = $this ->  insert ($sql,array($nombreCaja, $nombrePlantel, $nombreSistemaEdu, $nombreUsuario, $estatus, $idUser));
+            return $request;
+            
+        }
+
+        public function updateEstatusCaja(int $id)
+        {
+            $sql = "UPDATE t_cajas SET estatus = ? WHERE id = $id";
             $request = $this -> update($sql, array(2));
             return $request;
         }
-        public function selectGeneracion(int $id){
-            $sql = "SELECT *from t_generaciones WHERE id = $id";
+
+        public function selectCaja(int $id){
+            $sql = "SELECT *from t_cajas WHERE id = $id";
            $request = $this -> select ($sql);
            return $request;
         }
-        public function updateGeneracion(string $nombreGeneracion, string $fechaInicio, string $fechaFin, int $idGeneracion, int $idUser)
+        public function updateCaja(string $nombreCaja, int $nombrePlantel, int $nombreSistemaEdu, int $nombreUsuario, int $idusuario ,int $idUser)
         {
-            $sql = "UPDATE t_generaciones SET nombre_generacion = ?, fecha_inicio_gen = ?, fecha_fin_gen = ?, fecha_actualizacion = NOW(), id_usuario_actualizacion = ? WHERE id =  $idGeneracion";
-            $request = $this -> update ($sql, array($nombreGeneracion,$fechaInicio,$fechaFin,$idUser));
+            $sql = "UPDATE t_caja SET nombre = ?, id_planteles = ?, id_sistemas_educativos = ?, id_usuario_atiende = ?, id_usuario_actualizacion = ?, fecha_actualizacion = NOW()  WHERE id =  $idGeneracion";
+            $request = $this -> update ($sql, array($nombreCaja, $nombrePlantel, $nombreSistemaEdu, $nombreUsuario, $idusuario, $idUser));
             return $request;
   
-        } */
+        } 
 	}
 ?>

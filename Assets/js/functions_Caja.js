@@ -40,10 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
 //FUNCION PARA GUARDAR UNA NUEVA CAJA
 formNuevaCaja.onsubmit = function (e) {
     e.preventDefault();
-    let nombre = document.getElementById("txtNombre").value;
-    let usuarioAtiende = document.getElementById("Atiende").value;
-    let plantel = document.getElementById("dateFechaCreacion").value;
-    if (nombre == "" || usuarioAtiende == "" ||  plantel == ""){
+    let nombrecaja = document.getElementById("txtNombre").value;
+    let nombreplantel = document.getElementById("txtPlantel").value;
+    let nombresistemaedu = document.getElementById("txtSistemaEdu").value;
+	let nombreusuario = document.getElementById("txtUsuarios").value;
+    if (nombrecaja == "" || 
+	    nombreplantel == "" ||  
+		nombresistemaedu == "" || 
+		nombreusuario == "" ){
         Swal.fire({ icon: "error", title: "Error", text: "Completa los campos obligatorios... !", });
         return false; 
     }
@@ -84,7 +88,7 @@ formNuevaCaja.onsubmit = function (e) {
 
 //Funcion eliminar Registro
 
-/* function fnEliminar(value) {
+ function fnEliminar(value) {
 	Swal.fire({
 		title: "Desea eliminar?",
 		text: "Confirme si desea hacer esta accion!",
@@ -109,12 +113,74 @@ formNuevaCaja.onsubmit = function (e) {
 				})
 				.catch((err) => {
 					throw err;
-				});
-
-				//FUNCION PARA ACTUALIZAR REGISTRO
-				
-function fnActualizar(value)
-				
+				});				
 		}
 	});
-} */
+} 
+
+                  //Funcion para mostrar datos guardados 
+                  function fnActualizar(id) {
+					let url = base_url + "/Caja/getCaja/" + id;
+					
+					fetch(url)
+					.then((res) => res.json())
+					.then((response) => {
+						document.getElementById("txtNombreEdit").value = response.nombre;
+						document.getElementById("txtPlantelEdit").value = response.id_planteles;
+						document.getElementById("txtSistemaEduEdit").value = response.id_sistemas_educativos;
+						document.getElementById("txtUsuariosEdit").value = response.id_usuario_atiende;  
+						document.getElementById("txtIdUsuario").value = response.id;
+					  });
+					} 
+					
+					//Formulario para editar registros
+					formEditCaja.onsubmit = function (e) {
+					  e.preventDefault();
+					  let nombrecajaEdit = document.getElementById("txtNombreEdit").value;
+					  let nombreplantelEdit = document.getElementById("txtPlantelEdit").value;
+					  let nombresistemaeduEdit = document.getElementById("txtSistemaEduEdit").value;
+					  let nombreusuarioEdit = document.getElementById("txtUsuariosEdit").value;
+					if (
+					  nombrecajaEdit == "" ||
+					  nombreplantelEdit == "" ||
+					  nombresistemaeduEdit == "" ||
+					  nombreusuarioEdit == "" 
+					) {
+					  Swal.fire({
+						icon: "error",
+						title: "Campo vacio",
+						text: "FAVOR DE REVISAR!",
+					  });
+					  return false;
+					}
+					let request = window.XMLHttpRequest
+					  ? new XMLHttpRequest()
+					  : new ActiveXObject("Microsoft.XMLHTTP");
+					let ajaxUrl = base_url + "/Caja/setEditCaja";
+					let formData = new FormData(formEditUsuario);
+					request.open("POST", ajaxUrl, true);
+					request.send(formData);
+					request.onreadystatechange = function () {
+					  if (request.readyState == 4 && request.status == 200) {
+						let objData = JSON.parse(request.responseText);
+						if (objData.estatus == true) {
+						  Swal.fire({
+							icon: "success",
+							title: "Exito...!",
+							text: objData.msg,
+						  });
+						} else {
+						  Swal.fire({
+							icon: "error",
+							title: "Error...!",
+							text: objData.msg,
+						  });
+						}
+						formEditCaja.reset();
+						tableCajas.api().ajax.reload();
+						$(".close").click();
+					  }
+					  return false;
+					};
+				  }; 
+				  

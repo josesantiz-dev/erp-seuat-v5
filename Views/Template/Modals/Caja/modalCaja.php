@@ -14,27 +14,69 @@
 
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="label">Nombre</label>
+                        <label for="exampleInputEmail1" class="label">Nombre:</label>
                         <input type="text" class="form-control" id="txtNombre" name="txtNombre" required>
 
-                        <label for="exampleInputEmail1" class="label">Plantel</label>
-                        <input type="number" class="form-control" id="Atiende" name="txtid_usuario_atiende" required>
+                        <label for="exampleInputEmail1" class="label">Plantel:</label>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="txtPlantel" name="txtPlantel" required>
+                                <?php
+                                for ($i = 0; $i < count($data['Planteles']); $i++) { ?>
+                                    <option value="<?php echo ($data['Planteles'][$i]['id']) ?>"><?php
+                                                                                                echo ($data['Planteles'][$i]['nombre_plantel_fisico']);
+                                                                                                ?></option>
 
+                                <?php
+                                }
+                                ?>
+                                <!--<option selected>Seleccionar...</option>
+    <option value="1">Administrativo</option>
+    <option value="2">Caja</option>
+    <option value="3">Maestro</option> -->
+                            </select>
+                        </div>
 
-                        <label for="exampleInputEmail1" class="label">Sistema Educativo</label>
-                        <input type="text" class="form-control" id="txtSistema Educativo" name="txtnombre_sistema" required>
+                        <label for="exampleInputEmail1" class="label">Sistema Educativo:</label>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="txtSistemaEdu" name="txtSistemaEdu" required>
+                                <?php
+                                for ($i = 0; $i < count($data['SistemasEdu']); $i++) { ?>
+                                    <option value="<?php echo ($data['SistemasEdu'][$i]['id']) ?>"><?php
+                                                                                                echo ($data['SistemasEdu'][$i]['nombre_sistema']);
+                                                                                                ?></option>
 
+                                <?php
+                                }
+                                ?>
+                                <!--<option selected>Seleccionar...</option>
+    <option value="1">Administrativo</option>
+    <option value="2">Caja</option>
+    <option value="3">Maestro</option> -->
+                            </select>
+                        </div>
+                            
+                            
+                        <label for="exampleInputEmail1" class="label">Usuario atiende:</label>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="txtUsuarios" name="txtUsuarios" required>
+                                <?php
+                                for ($i = 0; $i < count($data['Usuarios']); $i++) { ?>
+                                    <option value="<?php echo ($data['Usuarios'][$i]['id']) ?>"><?php
+                                                                                                echo ($data['Usuarios'][$i]['nickname']);
+                                                                                                ?></option>
 
-                        <label for="exampleInputEmail1" class="label">Usuario</label>
-                        <input type="date" class="form-control" id="dateFechaCreacion" name="dateFechaCreacion" value="2018-07-22" min="2010-01-01" max="2022-12-31" required>
-
-
-                
-
-                    </div>
-                </div>
-
-                <div class="modal-footer">
+                                <?php
+                                }
+                                ?>
+                                <!--<option selected>Seleccionar...</option>
+    <option value="1">Administrativo</option>
+    <option value="2">Caja</option>
+    <option value="3">Maestro</option> -->
+                            </select>
+                        </div>
+                            </div>
+                            </div>                
+                            <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
