@@ -1,4 +1,5 @@
 let btnNuevaCaja = document.getElementById("btnNuevaCaja");
+let formEditCaja = document.getElementById("formEditCaja")
 let formNuevaCaja = document.querySelector("#formNuevaCaja");
 
 
