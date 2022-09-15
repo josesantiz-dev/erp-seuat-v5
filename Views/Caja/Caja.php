@@ -1,6 +1,7 @@
 <?php
   headerAdmin($data);
   getModal('Caja/modalCaja', $data);
+ /*  getModal('Caja/modalCajaEdit', $data); */
 ?>
 <div id="contentAjax"></div>
 <div class="wrapper">
@@ -14,11 +15,12 @@
             </h1>
           </div>
           <div class="col-sm-5">
-            <ol class="breadcrumb float-sm-right btn-block">
-            <button type="button" id= "btn-NuevaCaja" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#modalCaja"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>
-            <!--<button type="button" onclick="openModal();" class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal" data-target="#ModalFormRol"><i class="fa fa-plus-circle fa-md"></i> Nuevo</button>-->
-              <!--<li class="breadcrumb-item"><i class="fa fa-home fa-md"></i><a href="#">Home</a></li>
-              <li class="breadcrumb-item active"><a href="<?= base_url(); ?>/roles"><?= $data['page_title'] ?></a></li>-->
+          <ol class="breadcrumb float-sm-right btn-block">
+                            <button type="button" id="btn-NuevaCaja"
+                                class="btn btn-inline btn-primary btn-sm btn-block" data-toggle="modal"
+                                data-target="#modalCaja">
+                                <i class="fa fa-plus-circle fa-md"></i> Nuevo</button>
+                        </ol>
             </ol>
           </div>
         </div>
@@ -34,7 +36,7 @@
 
 <div class="card">
   <div class="card-body">
-    <h3 class="card-title">Ingresar datos </h3>
+    <h3 class="card-title">Listado de cajas </h3>
     <p class="card-text">
     <table id="tableCajas" class="table table-bordered table-striped table-hover table-sm">
       <thead>
@@ -44,7 +46,6 @@
         <th width="15%">Plantel</th>
         <th width="15%">Nombre usuario</th>
         <th width="15%">Estatus</th>
-        <th width="15%">Ultima fecha activo</th>
         <th width="15%">Acciones</th>
         
        

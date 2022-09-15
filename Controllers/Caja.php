@@ -8,56 +8,45 @@
        
        {
         parent::__construct();
-			session_start();
-		    if(empty($_SESSION['login']))
-		    {
-			    header('Location: '.base_url().'/login');
-			    die();
-		    }
+            session_start();
+            if(empty($_SESSION['login']))
+            {
+                header('Location: '.base_url().'/login');
+                die();
+            }
             $this->idUser = $_SESSION['idUser'];
-			//$this->rol = $_SESSION['claveRol'];
+            //$this->rol = $_SESSION['claveRol'];
        }
 
          public function caja(){
         $data['page_id'] = 2;
         $data['page_tag'] = "Caja";
         $data['page_title'] = "Página Caja";
-        $data['page_name'] = "Página Caja";
+        $data['page_name'] = "Caja";
         $data['page_functions_js'] = "functions_Caja.js";
-        $data['planteles'] = $this->model->selectCajas();
-        $this->views->getView($this,"Caja",$data);
-        $this->views->getView($this,"Caja",$data);
-        $this->views->getView($this,"Caja",$data);
+        $data['Cajas'] = $this->model->selectCajas();
+        $this->views->getView($this, "Caja", $data);
         } 
      
         public function getCajas()
-    {
-        $data['page_id'] = 2;
-        $data['page_tag'] = "Caja";
-        $data['page_title'] = "Página Caja";
-        $data['page_name'] = "Página Caja";
+        {
         $data['page_functions_js'] = "functions_Caja.js";
-        $data['planteles'] = $this->model->selectCajas(); 
-        $this->views->getView($this,"Caja",$data);
-        $arrCaja = $this->model->selectCajas();
-        echo(json_encode($arrCaja,JSON_UNESCAPED_UNICODE));  
-    }  
+        $this->views->getView($this, "Caja", $data);
+        }  
     
     public function getListaCajas()
     {
+        
     $arrCajas = $this -> model -> selectCajas();
-    for($i = 0; $i < count($arrCajas); $i++)
-    {
+    for($i = 0; $i < count($arrCajas); $i++){
       $arrCajas[$i]["numeracion"] = $i +1; 
-      $arrCajas[$i]["status"] = ($arrCajas[$i]["estatus"] == 1)?
-      '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>
-      ';
+      $arrCajas[$i]["estatus"] = ($arrCajas[$i]["estatus"] == 1)?
+      '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>';
       $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['id'].')"data-toggle="modal" data-target="#modalEditCaja">Actualizar</button> 
       <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCajas[$i]['id'].')">Eliminar</button>';
     }
     echo (json_encode($arrCajas, JSON_UNESCAPED_UNICODE));
     }
-
 
    /*  public function setNuevaCaja() 
     {

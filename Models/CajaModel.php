@@ -1,10 +1,10 @@
 <?php
 
-	class cajaModel extends Mysql
-	{
+    class CajaModel extends Mysql
+    {
 
-		public function __construct()
-		{
+        public function __construct()
+        {
             parent::__construct();
         }
         
