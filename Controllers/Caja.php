@@ -26,6 +26,8 @@
         $data['page_functions_js'] = "functions_Caja.js";
         $data['planteles'] = $this->model->selectCajas();
         $this->views->getView($this,"Caja",$data);
+        $this->views->getView($this,"Caja",$data);
+        $this->views->getView($this,"Caja",$data);
         } 
      
         public function getCajas()
