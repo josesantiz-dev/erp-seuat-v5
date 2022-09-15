@@ -1,7 +1,7 @@
 <?php
   headerAdmin($data);
   getModal('Caja/modalCaja', $data);
- /*  getModal('Caja/modalCajaEdit', $data); */
+ getModal('Caja/modalCajaEdit', $data);
 ?>
 <div id="contentAjax"></div>
 <div class="wrapper">

@@ -1,5 +1,5 @@
 let btnNuevaCaja = document.getElementById("btnNuevaCaja");
-let formEditCaja = document.getElementById("formEditCaja")
+let formEditCaja = document.getElementById("formNuevaCajaEdit")
 let formNuevaCaja = document.querySelector("#formNuevaCaja");
 
 
@@ -158,7 +158,7 @@ formNuevaCaja.onsubmit = function (e) {
 					  ? new XMLHttpRequest()
 					  : new ActiveXObject("Microsoft.XMLHTTP");
 					let ajaxUrl = base_url + "/Caja/setEditCaja";
-					let formData = new FormData(formEditUsuario);
+					let formData = new FormData(formEditCaja);
 					request.open("POST", ajaxUrl, true);
 					request.send(formData);
 					request.onreadystatechange = function () {

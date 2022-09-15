@@ -9,7 +9,7 @@
         </button>
       </div>
      
-      <form id="formEditCaja">
+      <form id="formNuevaCajaEdit">
       <div class="modal-body">
 
 
