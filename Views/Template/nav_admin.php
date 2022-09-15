@@ -208,7 +208,14 @@
                             <a href="#" class="nav-link">
                                 <i class="ml-3 mr-2" data-feather="settings"></i>
                                 <p>
-                                    
+                                Cajas
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="settings"></i>
+                                <p> 
                                     Configuración
                                     <i class="right fas fa-angle-left"></i>
                                     <span class="right badge bg-primary">Nuevo</span>
