@@ -49,7 +49,9 @@
 
       $arrCajas[$i]["numeracion"] = $i +1; 
 
-      /* $arrCajas[$i]["nombre_plantel"] = ($arrCajas[$i]["nombre_plantel"]);   */
+      $arrCajas[$i]["id_planteles"] = ($arrCajas[$i]["nombre_plantel_fisico"]);
+      
+      /* $arrCajas[$i]["id_usuario_atiende"] = ($arrCajas[$i]["nickname"]); */
 
       $arrCajas[$i]["estatus"] = ($arrCajas[$i]["estatus"] == 1)?
       '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>';

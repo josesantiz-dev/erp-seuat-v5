@@ -17,8 +17,7 @@
             on pts.id = cjs.id_planteles 
             where pts.id";
             $request = $this -> select_all ($sql);
-            return $request;
-            
+            return $request;         
         }
         
         //Funcion para seleccionar caja
