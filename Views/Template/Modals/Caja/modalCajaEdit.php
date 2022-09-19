@@ -12,14 +12,19 @@
       <form id="formNuevaCajaEdit">
       <div class="modal-body">
 
+        <!--Linea del id del usuario-->
+      <label for="exampleInputEmail1" style="display: none;" class="label">id</label>
+      <input type="text" class="form-control" id="txtIdUsuario" name="txtIdUsuario" style="display: none;">
 
+        <!--Linea de nombre del usuario-->
 <div class="form-group">
     <label for="exampleInputEmail1" class="label">Nombre:</label>
-    <input type="text" class="form-control" id="txtNombreEdit" name="txtNombreEdit" required>
+    <input type="text" class="form-control form-control-sm" id="txtNombreEdit" name="txtNombreEdit" required>
 
+        <!--Linea del plantel-->
     <label for="exampleInputEmail1" class="label">Plantel:</label>
     <div class="input-group mb-3">
-        <select class="custom-select" id="txtPlantelEdit" name="txtPlantelEdit" required>
+        <select class="custom-select custom-select-sm"  id="txtPlantelEdit" name="txtPlantelEdit" required>
             <?php
             for ($i = 0; $i < count($data['Planteles']); $i++) { ?>
                 <option value="<?php echo ($data['Planteles'][$i]['id']) ?>"><?php
@@ -29,16 +34,14 @@
             <?php
             }
             ?>
-            <!--<option selected>Seleccionar...</option>
-<option value="1">Administrativo</option>
-<option value="2">Caja</option>
-<option value="3">Maestro</option> -->
+
         </select>
     </div>
 
+        <!--Linea del sistema educativo-->
     <label for="exampleInputEmail1" class="label">Sistema Educativo:</label>
     <div class="input-group mb-3">
-        <select class="custom-select" id="txtSistemaEduEdit" name="txtSistemaEduEdit" required>
+        <select class="custom-select custom-select-sm" id="txtSistemaEduEdit" name="txtSistemaEduEdit" required>
             <?php
             for ($i = 0; $i < count($data['SistemasEdu']); $i++) { ?>
                 <option value="<?php echo ($data['SistemasEdu'][$i]['id']) ?>"><?php
@@ -48,37 +51,31 @@
             <?php
             }
             ?>
-            <!--<option selected>Seleccionar...</option>
-<option value="1">Administrativo</option>
-<option value="2">Caja</option>
-<option value="3">Maestro</option> -->
         </select>
     </div>
         
-        
+                <!--Linea de usuario atiende-->
     <label for="exampleInputEmail1" class="label">Usuario atiende:</label>
     <div class="input-group mb-3">
-        <select class="custom-select" id="txtUsuariosEdit" name="txtUsuariosEdit" required>
+        <select class="custom-select custom-select-sm" id="txtUsuariosEdit" name="txtUsuariosEdit" required>
             <?php
             for ($i = 0; $i < count($data['Usuarios']); $i++) { ?>
                 <option value="<?php echo ($data['Usuarios'][$i]['id']) ?>"><?php
-                                                                            echo ($data['Usuarios'][$i]['nickname']);
+                                                                            echo ($data['Usuarios'][$i]['nickname']."/".$data['Personas'][$i]['nombre_persona']." ".$data['Personas'][$i]['ap_paterno']." ".$data['Personas'][$i]['ap_materno']);
                                                                             ?></option>
 
             <?php
             }
             ?>
-            <!--<option selected>Seleccionar...</option>
-<option value="1">Administrativo</option>
-<option value="2">Caja</option>
-<option value="3">Maestro</option> -->
         </select>
     </div>
         </div>
-        </div>                
+        </div>  
+
+                <!--Linea de botones-->              
         <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-<button type="submit" class="btn btn-primary">Guardar</button>
+<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+<button type="submit" class="btn btn-primary btn-sm">Guardar</button>
 </div>
 </form>
 

@@ -205,10 +205,10 @@
                             <h6>Administración</h6>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="ml-3 mr-2" data-feather="settings"></i>
+                        <a href="<?php echo BASE_URL ?>/Caja" class="nav-link active">
+                                <i class="ml-3 mr-2" data-feather="dollar-sign"></i>
                                 <p>
-                                Cajas
+                                Caja
                                 </p>
                             </a>
                         </li>

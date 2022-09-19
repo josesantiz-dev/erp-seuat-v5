@@ -18,6 +18,7 @@
             //$this->rol = $_SESSION['claveRol'];
        }
 
+        //Funcion para mostrar datos en tabla 
          public function caja(){
         $data['page_id'] = 2;
         $data['page_tag'] = "Caja";
@@ -28,29 +29,38 @@
         $data['Planteles'] = $this->model->selectPlanteles();
         $data['SistemasEdu'] = $this->model->selectSistemasEdu();
         $data['Usuarios'] = $this->model->selectUsuarios();
+        $data['Personas'] = $this->model->selectPersonas();
         $this->views->getView($this, "Caja", $data);
         } 
      
+        //Funcion para mostrar caja en pagina 
         public function getCajas()
         {
         $data['page_functions_js'] = "functions_Caja.js";
         $this->views->getView($this, "Caja", $data);
         }  
     
+        //Funcion para traer lista de usuarios 
     public function getListaCajas()
     {
         
     $arrCajas = $this -> model -> selectCajas();
     for($i = 0; $i < count($arrCajas); $i++){
+
       $arrCajas[$i]["numeracion"] = $i +1; 
+
+      /* $arrCajas[$i]["nombre_plantel"] = ($arrCajas[$i]["nombre_plantel"]);   */
+
       $arrCajas[$i]["estatus"] = ($arrCajas[$i]["estatus"] == 1)?
       '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>';
-      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['id'].')"data-toggle="modal" data-target="#modalEditCaja">Actualizar</button> 
+
+      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['id'].')"data-toggle="modal" data-target="#modalCajaEdit">Actualizar</button> 
       <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCajas[$i]['id'].')">Eliminar</button>';
     }
     echo (json_encode($arrCajas, JSON_UNESCAPED_UNICODE));
     }
 
+    //Funcion para ingresar un nuevo registro 
      public function setNuevaCaja() 
     {
         $arrDatos = $_POST;
@@ -71,6 +81,7 @@
 
     }
 
+    //Funcion para cambiar estatus de registros
     public function setEstatusCaja($valor)
     {
         $arrResponse = $this->model->updateEstatusCaja($valor); 
@@ -84,12 +95,14 @@
         echo(json_encode($response,JSON_UNESCAPED_UNICODE));
     }
 
+    //Funcion para traer un registro con id
     public function getCaja(int $id)
     {
         $arrDatos = $this->model->selectCaja($id);
         echo (json_encode($arrDatos, JSON_UNESCAPED_UNICODE)); 
     }
 
+    //Funcion para editar un registro
     public function setEditCaja()
     {
         $arrDatos = $_POST;

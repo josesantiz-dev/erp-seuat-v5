@@ -49,9 +49,6 @@
         <th width="15%">Acciones</th>
         
        
-       
-    
-
       </tr>
       </thead>
       <tbody>
