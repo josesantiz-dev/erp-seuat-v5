@@ -49,15 +49,17 @@
 
       $arrCajas[$i]["numeracion"] = $i +1; 
 
-      $arrCajas[$i]["id_planteles"] = ($arrCajas[$i]["nombre_plantel_fisico"]);
+      $arrCajas[$i]["id_planteles"] = ($arrCajas[$i]["nombre_plantel_fisico"]);  
       
-      /* $arrCajas[$i]["id_usuario_atiende"] = ($arrCajas[$i]["nickname"]); */
+      $arrCajas[$i]["id_usuario_atiende"] = ($arrCajas[$i]["nickname"]);  
+
+      $arrCajas[$i]["Nombre_persona"] = ($arrCajas[$i]["nombre_persona"])." ".($arrCajas[$i]["ap_paterno"])." ".($arrCajas[$i]["ap_materno"]);   
 
       $arrCajas[$i]["estatus"] = ($arrCajas[$i]["estatus"] == 1)?
       '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>';
 
-      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['id'].')"data-toggle="modal" data-target="#modalCajaEdit">Actualizar</button> 
-      <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCajas[$i]['id'].')">Eliminar</button>';
+      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['idcj'].')"data-toggle="modal" data-target="#modalCajaEdit">Actualizar</button> 
+      <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCajas[$i]['idcj'].')">Eliminar</button>';
     }
     echo (json_encode($arrCajas, JSON_UNESCAPED_UNICODE));
     }

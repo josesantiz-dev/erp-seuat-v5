@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             { "data": "nombre" },
             { "data": "id_planteles" },
             { "data": "id_usuario_atiende" },
+			{ "data": "Nombre_persona" },
             { "data": "estatus" },
             { "data": "acciones" },
         ],

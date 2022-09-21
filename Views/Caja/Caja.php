@@ -45,6 +45,7 @@
         <th width>Nombre caja</th>
         <th width="15%">Plantel</th>
         <th width="15%">Nombre usuario</th>
+        <th width="20%">Nombre persona</th>
         <th width="15%">Estatus</th>
         <th width="15%">Acciones</th>
         

@@ -8,26 +8,19 @@
             parent::__construct();
         }
 
-        //Funcion para traer nombre de planteles a tabla 
+        //Funcion para traer datos a la tablas 
         public function selectCajas()
         {
-            $sql = "SELECT 
-            *from t_planteles  as pts
-            inner join t_cajas as cjs
-            on pts.id = cjs.id_planteles 
-            where pts.id";
+            $sql = "select cj.id as idcj, cj.nombre, cj.id_planteles, cj.id_usuario_atiende, us.id, us.nickname, pl.id, pl.nombre_plantel_fisico, cj.estatus, cj.id_usuario_creacion , cj.id_usuario_actualizacion,cj.fecha_creacion, cj.fecha_actualizacion, cj.id_sistemas_educativos,pe.id ,pe.nombre_persona, pe.ap_paterno,pe.ap_materno 
+            from t_cajas as cj
+            inner join t_usuarios as us on cj.id_usuario_atiende = us.id 
+            inner join t_planteles as pl on cj.id_planteles = pl.id 
+            inner join t_personas as pe on pe.id = cj.id_usuario_atiende
+            ";
             $request = $this -> select_all ($sql);
             return $request;         
         }
         
-        //Funcion para seleccionar caja
-       /*  public function selectCajas()
-        {
-            $sql = "select *from t_cajas WHERE estatus = 1";
-            $request = $this -> select_all ($sql);
-            return $request; 
-        } */
-
         //Funcion para seleccionar planteles en formularios 
         public function selectPlanteles()
         {
