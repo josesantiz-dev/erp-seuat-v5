@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
             { "data": "numeracion" },
             { "data": "nombre" },
             { "data": "id_planteles" },
+			{ "data": "sistema_educativo" },
             { "data": "id_usuario_atiende" },
-			{ "data": "Nombre_persona" },
+			{ "data": "nombre_persona" },
             { "data": "estatus" },
             { "data": "acciones" },
         ],
@@ -61,32 +62,27 @@ formNuevaCaja.onsubmit = function (e) {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             let objData = JSON.parse(request.responseText);
-            if (objData.estatus == true) {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Se guardo correctamente",
-                    text: objData.msg,
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
-            } else {
-                Swal.fire({
-                    icon: "Error",
-                    title: "Error!",
-                    text: objData.msg,
-                });
-            }
-            formNuevaCaja.reset();
-            tableCajas.api().ajax.reload();
-    
-            $(".close").click();
-    
-            return false; 
-        }
-    };
-    
-};
+			if (objData.estatus == true) {
+				Swal.fire({
+				  icon: "success",
+				  title: "Exito...!",
+				  text: objData.msg,
+				});
+			  } else {
+				Swal.fire({
+				  icon: "error",
+				  title: "Error...!",
+				  text: objData.msg,
+				});
+			  }  
+			  formNuevaCaja.reset();
+			  tableCajas.api().ajax.reload();
+			  $(".close").click(); 
+			}
+			return false;
+		};
+	  };
+	  
 
 //Funcion eliminar Registro
 
@@ -122,8 +118,7 @@ formNuevaCaja.onsubmit = function (e) {
 
                   //Funcion para mostrar datos guardados 
                   function fnActualizar(id) {
-					let url = base_url + "/Caja/getCaja/" + id;
-					
+					let url = base_url + "/Caja/getCaja/" + id;	
 					fetch(url)
 					.then((res) => res.json())
 					.then((response) => {

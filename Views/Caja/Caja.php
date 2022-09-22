@@ -41,12 +41,13 @@
     <table id="tableCajas" class="table table-bordered table-striped table-hover table-sm">
       <thead>
       <tr>
-        <th width="7%">#</th>
+        <th width="2%">#</th>
         <th width>Nombre caja</th>
         <th width="15%">Plantel</th>
-        <th width="15%">Nombre usuario</th>
+        <th width="20%">Sistema educativo</th>
+        <th width="10%">Nombre usuario</th>
         <th width="20%">Nombre persona</th>
-        <th width="15%">Estatus</th>
+        <th width="10%">Estatus</th>
         <th width="15%">Acciones</th>
         
        

@@ -11,12 +11,13 @@
         //Funcion para traer datos a la tablas 
         public function selectCajas()
         {
-            $sql = "select cj.id as idcj, cj.nombre, cj.id_planteles, cj.id_usuario_atiende, us.id, us.nickname, pl.id, pl.nombre_plantel_fisico, cj.estatus, cj.id_usuario_creacion , cj.id_usuario_actualizacion,cj.fecha_creacion, cj.fecha_actualizacion, cj.id_sistemas_educativos,pe.id ,pe.nombre_persona, pe.ap_paterno,pe.ap_materno 
+            $sql = "select cj.id as id_caja, cj.nombre, pl.nombre_plantel_fisico, se.nombre_sistema, cj.id_usuario_atiende, us.nickname, CONCAT(pe.nombre_persona,' ',pe.ap_paterno,' ',pe.ap_materno) as nombre_completo, cj. * 
             from t_cajas as cj
-            inner join t_usuarios as us on cj.id_usuario_atiende = us.id 
-            inner join t_planteles as pl on cj.id_planteles = pl.id 
-            inner join t_personas as pe on pe.id = cj.id_usuario_atiende
-            ";
+            inner join t_usuarios as us on cj.id_usuario_atiende = us.id
+            inner join t_personas as pe on pe.id = us.id_personas 
+            inner join t_planteles as pl on cj.id_planteles = pl.id
+            inner join t_sistemas_educativos as se on cj.id_sistemas_educativos = se.id
+            WHERE cj.estatus = 1";
             $request = $this -> select_all ($sql);
             return $request;         
         }
@@ -51,7 +52,7 @@
             $sql = "select *from t_personas WHERE estatus = 1";
             $request = $this -> select_all ($sql);
             return $request;
-        }
+        } 
 
         //Funcion para insertar una nueva caja 
          public function insertNuevaCaja(string $nombreCaja, int $nombrePlantel, int $nombreSistemaEdu, int $nombreUsuario, int $estatus, int $idUser)

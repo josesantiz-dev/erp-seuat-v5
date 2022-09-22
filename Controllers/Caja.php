@@ -29,7 +29,7 @@
         $data['Planteles'] = $this->model->selectPlanteles();
         $data['SistemasEdu'] = $this->model->selectSistemasEdu();
         $data['Usuarios'] = $this->model->selectUsuarios();
-        $data['Personas'] = $this->model->selectPersonas();
+        $data['Personas'] = $this->model->selectPersonas(); 
         $this->views->getView($this, "Caja", $data);
         } 
      
@@ -51,15 +51,17 @@
 
       $arrCajas[$i]["id_planteles"] = ($arrCajas[$i]["nombre_plantel_fisico"]);  
       
-      $arrCajas[$i]["id_usuario_atiende"] = ($arrCajas[$i]["nickname"]);  
+      $arrCajas[$i]["sistema_educativo"] = ($arrCajas[$i]["nombre_sistema"]);
 
-      $arrCajas[$i]["Nombre_persona"] = ($arrCajas[$i]["nombre_persona"])." ".($arrCajas[$i]["ap_paterno"])." ".($arrCajas[$i]["ap_materno"]);   
+      $arrCajas[$i]["id_usuario_atiende"] = ($arrCajas[$i]["nickname"]); 
+
+      $arrCajas[$i]["nombre_persona"] = ($arrCajas[$i]["nombre_completo"]); 
 
       $arrCajas[$i]["estatus"] = ($arrCajas[$i]["estatus"] == 1)?
       '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>';
 
-      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['idcj'].')"data-toggle="modal" data-target="#modalCajaEdit">Actualizar</button> 
-      <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCajas[$i]['idcj'].')">Eliminar</button>';
+      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['id_caja'].')"data-toggle="modal" data-target="#modalCajaEdit">Actualizar</button> 
+      <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar('.$arrCajas[$i]['id_caja'].')">Eliminar</button>';
     }
     echo (json_encode($arrCajas, JSON_UNESCAPED_UNICODE));
     }
