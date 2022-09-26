@@ -41,18 +41,12 @@
         //Funcion para seleccionar usuarios en formularios 
         public function selectUsuarios()
         {
-            $sql = "select *from t_usuarios WHERE estatus = 1";
+            $sql = "SELECT *from t_personas as tp
+            inner join t_usuarios as tu on tp.id = tu.id_personas 
+            where tu.estatus = 1 and tu.id_roles = 4";
             $request = $this -> select_all ($sql);
             return $request;
         }
-
-        //Funcion para mostrar nombre de usuarios en formularios
-        public function selectPersonas()
-        {
-            $sql = "select *from t_personas WHERE estatus = 1";
-            $request = $this -> select_all ($sql);
-            return $request;
-        } 
 
         //Funcion para insertar una nueva caja 
          public function insertNuevaCaja(string $nombreCaja, int $nombrePlantel, int $nombreSistemaEdu, int $nombreUsuario, int $estatus, int $idUser)

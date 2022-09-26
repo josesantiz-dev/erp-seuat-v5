@@ -61,7 +61,7 @@
             <?php
             for ($i = 0; $i < count($data['Usuarios']); $i++) { ?>
                 <option value="<?php echo ($data['Usuarios'][$i]['id']) ?>"><?php
-                  echo ($data['Usuarios'][$i]['nickname']."/".$data['Personas'][$i]['nombre_persona']." ".$data['Personas'][$i]['ap_paterno']." ".$data['Personas'][$i]['ap_materno']);
+                  echo ($data['Usuarios'][$i]['nickname']."/".$data['Usuarios'][$i]['nombre_persona']." ".$data['Usuarios'][$i]['ap_paterno']." ".$data['Usuarios'][$i]['ap_materno']);
                                                                  ?></option>
 
             <?php
