@@ -213,6 +213,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/Grupo" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="smile"></i>
+                                <p>
+                                    Grupos
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="ml-3 mr-2" data-feather="settings"></i>
                                 <p>
