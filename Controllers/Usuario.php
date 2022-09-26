@@ -15,7 +15,6 @@ class Usuario extends Controllers
         $this->idUser = $_SESSION['idUser'];
        // $this->rol = $_SESSION['claveRol'];
 	}
-	
     //Funcion para ver usuarios en la web 
 	public function Usuario()
 	{
@@ -35,35 +34,23 @@ class Usuario extends Controllers
 		$data['page_functions_js'] = "functions_usuario.js";
 		$this->views->getView($this, "Usuario", $data);
 
-		//$arrUsuarios = $this -> model -> selectUsuarios();
-		// var_dump ($arrUsuarios); 
-		//echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
 	}
-     
 	// Funcion para visualizar usuarios en la tabla 
 	public function getListaUsuarios()
 	{
-        
 		$arrUsuarios = $this->model->selectUsuarios();
 		for ($i = 0; $i < count($arrUsuarios); $i++) {
-
 			$arrUsuarios[$i]["numeracion"] = $i + 1;
-
 			$arrUsuarios[$i]["nombre_completo"] = ($arrUsuarios[$i]["nombre_completo"]);
-			//$arrUsuarios[$i]["nombre_persona"] = ($arrUsuarios[$i]["nombre_persona"])." ".($arrUsuarios[$i]["ap_paterno"]);
-
  			$arrUsuarios[$i]["estatus"] = ($arrUsuarios[$i]["estatus"] == 1) ?
-				'<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>
-      ';
+				'<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>';
 			$arrUsuarios[$i]["sesion"] = ($arrUsuarios[$i]["sesion"] == 1) ?
-				'<span class="badge badge-success">Conectado</span>' : '<span class="badge badge-danger">Desconectado</span>
-      ';
-			$arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-danger btn-sm" onclick = "fnActualizar(' . $arrUsuarios[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditUsuario">Actualizar</button> 
-      <button type="button" class="btn btn-dark btn-sm" onclick ="fnEliminar(' . $arrUsuarios[$i]['id'] . ')">Emilinar</button>';
+				'<span class="badge badge-success">Conectado</span>' : '<span class="badge badge-danger">Desconectado</span>';
+			$arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm" onclick = "fnActualizar(' . $arrUsuarios[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditUsuario">Actualizar</button> 
+      		<button type="button" class="btn btn-secondary btn-sm" onclick ="fnEliminar(' . $arrUsuarios[$i]['id'] . ')">Emilinar</button>';
 		}
 		echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
 	}
-
 	// Funcion nuevo Usuario
 	public function setNuevoUsuario()
 	{
@@ -75,15 +62,10 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersona'];
 		$imagen = $arrFiles['profileImageUsuario']['name'];
 		$estatus = 1;
-        //Funcion para renombrar imagenes 
-        $fecha = date("d-m-Y H:i:s");
-		$imagenBD = $fecha."-".$imagen;
-
-		//Funcion para mover imagenes
 		$rutatemporal = $arrFiles['profileImageUsuario']['tmp_name'];  
-		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagen");
-				
-		$response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $imagenBD, $this->idUser);
+		$nuevoNombre = time().$imagen;
+		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/".$nuevoNombre);
+		$response = $this->model->insertNuevoUsuario($nickname, $password, $rol, $persona, $estatus, $nuevoNombre, $this->idUser);
 		if ($response) {
 			$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
 		} else {
@@ -92,10 +74,6 @@ class Usuario extends Controllers
 		echo (json_encode($arrResponse, JSON_UNESCAPED_UNICODE));
 		die();
 	}
-
-
-
-
     // Funcion para checar Estatus Ususario
  	public function setEstatusUsuario($valor)
 	{
@@ -107,18 +85,15 @@ class Usuario extends Controllers
 		}
 		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 	}
-
     //Funcion para traer usuario	
 	public function getUsuario(int $id)
 	{
 		$arrDatos = $this->model->selectUsuario($id);
 		echo (json_encode($arrDatos, JSON_UNESCAPED_UNICODE)); 
 	}
-
 	// Funcion para editar usuario
 	public function setEditUsuario()
 	{
-		$fecha = date();
 		$arrDatos = $_POST;
 		$arrFiles = $_FILES;
 		$nickname = $arrDatos['txtNicknameEdit'];
@@ -127,16 +102,10 @@ class Usuario extends Controllers
 		$persona = $arrDatos['txtNombrePersonaEdit'];
 		$imagen = $arrFiles['profileImageUsuarioEdit']['name'];
 		$idusuario = $arrDatos['txtIdUsuario'];
-		//Funcion para mover imagenes 
 		$rutatemporal = $arrFiles['profileImageUsuarioEdit']['tmp_name'];  
-		$imagenBL = $fecha."-".$rutatemporal;
-		$imagenBD = $fecha."-".$imagen;
-		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/$imagenBD");
-		//Funcion para renombrar imagenes 
-		
-		
-		
-		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $imagenBD, $idusuario, $this->idUser);
+		$nuevoNombre = time().$imagen;
+		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/".$nuevoNombre);
+		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $nuevoNombre, $idusuario, $this->idUser);
 		if ($arrResponse) {
 			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
 		} else {
