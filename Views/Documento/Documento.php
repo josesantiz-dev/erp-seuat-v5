@@ -42,8 +42,8 @@ getModal("Documento/modalEditDocumento", $data);
                                     <thead>
                                         <tr>
                                             <th width="7%">#</th>
-                                            <th>Nombre de documentos</th>
-                                            <th>Nivel educativo</th>
+                                            <th>Tipo de documento</th>
+                                            <th>Nombre del documento</th>
                                             <th width="10%">estatus</th>
                                             <th width="17%">Acciones</th>
                                         </tr>
