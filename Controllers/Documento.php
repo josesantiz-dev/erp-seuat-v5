@@ -63,10 +63,17 @@ class Documento extends Controllers
 			$nombreDocumento = $arrDatos['nombre-Documento'];
 			$nombreTipoDocumento = $arrDatos['tipo-Documento'];
 			$cantidadDocumentos = $arrDatos['cantidad-Documentos'];
-			$documentosOriginales = $arrDatos['documento-Original'];
+			$documentosOriginales = $arrDatos['documentos-Originales'];
 			$estatus = 1;
-					
-			$response = $this->model->insertNuevoDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $estatus, $this->idUser);
+			
+			$checkbox = 'NULL';
+			if (isset($_POST['documentos-Originales'])) {
+				$checkbox = 1;
+			 } else {
+				$checkbox = 0;
+			 }
+
+			$response = $this->model->insertNuevoDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $estatus, $this->idUser);
 			if ($response) {
 				$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
 			} else {
@@ -91,27 +98,37 @@ class Documento extends Controllers
 		 //Funcion para traer grupo	
 		public function getDocumento(int $id)
 		 {
-			 $arrDatos = $this->model->selectGrupo($id);
+			 $arrDatos = $this->model->selectDocumento($id);
 			 echo (json_encode($arrDatos, JSON_UNESCAPED_UNICODE)); 
 		 }
+
+		 
+
 	
 		 // Funcion para editar grupo
 		public function setEditDocumento()
 		{
-	
+			
 			$arrDatos = $_POST;
 			$nombreDocumento = $arrDatos['nombre-Documento-Edit'];
 			$nombreTipoDocumento = $arrDatos['tipo-Documento-Edit'];
 			$cantidadDocumentos = $arrDatos['cantidad-Documentos-Edit'];
 			$documentosOriginales = $arrDatos['documento-Original-Edit'];
 			$idusuario = $arrDatos['txtIdUsuario'];
-	 
-			$arrResponse = $this->model->updateDocumento($nombreDocumeto, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $idusuario, $this->idUser);
+			
+			 $checkbox = null;
+		   if (isset($_POST['documento-Original-Edit'])) {
+			   $checkbox = 1;
+			} else {
+			   $checkbox = 0;
+			} 
+			
+			$arrResponse = $this->model->updateDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $idusuario, $this->idUser);
 			if ($arrResponse) {
 				$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
 			} else {
 				$response = array('estatus' => false, 'msg' => 'No se pudo actualizar');
-			}
+			} 
 			echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 		} 
 }

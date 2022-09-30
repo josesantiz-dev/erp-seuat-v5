@@ -27,12 +27,12 @@
         }
 
         //Insertar un nuevo documento
-        public function insertNuevoDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $documentosOriginales, int $estatus, int $idUser)
+        public function insertNuevoDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $checkbox, int $estatus, int $idUser)
         {
             $sql = "insert into t_detalle_documentos 
             (tipo_documento, id_documentos, cantidad_copias, original, estatus, id_usuario_creacion, fecha_creacion)
             values (?, ?, ?, ?, ?, ?, NOW())";
-            $request = $this ->  insert ($sql,array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $estatus, $idUser));
+            $request = $this ->  insert ($sql,array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $estatus, $idUser));
             return $request;
         }
 
@@ -53,10 +53,10 @@
         }
         
         //Funcion para actualizar t-documentos
-         public function updateDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $documentosOriginales, int $idusuario, int $idUser)
+         public function updateDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $checkbox, int $idusuario, int $idUser)
         {
             $sql = "UPDATE t_detalle_documentos SET tipo_documento = ?, id_documentos = ?, cantidad_copias = ?, original = ?, id_usuario_actualizacion = ?, fecha_actualizacion = NOW()  WHERE id =  $idusuario";
-            $request = $this -> update ($sql, array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $idUser));
+            $request = $this -> update ($sql, array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $idUser));
             return $request;
   
         } 
