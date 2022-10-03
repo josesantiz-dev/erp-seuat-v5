@@ -50,20 +50,19 @@
           <label class="custom-control-label" for="documentos-Originales">Se recibieron documentos orignales</label>    
           </div>
           </div>
-
+           
+           <!-- Columna para dar un salto en la columna -->
           <div class="col-6 col-sm-6">
           </div>
 
-          
+           <!-- Columna para agregar documentos extras -->
           <div class="mb-3">
           <label for="exampleInputEmail1" class="label">Documentos extras</label> 
           <button type="submit" style='width:150px; height:30px' class="btn btn-primary btn-sm">+ Agregar</button>
           </div>
           </div>
           </div>
-
-
-
+                        
 
                             <!-- etiqueta botones -->
           <div class="modal-footer">

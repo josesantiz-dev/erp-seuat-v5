@@ -28,6 +28,7 @@ class Documento extends Controllers
 		$data['tipoDocumento'] = $this->model->selectTipoDocumento();
 		$this->views->getView($this, "Documento", $data);
 	}
+
     //Funcion para traer documentos
 	public function getDocumentos()
 	{
@@ -48,10 +49,10 @@ class Documento extends Controllers
 			$arrDocumentos[$i]["id_documentos"] = ($arrDocumentos[$i]["nombre_documentos"]);
 
  			$arrDocumentos[$i]["estatus"] = ($arrDocumentos[$i]["estatus"] == 1) ?
-				'<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>';
+		    '<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>';
 
 			$arrDocumentos[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm" onclick = "fnActualizar(' . $arrDocumentos[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditDocumento">Actualizar</button> 
-      <button type="button" class="btn btn-secondary btn-sm" onclick ="fnEliminar(' . $arrDocumentos[$i]['id'] . ')">Emilinar</button>';
+            <button type="button" class="btn btn-secondary btn-sm" onclick ="fnEliminar(' . $arrDocumentos[$i]['id'] . ')">Emilinar</button>';
 		}
 		echo (json_encode($arrDocumentos, JSON_UNESCAPED_UNICODE));
 	}
@@ -101,9 +102,6 @@ class Documento extends Controllers
 			 $arrDatos = $this->model->selectDocumento($id);
 			 echo (json_encode($arrDatos, JSON_UNESCAPED_UNICODE)); 
 		 }
-
-		 
-
 	
 		 // Funcion para editar grupo
 		public function setEditDocumento()
@@ -116,7 +114,7 @@ class Documento extends Controllers
 			$documentosOriginales = $arrDatos['documento-Original-Edit'];
 			$idusuario = $arrDatos['txtIdUsuario'];
 			
-			 $checkbox = null;
+			 $checkbox = 'NULL';
 		   if (isset($_POST['documento-Original-Edit'])) {
 			   $checkbox = 1;
 			} else {
