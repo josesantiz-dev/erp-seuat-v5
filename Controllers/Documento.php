@@ -66,13 +66,13 @@ class Documento extends Controllers
 			$cantidadDocumentos = $arrDatos['cantidad-Documentos'];
 			$documentosOriginales = $arrDatos['documentos-Originales'];
 			$estatus = 1;
-			
 			$checkbox = 'NULL';
 			if (isset($_POST['documentos-Originales'])) {
 				$checkbox = 1;
 			 } else {
 				$checkbox = 0;
 			 }
+			
 
 			$response = $this->model->insertNuevoDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $estatus, $this->idUser);
 			if ($response) {
@@ -113,15 +113,14 @@ class Documento extends Controllers
 			$cantidadDocumentos = $arrDatos['cantidad-Documentos-Edit'];
 			$documentosOriginales = $arrDatos['documento-Original-Edit'];
 			$idusuario = $arrDatos['txtIdUsuario'];
+			$documentosOriginales = "NULL";
+			if (isset($_POST["documento-Original-Edit"])) {
+				$documentosOriginales = 1;
+			 } else {
+				$documentosOriginales = 0;
+			 }
 			
-			 $checkbox = 'NULL';
-		   if (isset($_POST['documento-Original-Edit'])) {
-			   $checkbox = 1;
-			} else {
-			   $checkbox = 0;
-			} 
-			
-			$arrResponse = $this->model->updateDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $idusuario, $this->idUser);
+			$arrResponse = $this->model->updateDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $idusuario, $this->idUser);
 			if ($arrResponse) {
 				$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
 			} else {

@@ -53,10 +53,10 @@
         }
         
         //Funcion para actualizar t-documentos
-         public function updateDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $checkbox, int $idusuario, int $idUser)
+         public function updateDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $documentosOriginales, int $idusuario, int $idUser)
         {
             $sql = "UPDATE t_detalle_documentos SET tipo_documento = ?, id_documentos = ?, cantidad_copias = ?, original = ?, id_usuario_actualizacion = ?, fecha_actualizacion = NOW()  WHERE id =  $idusuario";
-            $request = $this -> update ($sql, array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $idUser));
+            $request = $this -> update ($sql, array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $idUser));
             return $request;
   
         } 

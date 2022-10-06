@@ -1,5 +1,5 @@
-<!-- Modal nuevo grupo -->
-<div class="modal fade" id="modalNuevoDocumento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <!-- Modal nuevo grupo -->
+          <div class="modal fade" id="modalNuevoDocumento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
           <div class="modal-content">
           <div class="modal-header">
@@ -44,27 +44,28 @@
 
 
           <!-- Columna para los documentos originales -->
-          <div class="col-6 col-sm-6">
+          <!-- <div class="col-6 col-sm-6">
           <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="documentos-Originales" name="documentos-Originales">
           <label class="custom-control-label" for="documentos-Originales">Se recibieron documentos orignales</label>    
           </div>
-          </div>
+          </div> -->
            
            <!-- Columna para dar un salto en la columna -->
           <div class="col-6 col-sm-6">
+          <input type="checkbox" name="documentos-Originales" id="documentos-Originales"> Se recibieron documentos originales
           </div>
 
            <!-- Columna para agregar documentos extras -->
-          <div class="mb-3">
-          <label for="exampleInputEmail1" class="label">Documentos extras</label> 
+          <!-- <div class="mb-3">
+          <label for="exampleInputEmail1"  class="label">Documentos extras</label> 
           <button type="submit" style='width:150px; height:30px' class="btn btn-primary btn-sm">+ Agregar</button>
-          </div>
+          </div> -->
           </div>
           </div>
                         
 
-                            <!-- etiqueta botones -->
+          <!-- etiqueta botones -->
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" icon="Sucess" data-dismiss="modal">Cancelar</button>
           <button type="submit" class="btn btn-primary">Guardar cambios</button>
