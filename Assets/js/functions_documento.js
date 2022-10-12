@@ -148,6 +148,7 @@ function fnEliminar(value)
       document.getElementById("cantidad-Documentos-Edit").value = response.cantidad_copias;
       document.getElementById("documento-Original-Edit").value = response.original;
       document.getElementById("txtIdUsuario").value = response.id;  
+      
     });
   } 
   

@@ -46,18 +46,18 @@
                             </div>
 
                              <!-- etiqueta nombre de grupo -->
-                             <!-- <div class="custom-control custom-checkbox">
+                             <div class="custom-control custom-checkbox">
                              <input type="checkbox" class="custom-control-input" id="documento-Original-Edit" name="documento-Original-Edit">
                              <label class="custom-control-label" for="documento-Original-Edit">Se recibieron documentos originales</label>                           
                             </div>
-                            </div> -->
-                            <div class="mb-3">
-                            <input type="checkbox" name="documento-Original-Edit" id="documento-Original-Edit" > Se recibieron documentos originales
                             </div>
-                            </div>
-
                             <!-- <div class="mb-3">
-                            <input type="Hidden" name="documento-Original-Edit" id="documento-Original-Edit" value="0"></div> -->
+                            <input type="checkbox" name="documento-Original-Edit" id="documento-Original-Edit"> Se recibieron documentos originales
+                            </div>
+                            </div>
+ -->
+                            <!-- <label for="exampleInputEmail1" style="display: none;" class="label">copiasOriginales</label>
+                            <input type="checkbox" class="form-control" id="documento-Original-Edit" name="documento-Original-Edit" style="display: none;" > -->
                             
                             
 
