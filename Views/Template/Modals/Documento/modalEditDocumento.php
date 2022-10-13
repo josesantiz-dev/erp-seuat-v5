@@ -11,18 +11,18 @@
             <form id="formNuevoDocumentoEdit">
                 <div class="modal-body">
 
-                 <!-- etiqueta identificador de grupo -->
+                 <!-- etiqueta identificador de usuario -->
                 <label for="exampleInputEmail1" style="display: none;" class="label">id</label>
                 <input type="text" class="form-control" id="txtIdUsuario" name="txtIdUsuario" style="display: none;">
 
-                 <!-- etiqueta nombre de grupo -->
+                 <!-- etiqueta nombre del documento -->
                  <div class="mb-3">
                         <label for="exampleInputEmail1" class="label">Nombre del documento:</label>
                         <input type="text" class="form-control form-control-sm" id="nombre-Documento-Edit" name="nombre-Documento-Edit" maxlength="40" required>
                             
                             
                             
-                             <!-- etiqueta Rol -->
+                             <!-- etiqueta del tipo de documento -->
                              <label for="exampleInputEmail1" class="label">Tipo de documento:</label>
                              <div class="input-group mb-3">
                              <select class="custom-select custom-select-sm" id="tipo-Documento-Edit" name="tipo-Documento-Edit" >
@@ -39,25 +39,21 @@
                             </div>   
                             </div>        
                             
-                             <!-- etiqueta nombre de grupo -->
-                        <div class="mb-3">
-                        <label for="exampleInputEmail1" class="label">Cantidad de documentos recibidos:</label>
-                        <input type="number" class="form-control form-control-sm" id="cantidad-Documentos-Edit" name="cantidad-Documentos-Edit" required>       
+                             <!-- etiqueta de cantidad de documentos -->
+                            <div class="mb-3">
+                            <label for="exampleInputEmail1" class="label">Cantidad de documentos recibidos:</label>
+                            <input type="number" class="form-control form-control-sm" id="cantidad-Documentos-Edit" name="cantidad-Documentos-Edit" required>       
                             </div>
 
-                             <!-- etiqueta nombre de grupo -->
-                             <div class="custom-control custom-checkbox">
-                             <input type="checkbox" class="custom-control-input" id="documento-Original-Edit" name="documento-Original-Edit">
-                             <label class="custom-control-label" for="documento-Original-Edit">Se recibieron documentos originales</label>                           
+                             <!-- etiqueta de documentos originales -->
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="documento-Original-Edit2" name="documento-Original-Edit2">
+                            <label class="custom-control-label" for="documento-Original-Edit2">Se recibieron documentos originales</label>                           
                             </div>
                             </div>
-                            <!-- <div class="mb-3">
-                            <input type="checkbox" name="documento-Original-Edit" id="documento-Original-Edit"> Se recibieron documentos originales
-                            </div>
-                            </div>
- -->
-                            <!-- <label for="exampleInputEmail1" style="display: none;" class="label">copiasOriginales</label>
-                            <input type="checkbox" class="form-control" id="documento-Original-Edit" name="documento-Original-Edit" style="display: none;" > -->
+                            <!-- etiqueta de documentos originales parte 2 checkbox -->
+                            <label for="exampleInputEmail1" style="display: none;" class="label">copiasOriginales</label>
+                            <input type="text" value="NULL" class="form-control" id="documento-Original-Edit" name="documento-Original-Edit" style="display: none;" checked >
                             
                             
 

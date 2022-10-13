@@ -44,17 +44,16 @@
 
 
           <!-- Columna para los documentos originales -->
-          <!-- <div class="col-6 col-sm-6">
-          <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="documentos-Originales" name="documentos-Originales">
-          <label class="custom-control-label" for="documentos-Originales">Se recibieron documentos orignales</label>    
-          </div>
-          </div> -->
-           
-           <!-- Columna para dar un salto en la columna -->
           <div class="col-6 col-sm-6">
-          <input type="checkbox" name="documentos-Originales" id="documentos-Originales"> Se recibieron documentos originales
+          <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="documentos-Originales2" name="documentos-Originales2">
+          <label class="custom-control-label" for="documentos-Originales2">Se recibieron documentos orignales</label>    
           </div>
+          </div>
+           
+           <!-- etiqueta de documentos originales parte 2 checkbox -->
+           <label for="exampleInputEmail1" style="display: none;" class="label">copiasOriginales</label>
+           <input type="text" value="1" class="form-control" id="documentos-Originales" name="documentos-Originales" style="display: none;" checked >
 
            <!-- Columna para agregar documentos extras -->
           <!-- <div class="mb-3">

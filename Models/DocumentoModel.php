@@ -27,12 +27,12 @@
         }
 
         //Insertar un nuevo documento
-        public function insertNuevoDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $checkbox, int $estatus, int $idUser)
+        public function insertNuevoDocumento(string $nombreDocumento, int $nombreTipoDocumento, int $cantidadDocumentos, int $documentosOriginales, int $estatus, int $idUser)
         {
             $sql = "insert into t_detalle_documentos 
             (tipo_documento, id_documentos, cantidad_copias, original, estatus, id_usuario_creacion, fecha_creacion)
             values (?, ?, ?, ?, ?, ?, NOW())";
-            $request = $this ->  insert ($sql,array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $checkbox, $estatus, $idUser));
+            $request = $this ->  insert ($sql,array($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $estatus, $idUser));
             return $request;
         }
 
