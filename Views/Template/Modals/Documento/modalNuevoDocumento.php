@@ -66,8 +66,8 @@
 
           <!-- etiqueta botones -->
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm" icon="Sucess" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary btn-sm">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary btn-xs" icon="Sucess" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-xs">Guardar cambios</button>
           </div>
           </form>
           </div>

@@ -13,7 +13,8 @@
         {
             $sql = "SELECT *From t_documentos as td 
             inner join t_detalle_documentos as tdd on td.id = tdd.id_documentos 
-            where tdd.estatus = 1";
+            where tdd.estatus = 1
+            ORDER BY tdd.id DESC";
             $request = $this -> select_all ($sql);
             return $request; 
         }

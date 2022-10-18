@@ -46,8 +46,8 @@ class Usuario extends Controllers
 				'<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>';
 			$arrUsuarios[$i]["sesion"] = ($arrUsuarios[$i]["sesion"] == 1) ?
 				'<span class="badge badge-success">Conectado</span>' : '<span class="badge badge-danger">Desconectado</span>';
-			$arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm" onclick = "fnActualizar(' . $arrUsuarios[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditUsuario">Actualizar</button> 
-      		<button type="button" class="btn btn-secondary btn-sm" onclick ="fnEliminar(' . $arrUsuarios[$i]['id'] . ')">Emilinar</button>';
+			$arrUsuarios[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-xs" onclick = "fnActualizar(' . $arrUsuarios[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditUsuario">Actualizar</button> 
+      		<button type="button" class="btn btn-secondary btn-xs" onclick ="fnEliminar(' . $arrUsuarios[$i]['id'] . ')">Emilinar</button>';
 		}
 		echo (json_encode($arrUsuarios, JSON_UNESCAPED_UNICODE));
 	}

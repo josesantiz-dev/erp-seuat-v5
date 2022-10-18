@@ -47,8 +47,8 @@ class Grupo extends Controllers
  			$arrGrupos[$i]["estatus"] = ($arrGrupos[$i]["estatus"] == 1) ?
 				'<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>';
 
-			$arrGrupos[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm" onclick = "fnActualizar(' . $arrGrupos[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditGrupo">Actualizar</button> 
-      <button type="button" class="btn btn-secondary btn-sm" onclick ="fnEliminar(' . $arrGrupos[$i]['id'] . ')">Emilinar</button>';
+			$arrGrupos[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-xs" onclick = "fnActualizar(' . $arrGrupos[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditGrupo">Actualizar</button> 
+      <button type="button" class="btn btn-secondary btn-xs" onclick ="fnEliminar(' . $arrGrupos[$i]['id'] . ')">Emilinar</button>';
 		}
 		echo (json_encode($arrGrupos, JSON_UNESCAPED_UNICODE));
 	}

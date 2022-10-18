@@ -48,11 +48,14 @@ class Documento extends Controllers
 
 			$arrDocumentos[$i]["id_documentos"] = ($arrDocumentos[$i]["nombre_documentos"]);
 
+			$arrDocumentos[$i]["original"] = ($arrDocumentos[$i]["original"] == 1) ?
+		    '<span class="badge badge-success">Si</span>' : '<span class="badge badge-danger">No</span>';
+
  			$arrDocumentos[$i]["estatus"] = ($arrDocumentos[$i]["estatus"] == 1) ?
 		    '<span class="badge badge-success">Activo</span>' : '<span class="badge badge-danger">Inactivo</span>';
 
-			$arrDocumentos[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm" onclick = "fnActualizar(' . $arrDocumentos[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditDocumento">Actualizar</button> 
-            <button type="button" class="btn btn-secondary btn-sm" onclick ="fnEliminar(' . $arrDocumentos[$i]['id'] . ')">Emilinar</button>';
+			$arrDocumentos[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-xs" onclick = "fnActualizar(' . $arrDocumentos[$i]['id'] . ')"data-toggle="modal" data-target="#modalEditDocumento">Actualizar</button> 
+            <button type="button" class="btn btn-secondary btn-xs" onclick ="fnEliminar(' . $arrDocumentos[$i]['id'] . ')">Emilinar</button>';
 		}
 		echo (json_encode($arrDocumentos, JSON_UNESCAPED_UNICODE));
 	}

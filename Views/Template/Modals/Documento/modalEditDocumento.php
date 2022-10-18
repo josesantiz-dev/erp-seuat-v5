@@ -51,6 +51,7 @@
                             <label class="custom-control-label" for="documento-Original-Edit2">Se recibieron documentos originales</label>                           
                             </div>
                             </div>
+                            
                             <!-- etiqueta de documentos originales parte 2 checkbox -->
                             <label for="exampleInputEmail1" style="display: none;" class="label">copiasOriginales</label>
                             <input type="text" value="NULL" class="form-control" id="documento-Original-Edit" name="documento-Original-Edit" style="display: none;" checked >
@@ -59,8 +60,8 @@
 
                             <!-- etiqueta botones -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" icon="Sucess" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button type="button" class="btn btn-secondary btn-xs" icon="Sucess" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-xs">Guardar cambios</button>
                 </div>
             </form>
         </div>

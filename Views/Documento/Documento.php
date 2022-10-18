@@ -44,6 +44,7 @@ getModal("Documento/modalEditDocumento", $data);
                                             <th width="7%">#</th>
                                             <th>Tipo de documento</th>
                                             <th>Nombre del documento</th>
+                                            <th width="17%">Documento original</th>
                                             <th width="10%">estatus</th>
                                             <th width="17%">Acciones</th>
                                         </tr>
