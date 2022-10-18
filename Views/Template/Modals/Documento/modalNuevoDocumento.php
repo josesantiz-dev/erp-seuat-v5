@@ -46,14 +46,14 @@
           <!-- Columna para los documentos originales -->
           <div class="col-6 col-sm-6">
           <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="documentos-Originales2" name="documentos-Originales2">
+          <input type="checkbox" class="custom-control-input" value="1" id="documentos-Originales2" name="documentos-Originales2">
           <label class="custom-control-label" for="documentos-Originales2">Se recibieron documentos orignales</label>    
           </div>
           </div>
            
            <!-- etiqueta de documentos originales parte 2 checkbox -->
            <label for="exampleInputEmail1" style="display: none;" class="label">copiasOriginales</label>
-           <input type="text" value="1" class="form-control" id="documentos-Originales" name="documentos-Originales" style="display: none;" checked >
+           <input type="text" class="form-control" value="NULL" id="documentos-Originales" name="documentos-Originales" style="display: none;">
 
            <!-- Columna para agregar documentos extras -->
           <!-- <div class="mb-3">
@@ -66,8 +66,8 @@
 
           <!-- etiqueta botones -->
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" icon="Sucess" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary btn-sm" icon="Sucess" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-sm">Guardar cambios</button>
           </div>
           </form>
           </div>

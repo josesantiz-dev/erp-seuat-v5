@@ -66,20 +66,20 @@ class Documento extends Controllers
 			$cantidadDocumentos = $arrDatos['cantidad-Documentos'];
 			$documentosOriginales = $arrDatos['documentos-Originales'];
 			$estatus = 1;
-			$documentosOriginales = "1";
-			if (isset($_POST["documentos-Originales"])) {
-				$documentosOriginales = "0";
-			 }
-			  $documentosOriginales = "1";
-			 if ($_POST["documentos-Originales"]) {
-				$documentosOriginales = "0";
-			 } 
-
+			$documentosOriginales = "NULL";
+		   if (isset($_POST["documentos-Originales"])) {
+			  $documentosOriginales = "0";
+		   }   
+			  $documentosOriginales = "0";
+			if (isset($_POST["documentos-Originales2"])) {
+				$documentosOriginales = "1";
+			 }  
+ 
 			$response = $this->model->insertNuevoDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $estatus, $this->idUser);
 			if ($response) {
-				$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
+				$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo documento');
 			} else {
-				$arrResponse = array('estatus' => false, 'msg' => 'No se puedo ingresar el nuevo usuario');
+				$arrResponse = array('estatus' => false, 'msg' => 'No se puedo ingresar el nuevo documento');
 			}  
 			echo (json_encode($arrResponse, JSON_UNESCAPED_UNICODE));
 			die();
@@ -90,9 +90,9 @@ class Documento extends Controllers
 		 {
 			 $arrResponse = $this->model->updateEstatusDocumento($valor);
 			 if ($arrResponse) {
-				 $response = array('estatus' => true, 'msg' => 'SE ELIMINO EL USUARIO');
+				 $response = array('estatus' => true, 'msg' => 'Se elimino el documento');
 			 } else {
-				 $response = array('estatus' => false, 'msg' => 'NO SE PUDO ELIMINAR EL USUARIO');
+				 $response = array('estatus' => false, 'msg' => 'Se elimino el documento');
 			 }
 			 echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 		 }
@@ -121,16 +121,13 @@ class Documento extends Controllers
 			 $documentosOriginales = "1";
 			 if ($_POST["documento-Original-Edit"]) {
 				$documentosOriginales = "0";
-			 } 
-
-             /* $documentosOriginales = isset($_POST['documento-Original-Edit']) ? $_POST['documento-Original-Edit'] : 0;   */
-			/*$documentosOriginales = isset($_POST['documento-Original-Edit']) ? $_POST['documento-Original-Edit'] : 0;*/ 
+			 }  
 
 			$arrResponse = $this->model->updateDocumento($nombreDocumento, $nombreTipoDocumento, $cantidadDocumentos, $documentosOriginales, $idusuario, $this->idUser);
 			if ($arrResponse) {
-				$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
+				$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente el registro');
 			} else {
-				$response = array('estatus' => false, 'msg' => 'No se pudo actualizar');
+				$response = array('estatus' => false, 'msg' => 'No se pudo actualizar el registro');
 			} 
 			echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 		} 

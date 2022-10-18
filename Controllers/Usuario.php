@@ -79,9 +79,9 @@ class Usuario extends Controllers
 	{
 		$arrResponse = $this->model->updateEstatusUsuario($valor);
 		if ($arrResponse) {
-			$response = array('estatus' => true, 'msg' => 'SE ELIMINO EL USUARIO');
+			$response = array('estatus' => true, 'msg' => 'Se elimino el usuario');
 		} else {
-			$response = array('estatus' => false, 'msg' => 'NO SE PUDO ELIMINAR EL USUARIO');
+			$response = array('estatus' => false, 'msg' => 'No se pudo eliminar el usuario');
 		}
 		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 	}
@@ -107,9 +107,9 @@ class Usuario extends Controllers
 		move_uploaded_file($rutatemporal, "Assets/images/imagenUsuario/".$nuevoNombre);
 		$arrResponse = $this->model->updateUsuario($nickname, $password, $rol, $persona, $nuevoNombre, $idusuario, $this->idUser);
 		if ($arrResponse) {
-			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
+			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente el usuario');
 		} else {
-			$response = array('estatus' => false, 'msg' => 'No se pudo actualizar');
+			$response = array('estatus' => false, 'msg' => 'No se pudo actualizar el usuario');
 		}
 		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 	} 

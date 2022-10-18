@@ -62,9 +62,9 @@ class Grupo extends Controllers
 				
 		$response = $this->model->insertNuevoGrupo($nombregrupo, $estatus, $this->idUser);
 		if ($response) {
-			$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo usuario');
+			$arrResponse = array('estatus' => true, 'msg' => 'Se inserto correctamente el nuevo grupo');
 		} else {
-			$arrResponse = array('estatus' => false, 'msg' => 'No se puedo ingresar el nuevo usuario');
+			$arrResponse = array('estatus' => false, 'msg' => 'No se puedo ingresar el nuevo grupo');
 		}  
 		echo (json_encode($arrResponse, JSON_UNESCAPED_UNICODE));
 		die();
@@ -75,9 +75,9 @@ class Grupo extends Controllers
      {
          $arrResponse = $this->model->updateEstatusGrupo($valor);
          if ($arrResponse) {
-             $response = array('estatus' => true, 'msg' => 'SE ELIMINO EL USUARIO');
+             $response = array('estatus' => true, 'msg' => 'Se elimino el grupo');
          } else {
-             $response = array('estatus' => false, 'msg' => 'NO SE PUDO ELIMINAR EL USUARIO');
+             $response = array('estatus' => false, 'msg' => 'No se puedo eliminar el grupo');
          }
          echo (json_encode($response, JSON_UNESCAPED_UNICODE));
      }
@@ -99,9 +99,9 @@ class Grupo extends Controllers
  
 		$arrResponse = $this->model->updateGrupo($nombregrupo, $idusuario, $this->idUser);
 		if ($arrResponse) {
-			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente');
+			$response = array('estatus' => true, 'msg' => 'Se actualizo correctamente el grupo');
 		} else {
-			$response = array('estatus' => false, 'msg' => 'No se pudo actualizar');
+			$response = array('estatus' => false, 'msg' => 'No se pudo actualizar el grupo');
 		}
 		echo (json_encode($response, JSON_UNESCAPED_UNICODE));
 	} 
