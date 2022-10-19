@@ -147,7 +147,8 @@ function fnEliminar(value)
       document.getElementById("nombre-Documento-Edit").value = response.tipo_documento;
       document.getElementById("tipo-Documento-Edit").value = response.id_documentos;
       document.getElementById("cantidad-Documentos-Edit").value = response.cantidad_copias;
-      document.getElementById("documento-Original-Edit").checkbox = response.original;
+      document.getElementById("documento-Original-Edit2").checked = response.original;
+      document.getElementById("documento-Original-Edit").value = response.original;
       document.getElementById("txtIdUsuario").value = response.id;  
       
     });
