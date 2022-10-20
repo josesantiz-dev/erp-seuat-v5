@@ -52,11 +52,6 @@
            <label for="exampleInputEmail1" style="display: none;" class="label">copiasOriginales</label>
            <input type="text" class="form-control" value="NULL" id="documentos-Originales" name="documentos-Originales" style="display: none;">
 
-           <!-- Columna para agregar documentos extras -->
-          <!-- <div class="mb-3">
-          <label for="exampleInputEmail1"  class="label">Documentos extras</label> 
-          <button type="submit" style='width:150px; height:30px' class="btn btn-primary btn-sm">+ Agregar</button>
-          </div> -->
                         
           <!-- etiqueta botones -->
           <div class="modal-footer">
