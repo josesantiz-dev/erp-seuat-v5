@@ -74,8 +74,8 @@
 
                 <!--Linea de botones-->              
         <div class="modal-footer">
-<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
-<button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+<button type="button" class="btn btn-secondary btn-md" data-dismiss="modal">Cancelar</button>
+<button type="submit" class="btn btn-primary btn-md">Guardar</button>
 </div>
 </form>
 

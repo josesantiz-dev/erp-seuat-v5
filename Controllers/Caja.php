@@ -59,8 +59,8 @@
       $arrCajas[$i]["estatus"] = ($arrCajas[$i]["estatus"] == 1)?
       '<span class="badge badge-success">Activo</span>': '<span class="badge badge-danger">Inactivo</span>';
 
-      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-sm" onclick = "fnActualizar('.$arrCajas[$i]['id_caja'].')"data-toggle="modal" data-target="#modalCajaEdit">Actualizar</button> 
-      <button type="button" class="btn btn-secondary btn-sm" onclick ="fnEliminar('.$arrCajas[$i]['id_caja'].')">Eliminar</button>';
+      $arrCajas[$i]['acciones'] = '<button type="button" class="btn btn-primary btn-xs" onclick = "fnActualizar('.$arrCajas[$i]['id_caja'].')"data-toggle="modal" data-target="#modalCajaEdit">Actualizar</button> 
+      <button type="button" class="btn btn-secondary btn-xs" onclick ="fnEliminar('.$arrCajas[$i]['id_caja'].')">Eliminar</button>';
     }
     echo (json_encode($arrCajas, JSON_UNESCAPED_UNICODE));
     }
