@@ -202,6 +202,73 @@
                             </a>
                         </li>
                         <li class="nav-header">
+                            <h6>Ingresos y Egresos</h6>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/Ingresos/inscripciones" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="layers"></i>
+                                <p>
+                                    Inscripciones
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/Ingresos" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="dollar-sign"></i>
+                                <p>
+                                    Ingresos
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/ConsultasIngresosEgresos/consultas" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="pie-chart"></i>
+                                <p>
+                                    Consultas
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/HistorialPagosAlumno/historial" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="corner-right-up"></i>
+                                <p>
+                                    Historial de pagos
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/VentasDia" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="zap"></i>
+                                <p>
+                                    Ventas del día
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/CorteCaja" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="hard-drive"></i>
+                                <p>
+                                    Corte de caja
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/HistorialCorteCajas" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="activity"></i>
+                                <p>
+                                    Historial de cortes
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL ?>/SeguimientoCajas" class="nav-link">
+                                <i class="ml-3 mr-2" data-feather="bar-chart-2"></i>
+                                <p>
+                                    Seguimiento de cajas
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-header">
                             <h6>Administración</h6>
                         </li>
                         <li class="nav-item">
