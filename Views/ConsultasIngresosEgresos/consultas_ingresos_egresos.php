@@ -41,7 +41,7 @@
                                                 </div>    
                                             </div>
                                             <!--Datos del Alumno-->
-                                            <div class="col-md-5">
+                                            <div class="col col-md-6">
                                                 <div class="card p-2">
                                                     <div class="card-body">
                                                         <div class="border-bottom border-gray-light pb-3 mb-3 row">
@@ -82,7 +82,7 @@
                                                 </div>
                                             </div>
                                             <!--Cuenta-->
-                                            <div class="col-md-4">
+                                            <div class="col .col-">
                                                 <div class="card p-2">
                                                     <div class="card-body">
                                                         <div class="row">
@@ -90,29 +90,32 @@
                                                                 <p class="text-gray mb-3">Saldo total</p>
                                                                 <h3 class="fw-semi-bold"><b><span id="totalSaldo"></span></b></h3>
                                                             </div>
-                                                            <div class="col-md-12 row">
-                                                                <div class="col-md-6">
+                                                            <div class="col-md-12 row"> 
+                                                            <div class="col-md-6 text-center">
                                                                     <p class="text-gray mb-1">Saldo en colegiaturas</p>
                                                                     <h5 class="fw-semi-bold"><span id="saldoColegiaturas"></span></h5>
-                                                                </div>
-                                                                <div class="col-md-6">
+                                                                </div>                                            
+                                                                <div class="col-md-6 text-center">
                                                                     <p class="text-gray mb-1">Saldo en Servicios</p>
                                                                     <h5 class="fw-semi-bold"><span id="saldoServicios"></span></h5>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div>
-                                                            <div class="mb-4 row">
+                                                        <hr color="white" />
+                                                        <!-- Lineas 106-107 para hacer un salto de culumna -->
+                                                             <div class="mb-4 row">
+                                                             </div>
+                                                             <div class="mb-4 row">
                                                                 <div class="col-md-8 form-group"><button id="btnVerEdoCta" class="form-control btn btn-primary">Ver estado de cuenta</button></div>
                                                                 <div class="col-md-4 form-group"><button class="form-control btn btn-secondary" id="btnImprimirEdoCta">Imprimir</button></div>
-                                                            </div>
+                                                            </div>                                                           
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                         </div>
                                     </div>
-                                </div>                             
+                                 </div>                             
                                 <div class="card-text" style="overflow-x: auto;white-space: nowrap;">
                                     <table id="tableEstadoCuenta" class="table table-bordered table-striped table-hover table-sm">
                                         <thead>
