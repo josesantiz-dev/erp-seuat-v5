@@ -1,5 +1,5 @@
 <div class="modal fade" id="ModalBuscarAlumno" tabindex="-1" role="dialog" aria-labelledby="modalNombrePersonaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalNombrePersonaNLabel">Buscar Persona</h5>
@@ -16,6 +16,8 @@
                             <th>Nombre Alumno</th>
                             <th>RFC</th>
                             <th>Matricula</th>
+                            <!-- <th>Grado y grupo</th>
+                            <th>Plan de estudios</th> -->
                             <th width="15%">Acciones</th>
                         </tr>
                     </thead>

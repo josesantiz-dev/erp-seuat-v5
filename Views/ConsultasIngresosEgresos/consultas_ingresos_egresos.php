@@ -20,7 +20,7 @@
                             <button type="button" id="btnBuscar" class="form-control btn btn-primary">Buscar</button>
                         </div>
                         <div class="form-group col-md-3">
-                            <button type="button" id="btnBuscarAlumno"class="form-control btn btn-primary" data-toggle="modal" data-target="#ModalBuscarAlumno">Buscar por Nombre</button>
+                            <button type="button" id="btnBuscarAlumno"class="form-control btn btn-primary" data-toggle="modal" data-target="#ModalBuscarAlumno">Buscar por nombre</button>
                         </div>
                     </div>
                 </div>
@@ -28,6 +28,7 @@
         </div>
         <div class="content">
             <div class="container-fluid">
+            <div class="card-text">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -41,11 +42,11 @@
                                                 </div>    
                                             </div>
                                             <!--Datos del Alumno-->
-                                            <div class="col col-md-6">
-                                                <div class="card p-2">
+                                            <div class="col-md-6">
+                                                <div class="card p-2 h-100" >
                                                     <div class="card-body">
                                                         <div class="border-bottom border-gray-light pb-3 mb-3 row">
-                                                            <div class="col-md-2 text-center">                                                            
+                                                            <div class="col-md-2 text-center">                                                          
                                                                 <img id="imgSexo" src="" width="60" height="60" loading="lazy" alt="…" class="rounded-circle me-3">
                                                             </div>
                                                             <div class="col-md-10 text-center">
@@ -75,40 +76,36 @@
                                                             </li>
                                                             <li class="mb-1">
                                                                 <h3 class="h6 fw-semi-bold me-4 d-inline-block"><b>Grado y Grupo: </b></h3>
-                                                                <span id="nombreSalon"></span>
+                                                                <span id="nombreSalon" class="text-gray"></span>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!--Cuenta-->
-                                            <div class="col .col-">
-                                                <div class="card p-2">
+                                            <div class="col-md-6">
+                                                <div class="card p-2 h-100">
                                                     <div class="card-body">
                                                         <div class="row">
-                                                            <div class="col-md-12 text-center">
-                                                                <p class="text-gray mb-3">Saldo total</p>
+                                                            <div class="col-sm-12 text-center">
+                                                                <p class="text-gray mb-2">Saldo total</p>
                                                                 <h3 class="fw-semi-bold"><b><span id="totalSaldo"></span></b></h3>
                                                             </div>
-                                                            <div class="col-md-12 row"> 
-                                                            <div class="col-md-6 text-center">
+                                                            <div class="col-sm-6 text-center">
                                                                     <p class="text-gray mb-1">Saldo en colegiaturas</p>
                                                                     <h5 class="fw-semi-bold"><span id="saldoColegiaturas"></span></h5>
                                                                 </div>                                            
-                                                                <div class="col-md-6 text-center">
+                                                                <div class="col-sm-6 text-center">
                                                                     <p class="text-gray mb-1">Saldo en Servicios</p>
                                                                     <h5 class="fw-semi-bold"><span id="saldoServicios"></span></h5>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <hr color="white" />
-                                                        <!-- Lineas 106-107 para hacer un salto de culumna -->
-                                                             <div class="mb-4 row">
-                                                             </div>
-                                                             <div class="mb-4 row">
-                                                                <div class="col-md-8 form-group"><button id="btnVerEdoCta" class="form-control btn btn-primary">Ver estado de cuenta</button></div>
-                                                                <div class="col-md-4 form-group"><button class="form-control btn btn-secondary" id="btnImprimirEdoCta">Imprimir</button></div>
-                                                            </div>                                                           
+                                                        <hr color="white"/>
+                                                             <div class="md-4">
+                                                                <div class="col-md-12 form-group text-align: center;"><button id="btnVerEdoCta" class="form-control btn btn-primary">Ver estado de cuenta</button></div>
+                                                                <div class="col-md-12 form-group text-align: center;"><button class="form-control btn btn-secondary" id="btnImprimirEdoCta">Imprimir</button></div>
+                                                            </div>                                                       
                                                         </div>
                                                     </div>
                                                 </div>

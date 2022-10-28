@@ -187,7 +187,7 @@
             echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
             die();
         }
-        //Buscar persona median el Modal
+        //Buscar persona mediante el Modal
         public function buscarPersonaModal(){
             $data = $_GET['val'];
             $arrData = $this->model->selectPersonasModal($data);
