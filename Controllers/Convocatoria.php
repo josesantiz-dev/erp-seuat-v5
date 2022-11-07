@@ -25,6 +25,10 @@ class Convocatoria extends Controllers
 		$data['page_name'] = "Convocatorias";
 		$data['page_functions_js'] = "functions_convocatoria.js";
 		$data['Convocatorias'] = $this->model->selectConvocatorias();
+		$data['Planteles'] = $this -> model -> selectPlanteles();
+		$data['Escolaridad'] = $this -> model -> selectEscolaridad();
+		$data['planEstudios'] = $this -> model -> selectplanEstudios();
+		$data['Periodos'] = $this -> model -> selectPeriodos();
 		$this->views->getView($this, "Convocatoria", $data);
 	}
     //Funcion para traer grupos 
