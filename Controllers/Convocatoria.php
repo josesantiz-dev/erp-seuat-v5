@@ -56,4 +56,12 @@ class Convocatoria extends Controllers
 		}
 		echo (json_encode($arrConvocatorias, JSON_UNESCAPED_UNICODE));
 	}
+
+	public function getMaterias()
+	{
+		$idPln = $_GET['idPlan'];
+        $idNvl = $_GET['idNvl'];
+		$arrData = $this->model->selectMaterias($idPln, $idNvl);
+		echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+	}
 }

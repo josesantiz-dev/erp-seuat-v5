@@ -43,4 +43,14 @@
         $request = $this -> select_all ($sql);
         return $request;
         }
+        public function selectMaterias(int $idPln, int $idNvl)
+        {
+            $sql = "SELECT mat.id, mat.clave, mat.nombre_materia, pln.nombre_carrera, nvl.nombre_nivel_educativo
+            FROM t_materias as mat
+            INNER JOIN t_plan_estudios as pln ON pln.id = mat.id_plan_estudios
+            INNER JOIN t_nivel_educativos as nvl ON nvl.id = pln.id_nivel_educativos
+            WHERE pln.id = $idPln and nvl.id = $idNvl";
+            $request = $this->select_all($sql);
+            return $request;
+        }
     }
