@@ -42,7 +42,24 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 
-function obtenerMaterias()
+function obtenerCarrera()
+{
+  //Obtener el id del formulario y despues hacer una consulta a la base de datos paa llenar el select de la consulta.
+  let nivel = document.querySelector('#nivelEstudios').value;
+  let url = `${base_url}/Convocatoria/getCarrera?idNvl=${nivel}`;
+  console.log(nivel);
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      //recorrer el data con for o foreach y por cada elemento crear un select y un option.
+      console.log(data);
+  }) 
+}
+
+
+
+
+/* function obtenerMaterias()
 {
   let materias = document.querySelector('#materias');
   let nvl = document.querySelector('#nivelEstudios').value;
@@ -53,4 +70,4 @@ function obtenerMaterias()
     .then(data => {
       console.log(data);
     })
-}
+} */

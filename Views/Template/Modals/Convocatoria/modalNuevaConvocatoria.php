@@ -33,7 +33,7 @@
                         <input type="text" class="form-control" id="nombreConvocatoria" name="nombreConvocatoria" required>
                         
                         <div class="row">
-                        <div class="col-4 col-sm-4">
+                        <div class="col-4 col-sm-2">
                         <label for="exampleInputEmail1" class="label">Plantel:</label>
                         <select class="custom-select" id="nombrePlantel" name="nombrePlantel">
                         <?php
@@ -48,13 +48,14 @@
                         </select>
                         </div>
 
-                        <div class="col-4 col-sm-4">
+                        <div class="col-4 col-sm-3">
                         <label for="exampleInputEmail1" class="label">Nivel de estudios:</label>
-                        <select class="custom-select" id="nivelEstudios" name="nivelEstudios">
+                        <select class="custom-select" id="nivelEstudios" name="nivelEstudios" onchange="obtenerCarrera(value)">
+                          <option value="">Seleccione...</option>
                         <?php
                         for ($i = 0; $i < count($data['Escolaridad']); $i++) { ?>
                         <option value="<?php echo ($data['Escolaridad'][$i]['id']) ?>"><?php
-                                                                                    echo ($data['Escolaridad'][$i]['nombre_escolaridad']);                                                                                           
+                                                                                    echo ($data['Escolaridad'][$i]['nombre_nivel_educativo']);                                                                                           
                                                                                     ?></option>
 
                         <?php
@@ -66,7 +67,8 @@
                         <div class="col-4 col-md-4">
                         <label for="exampleInputEmail1" class="label">Plan de estudios:</label>
                         <select class="custom-select" id="planEstudios" name="planEstudios">
-                        <?php
+                          <option value="">Seleccione...</option>
+                        <!-- <?php
                         for ($i = 0; $i < count($data['planEstudios']); $i++) { ?>
                         <option value="<?php echo ($data['planEstudios'][$i]['id']) ?>"><?php
                                                                                     echo ($data['planEstudios'][$i]['nombre_carrera']);                                                                                           
@@ -74,15 +76,15 @@
 
                         <?php
                         }
-                        ?>
-                        <option value="1">Ninguno</option>
+                        ?> -->
                         </select>
                         </div>
 
-                        <div class="col-4 col-md-4">
-                        <label for="exampleInputEmail1" class="label">Periodo de la convocatoria:</label>
+                        <div class="col-4 col-md-3">
+                        <label for="exampleInputEmail1" class="label">Periodo de convocatoria:</label>
                         <select class="custom-select" id="periodoConvocatoria" name="periodoConvocatoria">
-                        <?php
+                          <option value="">Seleccione...</option>
+                        <!-- <?php
                         for ($i = 0; $i < count($data['Periodos']); $i++) { ?>
                         <option value="<?php echo ($data['Periodos'][$i]['id']) ?>"><?php
                                                                                     echo ($data['Periodos'][$i]['nombre_periodo']);                                                                                           
@@ -90,18 +92,18 @@
 
                         <?php
                         }
-                        ?>
+                        ?> -->
                         </select>
                         </div>
 
-                        <div class="col-4 col-md-4">
+                        <div class="col-4 col-md-6">
                         <label for="exampleInputEmail1" class="label">Fecha de incio de la convocatoria:</label>
-                        <input type="text" class="form-control" id="fechaInicio" name="fechaInicio" required>
+                        <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" required>
                         </div>
 
-                        <div class="col-4 col-md-4">
+                        <div class="col-4 col-md-6">
                         <label for="exampleInputEmail1" class="label">Fecha fin de la convocatoria:</label>
-                        <input type="text" class="form-control" id="fechaCierre" name="fechaCierre" required>
+                        <input type="date" class="form-control" id="fechaCierre" name="fechaCierre" required>
                         </div>
                         </div>
                         </div>

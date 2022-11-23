@@ -25,7 +25,7 @@
 
         public function selectEscolaridad()
         {
-            $sql = "SELECT *FROM t_escolaridad";
+            $sql = "SELECT *FROM t_nivel_educativos";
             $request = $this -> select_all ($sql);
             return $request;
         }
@@ -50,6 +50,14 @@
             INNER JOIN t_plan_estudios as pln ON pln.id = mat.id_plan_estudios
             INNER JOIN t_nivel_educativos as nvl ON nvl.id = pln.id_nivel_educativos
             WHERE pln.id = $idPln and nvl.id = $idNvl";
+            $request = $this->select_all($sql);
+            return $request;
+        }
+
+        public function selectCarrera(int $idNv)
+        {
+            $idNvl = $idNv;
+            $sql = "SELECT id, nombre_carrera FROM t_plan_estudios WHERE id_nivel_educativos = $idNvl";
             $request = $this->select_all($sql);
             return $request;
         }

@@ -64,4 +64,11 @@ class Convocatoria extends Controllers
 		$arrData = $this->model->selectMaterias($idPln, $idNvl);
 		echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
 	}
+
+	public function getCarrera()
+	{
+		$idNvl = $_GET['idNvl'];
+		$arrData = $this->model->selectCarrera($idNvl);
+		echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+	}
 }
