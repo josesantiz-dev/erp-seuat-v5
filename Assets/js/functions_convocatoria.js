@@ -59,6 +59,8 @@ function obtenerCarrera()
 
 
 
+
+
 /* function obtenerMaterias()
 {
   let materias = document.querySelector('#materias');
@@ -66,8 +68,10 @@ function obtenerCarrera()
   let carrera = document.querySelector('#planEstudios').value;
   let url = `${base_url}/Convocatoria/getMaterias?idPlan=1&idNvl=4`;
   fetch(url)
-    .then(response => response)
-    .then(data => {
-      console.log(data);
+  .then(response => response)
+  .then(data => {
+    console.log(data);
     })
 } */
+
+function openModal() {}

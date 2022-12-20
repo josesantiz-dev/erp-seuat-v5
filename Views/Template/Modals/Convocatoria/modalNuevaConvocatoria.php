@@ -33,9 +33,10 @@
                         <input type="text" class="form-control" id="nombreConvocatoria" name="nombreConvocatoria" required>
                         
                         <div class="row">
-                        <div class="col-4 col-sm-2">
+                        <div class="col-4 col-sm-3">
                         <label for="exampleInputEmail1" class="label">Plantel:</label>
                         <select class="custom-select" id="nombrePlantel" name="nombrePlantel">
+                          <option value="">Seleccione...</option>
                         <?php
                         for ($i = 0; $i < count($data['Planteles']); $i++) { ?>
                         <option value="<?php echo ($data['Planteles'][$i]['id']) ?>"><?php
@@ -51,7 +52,7 @@
                         <div class="col-4 col-sm-3">
                         <label for="exampleInputEmail1" class="label">Nivel de estudios:</label>
                         <select class="custom-select" id="nivelEstudios" name="nivelEstudios" onchange="obtenerCarrera(value)">
-                          <option value="">Seleccione...</option>
+                          <option value="value1">Seleccione...</option>
                         <?php
                         for ($i = 0; $i < count($data['Escolaridad']); $i++) { ?>
                         <option value="<?php echo ($data['Escolaridad'][$i]['id']) ?>"><?php
@@ -64,7 +65,7 @@
                         </select>
                         </div>
 
-                        <div class="col-4 col-md-4">
+                        <div class="col-4 col-md-3">
                         <label for="exampleInputEmail1" class="label">Plan de estudios:</label>
                         <select class="custom-select" id="planEstudios" name="planEstudios">
                           <option value="">Seleccione...</option>
